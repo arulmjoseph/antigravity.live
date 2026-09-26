@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Converter — Bulk WebP, PDF &amp; Image Optimizer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">🖼️</div>
+      <h1>Image Converter</h1>
+      <span class="badge">Web Edition</span>
+    </div>
+    <div class="header-actions">
+      <button id="btnHelp" class="btn-secondary">❓ Help &amp; Guide</button>
+      <button id="btnThemeToggle" class="btn-icon" title="Toggle Light/Dark Theme">☀️</button>
+    </div>
+  </header>
+
+  <!-- Main Body Content -->
+  <div class="main-container">
+
+    <!-- Left Queue & Preview Column -->
+    <main class="content-area">
+
+      <!-- Dashed Drop Zone -->
+      <div id="dropZone" class="drop-zone">
+        <div class="drop-icon">☁️</div>
+        <h2>Drag &amp; Drop Images &amp; PDFs Here</h2>
+        <p>or click to browse files</p>
+
+        <div class="btn-group">
+          <button id="btnSelectFiles" class="btn-primary">➕ Select Files</button>
+          <button id="btnSelectFolder" class="btn-secondary">📁 Select Folder</button>
+        </div>
+
+        <p class="support-tag">Supports PNG, JPG, WEBP, PDF, GIF, BMP &amp; SVG</p>
+
+        <input type="file" id="fileInput" multiple accept="image/*,application/pdf" class="hidden">
+        <input type="file" id="folderInput" webkitdirectory directory multiple class="hidden">
+      </div>
+
+      <!-- Queue Container View (Visible when files added) -->
+      <div id="queueContainer" class="queue-container hidden">
+        <div class="queue-summary-header">
+          <div class="summary-left">
+            <span id="queueCount" class="summary-count">0 Images</span>
+            <span id="queueSizeStats" class="summary-stats">Total: 0 MB → 0 MB (<span class="summary-savings">0% smaller</span>)</span>
+          </div>
+
+          <div class="summary-right">
+            <button id="btnClearAll" class="btn-text-danger">Clear All</button>
+            <label class="checkbox-row" style="font-size: 0.85rem;">
+              <input type="checkbox" id="chkSelectAll" checked> Select All
+            </label>
+          </div>
+        </div>
+
+        <div id="queueList" class="queue-list"></div>
+      </div>
+
+      <!-- Interactive Before / After Split Slider Comparison Card -->
+      <div id="comparisonCard" class="comparison-card">
+        <div class="comparison-header">
+          <div>
+            <span id="compFileName" class="comparison-title">hero-banner.jpg</span>
+            <span id="compDimensions" class="comparison-sub"> • 2400 × 1600 • 3.8 MB</span>
+          </div>
+        </div>
+
+        <div class="split-slider-wrapper">
+          <div id="splitContainer" class="split-image-container" style="--split-percent: 50%;">
+            <img id="imgRight" class="split-image" src="" alt="Optimized">
+            <img id="imgLeft" class="split-image left-overlay" src="" alt="Original">
+
+            <div class="split-badge left">Original</div>
+            <div id="optBadge" class="split-badge right">Optimized (WebP, 85%)</div>
+
+            <div id="splitHandle" class="split-handle">
+              <div class="handle-circle">&lt; &gt;</div>
+            </div>
+          </div>
+
+          <div class="comparison-stats-side">
+            <div class="stat-block">
+              <label>Original</label>
+              <div id="statOrigSize" class="val">3.8 MB</div>
+              <div id="statOrigDim" class="dim">2400 × 1600</div>
+            </div>
+
+            <div class="stat-block">
+              <label>Optimized</label>
+              <div id="statOptSize" class="val" style="color: #60a5fa;">612 KB</div>
+              <div id="statOptDim" class="dim">2400 × 1600</div>
+            </div>
+
+            <div class="stat-block">
+              <span id="statSavingsTag" class="savings-pill">🟢 84% smaller</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Right Conversion Settings Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Conversion Settings</div>
+
+      <!-- Section 1: Output Format -->
+      <div class="settings-card">
+        <div class="section-label">🔲 Output Format</div>
+
+        <div class="pill-selector">
+          <button class="pill-btn active" data-format="webp">WebP</button>
+          <button class="pill-btn" data-format="avif">AVIF</button>
+          <button class="pill-btn" data-format="jpg">JPG</button>
+          <button class="pill-btn" data-format="png">PNG</button>
+
+          <div class="dropdown-wrapper">
+            <button id="btnMoreFormat" class="pill-btn" style="width: 100%;">More ∨</button>
+
+            <div id="moreFormatMenu" class="dropdown-menu hidden">
+              <button class="dropdown-item" data-format="pdf">PDF — Vector &amp; Document 📄</button>
+              <button class="dropdown-item" data-format="bmp">BMP — Bitmap Image</button>
+              <button class="dropdown-item" data-format="gif">GIF — Graphics Format</button>
+              <button class="dropdown-item" data-format="tiff">TIFF — Uncompressed</button>
+              <button class="dropdown-item" data-format="heic">HEIC — Apple High Efficiency</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="formatDesc" class="format-desc">WebP — Best for websites (smaller size, great quality)</div>
+      </div>
+
+      <!-- Section 2: Quality -->
+      <div class="settings-card">
+        <div class="quality-header">
+          <div class="section-label">🎨 Quality</div>
+          <span id="qualityValText" style="font-weight: 700; color: #60a5fa;">85%</span>
+        </div>
+
+        <input type="range" id="qualityRange" class="quality-slider" min="10" max="100" value="85" step="5">
+
+        <div class="pill-selector">
+          <button class="pill-btn" data-qpreset="smaller">Smaller</button>
+          <button class="pill-btn active" data-qpreset="balanced">Balanced</button>
+          <button class="pill-btn" data-qpreset="high">High Quality</button>
+        </div>
+
+        <div class="format-desc">Estimated size reduction: ~70-85% ℹ️</div>
+      </div>
+
+      <!-- Section 3: Resize Image (Original Active By Default) -->
+      <div class="settings-card">
+        <div class="section-label">📐 Resize Image</div>
+
+        <div class="pill-selector">
+          <button class="pill-btn active" data-width="original">Original</button>
+          <button class="pill-btn" data-width="1920">1920px</button>
+          <button class="pill-btn" data-width="1600">1600px</button>
+          <button class="pill-btn" data-width="1200">1200px</button>
+          <button class="pill-btn" data-width="custom">Custom</button>
+        </div>
+
+        <div id="customWidthInputRow" class="hidden" style="margin-top: 6px;">
+          <input type="number" id="customWidthVal" value="500" placeholder="Width px" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: white;">
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkNoUpscale" checked>
+          <div class="checkbox-info">
+            <span>Never upscale smaller images</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Section 4: Optimize for Web -->
+      <div class="settings-card">
+        <div class="section-label">⚙️ Optimize for Web</div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-row">
+            <input type="checkbox" id="chkOptimizeWeb" checked>
+            <div class="checkbox-info">
+              <span>Optimize for web (recommended)</span>
+              <span class="sub">Uses best settings for smaller file sizes</span>
+            </div>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="chkRemoveMetadata" checked>
+            <div class="checkbox-info">
+              <span>Remove metadata (EXIF, GPS, etc.)</span>
+            </div>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="chkPreserveTrans">
+            <div class="checkbox-info">
+              <span>Preserve transparency (for PNG)</span>
+            </div>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="chkProgressiveJpeg">
+            <div class="checkbox-info">
+              <span>Progressive JPEG (better loading)</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 5: File Naming (Original Name Active By Default) -->
+      <div class="settings-card">
+        <div class="section-label">🏷️ File Naming</div>
+
+        <div class="pill-selector">
+          <button class="pill-btn active" data-naming="original">Original Name</button>
+          <button class="pill-btn" data-naming="sequence">Custom Sequence</button>
+          <button class="pill-btn" data-naming="seo">Bulk SEO Keywords</button>
+        </div>
+
+        <div id="seqInputBox" class="hidden">
+          <input type="text" id="seqBaseText" value="image" placeholder="Base name" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: white;">
+        </div>
+
+        <div id="seoInputBox" class="hidden">
+          <textarea id="seoText" class="textarea-box" placeholder="Paste SEO keywords...">* CFO financial strategy meeting Middle East
+* corporate governance board meeting Dubai
+* business executives financial planning GCC</textarea>
+        </div>
+
+        <div id="namingPreview" class="format-desc">Example: hero-banner.webp</div>
+      </div>
+
+      <!-- Primary Convert Action Button -->
+      <div style="margin-top: auto;">
+        <button id="btnConvertMain" class="btn-convert-main" disabled>
+          <span>📥 Convert 5 Images &amp; Download ZIP</span>
+          <span id="btnSubStats" class="btn-convert-sub">Estimated size: 3.6 MB (72% smaller)</span>
+        </button>
+        <div style="text-align: center; margin-top: 10px; font-size: 0.78rem; color: var(--text-dim);">
+          Created by <a href="https://arulmjoseph.com" target="_blank" rel="noopener" style="color: #60a5fa;">arulmjoseph.com</a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- Help & Guide Modal -->
+  <div id="helpModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <h2>Image Converter Help &amp; Guide</h2>
+      <p style="margin-top: 8px; color: var(--text-muted); font-size: 0.9rem;">
+        Fast in-browser web app for bulk image conversion, WebP optimization, and PDF processing.
+      </p>
+
+      <ul style="margin-top: 14px; padding-left: 20px; font-size: 0.88rem; line-height: 1.6;">
+        <li><strong>WebP Format ⭐</strong>: Delivers 70-85% smaller file sizes with crisp image quality.</li>
+        <li><strong>Before / After Split Slider</strong>: Drag the center handle to inspect original vs optimized images.</li>
+        <li><strong>Default Settings</strong>: Configured to <em>Original Size</em> &amp; <em>Original Name</em> by default.</li>
+        <li><strong>Bulk SEO Slugs</strong>: Converts phrases into dash-separated filenames (<code>hero-banner.webp</code>).</li>
+      </ul>
+
+      <button id="btnCloseHelp" class="btn-primary" style="margin-top: 20px; width: 100%;">Close Guide</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

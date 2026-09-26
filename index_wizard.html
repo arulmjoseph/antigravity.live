@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Web Studio | Apple-Style Site Converter & WordPress Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/apple_wizard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <!-- Navigation Header -->
+  <header class="w-full border-b border-white/10 bg-black/60 backdrop-blur-xl sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">
+          AG
+        </div>
+        <span class="font-semibold text-lg tracking-tight text-white">Antigravity Web Studio</span>
+        <span class="text-xs px-2.5 py-1 rounded-full bg-white/10 border border-white/10 text-gray-300">v2.0</span>
+      </div>
+
+      <!-- Step Navigation Indicators -->
+      <nav class="hidden md:flex items-center gap-2">
+        <div id="pill-1" class="step-pill">1. Intake</div>
+        <div id="pill-2" class="step-pill">2. Convert</div>
+        <div id="pill-3" class="step-pill">3. Features</div>
+        <div id="pill-4" class="step-pill">4. AI Plan</div>
+        <div id="pill-5" class="step-pill">5. Install WP</div>
+        <div id="pill-6" class="step-pill">6. Launch</div>
+      </nav>
+
+      <a href="index.php" target="_blank" class="apple-btn-secondary !py-2 !px-4 text-xs">
+        View Existing Site ↗
+      </a>
+    </div>
+
+    <!-- Progress Line -->
+    <div class="w-full bg-white/5 h-1 relative overflow-hidden">
+      <div id="progressLine" class="bg-gradient-to-r from-blue-500 to-indigo-400 h-full w-0 transition-all duration-500"></div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto px-6 py-12 flex-1 w-full">
+
+    <!-- STEP 1: Intake & Purpose -->
+    <section id="step-1" class="wizard-step active">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Step 1 of 6</span>
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">Define Your Site Vision</h1>
+          <p class="text-gray-400 text-sm mt-2">Answer basic questions to personalize your website design and WordPress setup.</p>
+        </div>
+
+        <div class="space-y-5">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-2 uppercase tracking-wider">Website / Business Name</label>
+            <input type="text" id="siteTitleInput" value="Antigravity Live" class="apple-input" placeholder="e.g. Sparsha Health & Wellness">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-2 uppercase tracking-wider">Industry & Niche</label>
+            <input type="text" id="siteNicheInput" value="Healthcare & Integrative Wellness" class="apple-input" placeholder="e.g. Technology, Healthcare, E-commerce">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-2 uppercase tracking-wider">Visual Aesthetic Style</label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div class="option-card selected text-center" data-style="Minimalist">
+                <div class="text-lg mb-1">✨</div>
+                <div class="text-xs font-semibold">Minimalist</div>
+              </div>
+              <div class="option-card text-center" data-style="Corporate">
+                <div class="text-lg mb-1">💼</div>
+                <div class="text-xs font-semibold">Corporate</div>
+              </div>
+              <div class="option-card text-center" data-style="Editorial">
+                <div class="text-lg mb-1">📰</div>
+                <div class="text-xs font-semibold">Editorial</div>
+              </div>
+              <div class="option-card text-center" data-style="Bold Dark">
+                <div class="text-lg mb-1">🌙</div>
+                <div class="text-xs font-semibold">Bold Dark</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2: Website Conversion -->
+    <section id="step-2" class="wizard-step">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Step 2 of 6</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">Convert Existing Website</h2>
+          <p class="text-gray-400 text-sm mt-2">Optional: Paste an existing site URL to parse and convert its architecture & media assets.</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-2 uppercase tracking-wider">Website URL to Convert</label>
+            <input type="url" id="convertUrlInput" class="apple-input" placeholder="https://example.com">
+          </div>
+
+          <button id="runConvertBtn" type="button" class="apple-btn-secondary w-full justify-center !py-3">
+            <span>🔍 Analyze & Extract Site Data</span>
+          </button>
+
+          <div id="convertStatus" class="text-sm p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="text-gray-400">Ready for URL extraction or skip directly to next step.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 3: Feature Selection -->
+    <section id="step-3" class="wizard-step">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Step 3 of 6</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">Select Features & Modules</h2>
+          <p class="text-gray-400 text-sm mt-2">Choose which components to generate and seed automatically in WordPress.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="option-card feature-option selected" data-feature="hero">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Hero Slider & CTA Banners</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">Dynamic slides, CTA buttons, background video support.</p>
+          </div>
+
+          <div class="option-card feature-option selected" data-feature="contact">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Interactive Contact Form</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">Custom RO/EN booking contact form with database handler.</p>
+          </div>
+
+          <div class="option-card feature-option selected" data-feature="team">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Team Member Profiles</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">ACF powered doctor and team bios with translation keys.</p>
+          </div>
+
+          <div class="option-card feature-option selected" data-feature="gallery">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Video Gallery & Media</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">YouTube embeds, modal video player, and treatment showcases.</p>
+          </div>
+
+          <div class="option-card feature-option selected" data-feature="badges">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Trust Badges & Statistics</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">Certifications, success statistics, and patient metrics.</p>
+          </div>
+
+          <div class="option-card feature-option selected" data-feature="footer">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Footer & Navigation Menus</span>
+              <span class="text-green-400 text-sm">✓</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">Multilingual footer links, legal policies, and menu tree.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4: AI Plan Synthesis -->
+    <section id="step-4" class="wizard-step">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Step 4 of 6</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">Gemini AI Plan Blueprint</h2>
+          <p class="text-gray-400 text-sm mt-2">Antigravity AI engine has synthesized your site specification.</p>
+        </div>
+
+        <div id="aiPlanOutput" class="min-h-[220px]">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5: WordPress Installation Console -->
+    <section id="step-5" class="wizard-step">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Step 5 of 6</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-1">Installing & Seeding WordPress</h2>
+          <p class="text-gray-400 text-sm mt-2" id="installStatusText">Executing environment setup and database seeds...</p>
+        </div>
+
+        <div id="installConsoleLog" class="p-4 bg-black/80 rounded-xl border border-white/10 font-mono text-xs text-green-400 h-64 overflow-y-auto space-y-1">
+          <!-- Logs printed dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 6: Dashboard & Launch Pad -->
+    <section id="step-6" class="wizard-step">
+      <div class="apple-glass p-8 md:p-12 space-y-8">
+        <div class="text-center space-y-3">
+          <div class="w-16 h-16 rounded-full bg-green-500/20 border border-green-500/40 text-green-400 mx-auto flex items-center justify-center text-2xl font-bold">
+            ✓
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">Your WordPress Site is Ready!</h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto">Your site plan has been synthesized and seeded into the WordPress system environment.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a href="index.php" target="_blank" class="apple-btn-primary">
+            <span>🌐 Open Live WordPress Site</span>
+          </a>
+          <a href="wp-admin" target="_blank" class="apple-btn-secondary">
+            <span>⚙️ Access WP Admin Dashboard</span>
+          </a>
+        </div>
+
+        <!-- Live Site Preview Box -->
+        <div class="pt-6 border-t border-white/10">
+          <div class="flex items-center justify-between text-xs text-gray-400 mb-3">
+            <span>Live Local Preview</span>
+            <span>https://antigravity.live</span>
+          </div>
+          <div class="rounded-2xl border border-white/15 overflow-hidden bg-white h-[450px]">
+            <iframe src="index.php" class="w-full h-full border-none"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wizard Navigation Footer -->
+    <footer class="mt-8 flex items-center justify-between px-2">
+      <button id="prevBtn" type="button" class="apple-btn-secondary">
+        ← Back
+      </button>
+      <button id="nextBtn" type="button" class="apple-btn-primary">
+        Continue →
+      </button>
+    </footer>
+
+  </main>
+
+  <script src="assets/js/wizard_app.js"></script>
+</body>
+</html>

@@ -1,0 +1,2648 @@
+# Translation of Plugins - Polylang - Stable (latest release) in Romanian
+# This file is distributed under the same license as the Plugins - Polylang - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-03-17 09:30:15+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 0 || n % 100 >= 2 && n % 100 <= 19) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: ro\n"
+"Project-Id-Version: Plugins - Polylang - Stable (latest release)\n"
+
+#: src/modules/Blocks/Language_Switcher/Standard/block.json
+msgctxt "block description"
+msgid "Language switcher to insert in content or as a widget."
+msgstr "Comutator de limbi pentru a fi inserat în conținut sau ca piesă."
+
+#: src/modules/Blocks/Language_Switcher/Standard/block.json
+msgctxt "block title"
+msgid "Language Switcher"
+msgstr "Comutator de limbi"
+
+#: src/modules/Blocks/Language_Switcher/Navigation/block.json
+msgctxt "block description"
+msgid "Language switcher suitable for navigation."
+msgstr "Comutator de limbi adecvat pentru navigare."
+
+#: src/modules/Blocks/Language_Switcher/Navigation/block.json
+msgctxt "block title"
+msgid "Navigation Language Switcher"
+msgstr "Comutator de limbi pentru navigare"
+
+#. translators: %1$s is the value to add. %2$s is the name of an option.
+#: src/Options/Options.php:534
+msgid "Failed to add %1$s to %2$s."
+msgstr "Adăugarea %1$s în %2$s a eșuat."
+
+#. translators: %1$s is the value to remove. %2$s is the name of an option.
+#: src/Options/Options.php:493
+msgid "Failed to remove %1$s from %2$s."
+msgstr "Înlăturarea %1$s din %2$s a eșuat."
+
+#. translators: %s is the name of an option.
+#: src/Options/Options.php:481 src/Options/Options.php:522
+msgid "Option %s is not a list or map."
+msgstr "Opțiunea %s nu este o listă sau o hartă."
+
+#. translators: %s is a blog ID.
+#: src/Options/Inactive_Option.php:79
+msgid "Polylang is not active on site %s."
+msgstr "Polylang nu este activ pe site-ul %s."
+
+#: src/Options/Business/Previous_Version.php:53
+msgid "This is the first activation"
+msgstr "Aceasta este prima activare"
+
+#: src/Options/Business/Nav_Menus.php:63
+msgid "Not used"
+msgstr "Nefolosită"
+
+#: src/modules/site-health/admin-site-health.php:303
+msgid "Network activated"
+msgstr "Rețeaua este activată"
+
+#: src/modules/site-health/admin-site-health.php:103
+msgid "Translated taxonomies"
+msgstr "Taxonomii traduse"
+
+#: src/modules/site-health/admin-site-health.php:99
+msgid "Translated post types"
+msgstr "Tipuri de articol traduse"
+
+#: src/modules/Blocks/Language_Switcher/Navigation/Block.php:152
+#: js/build/blocks.js:653 js/build/blocks.js:892
+msgid "Language switcher settings"
+msgstr "Setări comutator de limbi"
+
+#. translators: %s is a taxonomy name
+#: src/Model/Languages.php:1287
+msgid "Could not update secondary language term for taxonomy %s."
+msgstr "Nu am putut actualiza termenul lingvistic secundar pentru taxonomia %s."
+
+#. translators: %s is a taxonomy name
+#: src/Model/Languages.php:1273
+msgid "Could not add secondary language term for taxonomy %s."
+msgstr "Nu am putut adăuga un termen lingvistic secundar pentru taxonomia %s."
+
+#: src/Model/Languages.php:1220
+msgid "Could not update translation groups."
+msgstr "Nu am putut actualiza grupurile de traducere."
+
+#: src/Model/Languages.php:1190 src/Model/Languages.php:1203
+msgid "Could not delete translation groups."
+msgstr "Nu am putut șterge grupurile de traducere."
+
+#: src/Model/Languages.php:1174
+msgid "Could not delete relationships."
+msgstr "Nu am putut să șterg relațiile."
+
+#. translators: 1: argument name, 2: PHP code snippet.
+#: src/Model/Languages.php:602 src/Model/Languages.php:615
+msgid "The argument %1$s has been replaced by %2$s."
+msgstr "Argumentul %1$s a fost înlocuit cu %2$s."
+
+#: src/Model/Languages.php:366 src/Model/Languages.php:433
+msgid "Could not update the language."
+msgstr "Nu am putut să actualizez limba."
+
+#: src/Model/Languages.php:232
+msgid "Could not set the language order."
+msgstr "Nu am putut seta ordinea limbii."
+
+#: src/Model/Languages.php:225 src/Model/Languages.php:251
+msgid "Could not add the language."
+msgstr "Nu am putut adăuga limba."
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:215
+msgid "You are not allowed to edit a translation in %s"
+msgstr "Nu ai voie să editezi o traducere în %s"
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:212
+msgid "You are not allowed to edit this item in %s"
+msgstr "Nu ai voie să editezi acest element în %s"
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:138
+msgid "You are not allowed to add a translation in %s"
+msgstr "Nu ai voie să adaugi o traducere în %s"
+
+#: src/modules/wpml/wpml-legacy-api.php:261
+msgid "Missing post ID"
+msgstr "Lipsește ID-ul articolului"
+
+#. translators: %d is a Post ID.
+#: src/modules/wpml/wpml-legacy-api.php:267
+msgid "No such post for ID = %d"
+msgstr "Nu există un articol pentru ID-ul %d"
+
+#: src/modules/wizard/view-wizard-step-licenses.php:21
+msgid "Please enter your license keys:"
+msgstr "Te rog să introduci cheia ta de licență:"
+
+#. translators: %s is a URL slug: `/language/`.
+#: src/Options/Business/Rewrite.php:52 src/settings/settings-url.php:175
+msgid "Keep %s in pretty permalinks"
+msgstr "Păstrează %s în legăturile permanente frumoase"
+
+#. translators: %s is a URL slug: `/language/`.
+#: src/Options/Business/Rewrite.php:46 src/settings/settings-url.php:160
+msgid "Remove %s in pretty permalinks"
+msgstr "Elimină %s din legăturile permanente frumoase"
+
+#. translators: %s is the name of the term property (`term_id` or
+#. `term_taxonomy_id`).
+#: src/modules/REST/V1/Languages.php:600 src/modules/REST/V1/Languages.php:606
+msgid "The %s of the language term for this translatable entity."
+msgstr "Termenul %s al limbii pentru această entitate traductibilă."
+
+#: src/modules/REST/V1/Languages.php:553
+msgid "Page on front ID in this language."
+msgstr "ID pagină principală în această limbă."
+
+#. translators: %s is a list of option names.
+#: src/Options/Options.php:312
+msgid "Unknown option keys %s."
+msgstr "Chei de opțiuni necunoscute %s."
+
+#. translators: %1$s is a URL slug: `/language/`. %2$s and %3$s are
+#. "true/false" values.
+#: src/Options/Business/Rewrite.php:80
+msgid "Remove %1$s in pretty permalinks: %2$s to remove, %3$s to keep."
+msgstr "Înlătură %1$s din legăturile permanente frumoase: %2$s pentru a înlătura, %3$s pentru a păstra."
+
+#. translators: %s is a list of URLs.
+#: src/Options/Business/Domains.php:157
+msgid "Polylang was unable to access the %s URLs. Please check that the URLs are valid."
+msgstr "Polylang nu a putut să acceseze URL-urile %s. Te rog să verifici dacă URL-urile sunt valide."
+
+#. translators: %s is a list of native language names.
+#: src/Options/Business/Domains.php:126
+msgid "Please enter valid URLs for %s."
+msgstr "Te rog să introduci URL-uri valide pentru %s."
+
+#. translators: %s is a list of language slugs.
+#: src/Options/Abstract_Option.php:265
+msgid "The languages %s are unknown and have been discarded."
+msgstr "Limbile %s sunt necunoscute și au fost eliminate."
+
+#: src/settings/settings-url.php:70
+msgid "Some themes or plugins may not be fully compatible with the language defined by domains."
+msgstr "S-ar putea ca unele teme sau module să nu fie în totalitate compatibile cu limba definită prin domenii."
+
+#: src/modules/REST/V1/Settings.php:160
+msgid "Sorry, you are not allowed to edit options."
+msgstr "Regret, nu ai voie să editezi opțiunile."
+
+#: src/modules/REST/V1/Languages.php:702
+msgid "Invalid language identifier"
+msgstr "Identificatorul pentru limbă nu este valid"
+
+#: src/modules/REST/V1/Languages.php:691
+msgid "Invalid language slug"
+msgstr "Descriptorul pentru limbă nu este valid"
+
+#: src/modules/REST/V1/Languages.php:668
+msgid "Invalid language ID"
+msgstr "ID-ul limbă nu este valid"
+
+#: src/modules/REST/V1/Languages.php:611
+msgid "Number of items of this type of content in this language."
+msgstr "Număr de elemente din acest tip de conținut în această limbă."
+
+#: src/modules/REST/V1/Languages.php:585
+msgid "Tells whether the default category must be created when creating a new language."
+msgstr "Indică dacă categoria implicită trebuie creată la crearea unei limbi noi."
+
+#: src/modules/REST/V1/Languages.php:578
+msgid "Language properties."
+msgstr "Proprietăți limbă."
+
+#: src/modules/REST/V1/Languages.php:567
+msgid "List of language locale fallbacks."
+msgstr "Listă de locale limbi de rezervă."
+
+#: src/modules/REST/V1/Languages.php:560
+msgid "Identifier of the page for posts in this language."
+msgstr "Identificatorul paginii de articole în această limbă."
+
+#: src/modules/REST/V1/Languages.php:546
+msgid "Host for this language."
+msgstr "Gazdă pentru această limbă."
+
+#: src/modules/REST/V1/Languages.php:539
+msgid "Search URL in this language."
+msgstr "Caută URL-ul în această limbă."
+
+#: src/modules/REST/V1/Languages.php:532
+msgid "Home URL in this language."
+msgstr "URL prima pagină în această limbă."
+
+#: src/modules/REST/V1/Languages.php:526
+msgid "Tells whether the language is active."
+msgstr "Spune dacă limba este activă."
+
+#: src/modules/REST/V1/Languages.php:520
+msgid "Tells whether the language is the default one."
+msgstr "Spune dacă limba este cea implicită."
+
+#: src/modules/REST/V1/Languages.php:514
+msgid "HTML tag for the custom flag."
+msgstr "Tag HTML pentru steagul personalizat."
+
+#: src/modules/REST/V1/Languages.php:507
+msgid "Custom flag URL."
+msgstr "URL steag personalizat."
+
+#: src/modules/REST/V1/Languages.php:501
+msgid "HTML tag for the flag."
+msgstr "Tag HTML pentru steag."
+
+#: src/modules/REST/V1/Languages.php:494
+msgid "Flag URL."
+msgstr "URL steag."
+
+#: src/modules/REST/V1/Languages.php:489
+msgid "Flag code corresponding to ISO 3166-1 (for example: us for the United States flag)."
+msgstr "Cod steag corespunzător ISO 3166-1 (de exemplu: ro pentru steagul României)."
+
+#: src/modules/REST/V1/Languages.php:484
+msgid "Position of the language in the language switcher."
+msgstr "Poziția limbii în comutatorul de limbi."
+
+#. translators: %s is a value.
+#: src/modules/REST/V1/Languages.php:477
+msgid "Text direction. %s for right-to-left."
+msgstr "Direcție text. %s pentru de la dreapta la stânga."
+
+#: src/modules/REST/V1/Languages.php:469
+msgid "Facebook Locale for the language (for example: en_US)."
+msgstr "Locală Facebook pentru limbă (de exemplu: ro_RO)."
+
+#: src/modules/REST/V1/Languages.php:463
+msgid "W3C Locale for the language (for example: en-US)."
+msgstr "Locală W3C pentru limbă (de exemplu: ro-RO)."
+
+#: src/modules/REST/V1/Languages.php:457
+msgid "WordPress Locale for the language (for example: en_US)."
+msgstr "Locală WordPress pentru limbă (de exemplu: ro_RO)."
+
+#: src/modules/REST/V1/Languages.php:383
+msgid "Sorry, you are not allowed to delete this language."
+msgstr "Regret, nu ai voie să ștergi această limbă."
+
+#: src/modules/REST/V1/Languages.php:361
+msgid "Sorry, you are not allowed to edit this language."
+msgstr "Regret, nu ai voie să editezi această limbă."
+
+#: src/modules/REST/V1/Languages.php:324
+msgid "Sorry, you are not allowed to create a language."
+msgstr "Regret, nu ai voie să creezi o limbă."
+
+#: src/modules/REST/V1/Languages.php:302
+msgid "Sorry, you are not allowed to edit languages."
+msgstr "Regret, nu ai voie să editezi limbile."
+
+#: src/modules/REST/V1/Languages.php:169
+msgid "Cannot create existing language."
+msgstr "Nu pot să creez o limbă existentă."
+
+#: src/modules/REST/V1/Languages.php:121 src/modules/REST/V1/Languages.php:451
+msgid "Language code - preferably 2-letters ISO 639-1 (for example: en)."
+msgstr "Cod limbă – preferabil 2 litere ISO 639-1 (de exemplu: ro)."
+
+#: src/modules/REST/V1/Languages.php:95 src/modules/REST/V1/Languages.php:438
+msgid "Unique identifier for the language."
+msgstr "Identificator unic pentru limbă."
+
+#: src/translated-term.php:326
+msgid "Language taxonomy properties for terms."
+msgstr "Proprietăți de taxonomie lingvistică pentru termeni."
+
+#: src/translated-post.php:549
+msgid "Invalid post ID."
+msgstr "ID-ul articolului nu este valid."
+
+#: src/translated-post.php:472
+msgid "Language taxonomy properties for post types."
+msgstr "Proprietăți de taxonomie lingvistică pentru tipurile de articole."
+
+#. translators: %s is the name of a database table.
+#: src/translatable-object.php:628
+msgid "Language taxonomy properties for table %s."
+msgstr "Proprietăți de taxonomie lingvistică pentru tabelul %s."
+
+#: src/Options/Options.php:363
+msgid "Polylang options"
+msgstr "Opțiuni Polylang"
+
+#. translators: %s is the name of an option.
+#: src/Options/Options.php:309 src/Options/Options.php:418
+#: src/Options/Options.php:471 src/Options/Options.php:512
+msgid "Unknown option key %s."
+msgstr "Cheie de opțiune necunoscută %s."
+
+#: src/Options/Business/Version.php:39
+msgid "Polylang's version."
+msgstr "Versiune Polylang."
+
+#: src/Options/Business/Taxonomies.php:52
+msgid "List of taxonomies to translate."
+msgstr "Listă cu taxonomii de tradus."
+
+#: src/Options/Business/Sync.php:87
+msgid "List of data to synchronize."
+msgstr "Listă de date de sincronizat."
+
+#. translators: %1$s and %2$s are "true/false" values.
+#: src/Options/Business/Redirect_Lang.php:62
+msgid "Remove the page name or page ID from the URL of the front page: %1$s to remove, %2$s to keep."
+msgstr "Înlătură numele sau ID-ul paginii din URL-ul paginii din față: %1$s pentru a înlătura, %2$s pentru a păstra."
+
+#: src/Options/Business/Previous_Version.php:39
+msgid "Polylang's previous version."
+msgstr "Versiune anterioară Polylang."
+
+#: src/Options/Business/Post_Types.php:51
+msgid "List of post types to translate."
+msgstr "Lista tipurilor de articole pentru a fi traduse."
+
+#: src/Options/Business/Nav_Menus.php:186
+msgid "Translated navigation menus for each theme."
+msgstr "Meniuri de navigare traduse pentru fiecare temă."
+
+#. translators: %1$s and %2$s are "true/false" values.
+#: src/Options/Business/Media_Support.php:62
+msgid "Translate media: %1$s to translate, %2$s otherwise."
+msgstr "Tradu media: %1$s pentru a traduce, altfel %2$s."
+
+#. translators: %1$s and %2$s are "true/false" values.
+#: src/Options/Business/Hide_Default.php:93
+msgid "Remove the language code in URL for the default language: %1$s to hide, %2$s to display."
+msgstr "Înlătură codul de limbă din URL pentru limba implicită: %1$s pentru a înlătura, %2$s pentru a afișa."
+
+#: src/Options/Business/Force_Lang.php:97
+msgid "Determine how the current language is defined."
+msgstr "Determină modul în care este definită limba actuală."
+
+#: src/Options/Business/First_Activation.php:71
+msgid "Time of first activation of Polylang."
+msgstr "Momentul primei activări a Polylang."
+
+#: src/Options/Business/Domains.php:179
+msgid "Domains used when the language is set from different domains."
+msgstr "Domenii utilizate atunci când limba este setată din domenii diferite."
+
+#: src/Options/Business/Default_Lang.php:58
+msgid "Slug of the default language."
+msgstr "Descriptorul limbii implicite."
+
+#. translators: %1$s and %2$s are "true/false" values.
+#: src/Options/Business/Browser.php:85
+msgid "Detect preferred browser language on front page: %1$s to detect, %2$s to not detect."
+msgstr "Detectează limba preferată a navigatorului pe prima pagină: %1$s pentru a detecta, %2$s pentru a nu detecta."
+
+#. translators: %s is a language slug.
+#: src/Options/Abstract_Option.php:262
+msgid "The language %s is unknown and has been discarded."
+msgstr "Limba %s este necunoscută și a fost eliminată."
+
+#: src/api.php:577 src/api.php:612 src/translated-post.php:554
+#: src/translated-term.php:431
+msgid "Please provide a valid language."
+msgstr "Te rugăm să furnizezi o limbă validă."
+
+#: src/admin/admin-notices.php:290
+msgid "Translations matching the original string are shown as empty in the table. Untranslated content remains unchanged."
+msgstr "Traducerile care se potrivesc șirului original sunt afișate ca fiind goale în tabel. Conținutul netradus rămâne neschimbat."
+
+#: src/translated-term.php:423
+msgid "Empty Term."
+msgstr "Termen gol."
+
+#. translators: %1$s placeholder is the language name, %2$s is the language
+#. code
+#: src/modules/site-health/admin-site-health.php:152
+msgid "Language: %1$s - %2$s"
+msgstr "Limbă: %1$s - %2$s"
+
+#: src/modules/machine-translation/settings-preview-machine-translation.php:39
+msgid "Machine Translation"
+msgstr "Traducere automată"
+
+#: src/modules/machine-translation/settings-preview-machine-translation.php:40
+msgid "Allows linkage to DeepL Translate."
+msgstr "Permite conectarea la DeepL Translate."
+
+#: src/Model/Languages.php:319
+msgid "The language does not seem to exist."
+msgstr "Se pare că limba nu există."
+
+#. translators: 1 is a post type or taxonomy label, 2 is a post type or
+#. taxonomy key.
+#: src/settings/settings-cpt.php:115 src/settings/settings-cpt.php:146
+msgctxt "content type setting choice"
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/Options/Business/Sync.php:48
+msgid "Synchronization disabled"
+msgstr "Sincronizarea este dezactivată"
+
+#: src/Options/Business/Media_Support.php:44
+msgid "The media are translated"
+msgstr "Elementele media sunt traduse"
+
+#: src/Options/Business/Media_Support.php:46
+msgid "The media are not translated"
+msgstr "Elementele media nu sunt traduse"
+
+#: src/Options/Business/Redirect_Lang.php:46
+msgid "The front page URL contains the page name or page id instead of the language code"
+msgstr "URL-ul paginii din față conține numele paginii sau ID-ul paginii în loc de codul pentru limbă"
+
+#: src/Options/Business/Hide_Default.php:47
+msgid "Display URL language information for default language"
+msgstr "Afișează informații despre limba URL-ului pentru limba implicită"
+
+#: src/Options/Business/Browser.php:47
+msgid "Detect browser language activated"
+msgstr "Detectarea limbii din navigator este activată"
+
+#: src/Options/Business/Browser.php:45
+msgid "Detect browser language deactivated"
+msgstr "Detectarea limbii din navigator este dezactivată"
+
+#. translators: placeholder is the plugin name
+#: src/modules/site-health/admin-site-health.php:312
+msgid "%s information"
+msgstr "Informații despre %s"
+
+#: src/modules/site-health/admin-site-health.php:291
+msgid "Not loaded. Contact your host provider."
+msgstr "Nu este încărcat. Contactează furnizorul tău de găzduire."
+
+#: src/modules/site-health/admin-site-health.php:290
+msgid "PHP SimpleXML extension"
+msgstr "Extensie PHP SimpleXML"
+
+#: src/install/plugin-updater.php:338
+msgid "Update now."
+msgstr "Actualizează acum."
+
+#. translators: 1. and 4. are opening anchor tags 2. the new plugin version 3.
+#. and 5. are closing anchor tags.
+#: src/install/plugin-updater.php:327
+msgid "%1$sView version %2$s details%3$s or %4$supdate now%5$s."
+msgstr "%1$sVezi detaliile versiunii %2$s%3$s sau %4$sactualizează acum%5$s."
+
+#. translators: 1. opening anchor tag, do not translate 2. the new plugin
+#. version 3. closing anchor tag, do not translate.
+#: src/install/plugin-updater.php:318
+msgid "%1$sView version %2$s details%3$s."
+msgstr "%1$sVezi detaliile versiunii %2$s%3$s."
+
+#: src/install/plugin-updater.php:313
+msgid "Contact your network administrator to install the update."
+msgstr "Contactează administratorul de rețea pentru a instala actualizarea."
+
+#. translators: the plugin name.
+#: src/install/plugin-updater.php:307
+msgid "There is a new version of %1$s available."
+msgstr "Este disponibilă o nouă versiune pentru %1$s."
+
+#: src/settings/settings-url.php:56
+msgid "Some themes or plugins may not be fully compatible with the language defined by the content or by domains."
+msgstr "S-ar putea ca unele teme sau module să nu fie în totalitate compatibile cu limba definită prin conținut sau domenii."
+
+#: src/settings/settings-media.php:32
+msgid "Activate languages and translations for media only if you need to translate the text attached to the media: the title, the alternative text, the caption, the description... Note that the file is not duplicated."
+msgstr "Activează limbile și traducerile pentru elementele media numai dacă vrei să traduci textul atașat acestor elemente: titlu, textul alternativ, text asociat, subtitrare, descriere. Reține că fișierele nu vor fi duplicate."
+
+#: src/settings/settings-browser.php:35
+msgid "When the front page is visited, redirects to itself in the browser preferred language. As this doesn't work if it is cached, Polylang will attempt to disable the front page cache for known cache plugins."
+msgstr "Când este vizitată pagina din față, redirecționările se fac la această pagină în limba preferată a navigatorului. Deoarece redirecționările nu funcționează dacă pagina este memorată în cache, Polylang va încerca să dezactiveze cache-ul pentru pagina din față în majoritatea modulelor de cache."
+
+#: src/modules/site-health/admin-site-health.php:279
+msgid "Terms without language"
+msgstr "Termeni fără limbă"
+
+#: src/modules/site-health/admin-site-health.php:272
+msgid "Posts without language"
+msgstr "Articole fără limbă"
+
+#: src/modules/site-health/admin-site-health.php:251
+msgid "The homepage is not translated in all languages"
+msgstr "Prima pagină nu este tradusă în toate limbile"
+
+#: src/modules/site-health/admin-site-health.php:241
+msgid "It is mandatory to translate the static front page in all languages."
+msgstr "Este obligatoriu să traduci pagina din față statică în toate limbile."
+
+#: src/modules/site-health/admin-site-health.php:233
+msgid "All languages have a translated homepage"
+msgstr "Prima pagină este tradusă în toate limbile"
+
+#: src/modules/site-health/admin-site-health.php:217
+msgid "Homepage translated"
+msgstr "Prima pagină este tradusă"
+
+#: src/modules/site-health/admin-site-health.php:202
+msgid "Undefined"
+msgstr "Nedefinită"
+
+#. translators: placeholder is the plugin name
+#: src/modules/site-health/admin-site-health.php:109
+msgid "%s options"
+msgstr "Opțiuni %s"
+
+#: src/widget-calendar.php:319
+msgid "Previous and next months"
+msgstr "Lunile anterioare și următoare"
+
+#. translators: placeholder is the flag image
+#: src/modules/site-health/admin-site-health.php:154
+msgid "Flag used in the language switcher: %s"
+msgstr "Marcaj folosit în comutatorul pentru limbi: %s"
+
+#. translators: %s: is the translated label of the 'No' button
+#: src/modules/wizard/view-wizard-step-languages.php:121
+msgid "%s: don't add this language and continue to the next step"
+msgstr "%s: nu adăuga această limbă și continuă cu pasul următor"
+
+#. translators: %s: is the translated label of the 'Yes' button
+#: src/modules/wizard/view-wizard-step-languages.php:112
+msgid "%s: add this language and continue to the next step"
+msgstr "%s: adăuga această limbă și continuă cu pasul următor"
+
+#: src/modules/wizard/view-wizard-step-languages.php:105
+msgid "Do you want to add this language before continuing to the next step?"
+msgstr "Vrei să adaugi această limbă înainte de a continua cu pasul următor?"
+
+#. translators: %1$s: is a language flag image, %2$s: is a language native name
+#: src/modules/wizard/view-wizard-step-languages.php:98
+msgid "You selected %1$s %2$s but you didn't add it to the list before continuing to the next step."
+msgstr "Ai selectat limba %2$s %1$s, dar nu ai adăugat-o în listă înainte de a continua cu pasul următor."
+
+#: src/modules/wizard/view-wizard-step-languages.php:75
+msgid "Languages already defined"
+msgstr "Limbi deja definite"
+
+#: src/modules/wizard/view-wizard-step-languages.php:63
+msgid "Remove"
+msgstr "Înlătură"
+
+#: src/modules/wizard/view-wizard-step-languages.php:32
+msgid "Select a language to be added"
+msgstr "Selectează o limbă care să fie adăugată"
+
+#. translators: %s: is the translated label of the 'Ignore' button
+#: src/modules/wizard/view-wizard-step-languages.php:130
+msgid "%s: stay at this step"
+msgstr "%s: rămâi la acest pas"
+
+#: src/modules/wizard/html-wizard-notice.php:47
+msgid "Skip setup"
+msgstr "Sari peste inițializare"
+
+#: src/modules/wizard/html-wizard-notice.php:41
+msgid "Run the Setup Wizard"
+msgstr "Rulează asistentul de inițializare"
+
+#: src/modules/wizard/html-wizard-notice.php:33
+msgid "You&lsquo;re almost ready to translate your contents!"
+msgstr "Ești aproape gata să-ți traduci conținutul!"
+
+#. translators: %s is the plugin name
+#: src/modules/wizard/html-wizard-notice.php:26
+msgid "Welcome to %s"
+msgstr "Bine ai venit la %s"
+
+#: src/modules/wizard/view-wizard-step-licenses.php:28
+msgid "There is an error with a license key."
+msgstr "Există o eroare cu cheia de licență."
+
+#: src/modules/wizard/view-wizard-step-last.php:82
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: src/modules/wizard/view-wizard-step-last.php:73
+#: src/modules/wizard/view-wizard-step-last.php:97
+msgid "Buy now"
+msgstr "Cumpără acum"
+
+#: src/modules/wizard/view-wizard-step-last.php:65
+msgid "Upgrade to Polylang Pro"
+msgstr "Actualizează la Polylang Pro"
+
+#: src/modules/wizard/view-wizard-step-last.php:64
+msgid "Polylang Pro"
+msgstr "Polylang Pro"
+
+#: src/modules/wizard/view-wizard-step-last.php:56
+msgid "View pages"
+msgstr "Vezi paginile"
+
+#: src/modules/wizard/view-wizard-step-last.php:50
+msgid "Translate some pages"
+msgstr "Tradu câteva pagini"
+
+#: src/modules/wizard/view-wizard-step-last.php:34
+msgid "Create menus"
+msgstr "Creează meniuri"
+
+#: src/modules/wizard/view-wizard-step-last.php:33
+#: src/modules/wizard/view-wizard-step-last.php:49
+msgid "Next step"
+msgstr "Pasul următor"
+
+#: src/modules/wizard/view-wizard-step-last.php:24
+#: src/modules/wizard/view-wizard-step-last.php:42
+msgid "Read documentation"
+msgstr "Citește documentația"
+
+#: src/modules/wizard/view-wizard-step-last.php:16
+msgid "You're now able to translate your contents such as posts, pages, categories and tags. You can learn how to use Polylang by reading the documentation."
+msgstr "Acum îți poți traduce conținutul, cum ar fi articole, pagini, categorii și etichete. Poți învăța cum să folosești Polylang citind documentația."
+
+#: src/modules/wizard/view-wizard-step-last.php:13
+msgid "You're ready to translate your contents!"
+msgstr "Ești gata să traduci conținutul!"
+
+#: src/modules/wizard/view-wizard-step-home-page.php:97
+msgid "If you add a new language, don't forget to translate your homepage."
+msgstr "Dacă adaugi o limbă nouă, nu uita să traduci prima pagină."
+
+#: src/modules/wizard/wizard.php:500
+msgid "A language wasn't added."
+msgstr "Nu a fost adăugată o limbă."
+
+#: src/modules/wizard/wizard.php:493
+msgid "You selected a language, however, to be able to continue, you need to add it."
+msgstr "Ai selectat totuși o limbă, pentru a putea continua trebuie să o adaugi."
+
+#: src/modules/wizard/wizard.php:492
+msgid "You need to add at least one language."
+msgstr "Trebuie să adaugi cel puțin o limbă."
+
+#: src/modules/wizard/wizard.php:491
+msgid "You already added this language."
+msgstr "Ai adăugat deja această limbă."
+
+#: src/modules/wizard/wizard.php:490
+msgid "You need to select a language to be added."
+msgstr "Trebuie să selectezi o limbă care să fie adăugată."
+
+#: src/modules/wizard/view-wizard-step-licenses.php:25
+#: src/modules/wizard/wizard.php:387
+msgid "Licenses"
+msgstr "Licențe"
+
+#: src/modules/wizard/wizard.php:145
+msgid "Setup"
+msgstr "Inițializare"
+
+#: src/modules/wizard/view-wizard-step-untranslated-contents.php:23
+msgid "Choose the language to be assigned"
+msgstr "Alege limba care să fie atribuită"
+
+#: src/modules/wizard/view-wizard-step-untranslated-contents.php:20
+msgid "The selected language below will be applied to all your content without an assigned language."
+msgstr "Limba selectată de mai jos va fi aplicată întregului tău conținut, fără o limbă atribuită."
+
+#: src/modules/wizard/view-wizard-step-untranslated-contents.php:16
+msgid "Content without language"
+msgstr "Conținut fără limbă"
+
+#: src/modules/wizard/view-wizard-step-licenses.php:16
+msgid "You are using plugins which require a license key."
+msgstr "Folosești module care au nevoie de o cheie de licență."
+
+#: src/modules/wizard/view-wizard-page.php:117
+msgid "Not right now"
+msgstr "Nu chiar acum"
+
+#: src/modules/wizard/view-wizard-page.php:105
+msgid "Continue"
+msgstr "Continuă"
+
+#. translators: %s is the plugin name
+#: src/modules/wizard/view-wizard-page.php:42
+msgid "%s &rsaquo; Setup"
+msgstr "%s &rsaquo; Inițializare"
+
+#: src/modules/wizard/view-wizard-step-media.php:50
+msgid "Help"
+msgstr "Ajutor"
+
+#: src/modules/wizard/view-wizard-step-last.php:107
+msgid "Return to the Dashboard"
+msgstr "Înapoi la Panou control"
+
+#: src/modules/wizard/view-wizard-step-last.php:89
+msgid "Polylang Business Pack"
+msgstr "Polylang Business Pack"
+
+#: src/modules/wizard/view-wizard-step-last.php:83
+msgid "Purchase Polylang Business Pack"
+msgstr "Cumpără Polylang Business Pack"
+
+#: src/modules/wizard/wizard.php:853
+msgid "Ready!"
+msgstr "Gata!"
+
+#: src/modules/wizard/view-wizard-step-home-page.php:49
+msgid "Your static homepage is already translated in"
+msgstr "Prima ta pagină statică este deja tradusă în"
+
+#. translators: %s is the post title of the front page
+#: src/modules/wizard/view-wizard-step-home-page.php:27
+msgid "You defined this page as your static homepage: %s."
+msgstr "Ai definit această pagină ca prima ta pagină statică: %s."
+
+#. translators: %s is the language of the front page ( flag, native name and
+#. locale )
+#: src/modules/wizard/view-wizard-step-home-page.php:35
+msgid "Its language is : %s."
+msgstr "Limba ei este: %s."
+
+#: src/modules/wizard/view-wizard-step-home-page.php:93
+msgid "One language is well defined and assigned to your home page."
+msgstr "O limbă este bine definită și atribuită primei tale pagini."
+
+#: src/modules/wizard/view-wizard-step-home-page.php:22
+#: src/modules/wizard/wizard.php:742 src/modules/wizard/wizard.php:793
+msgid "Homepage"
+msgstr "Prima pagină"
+
+#: src/modules/wizard/wizard.php:678
+msgid "Content"
+msgstr "Conținut"
+
+#: src/modules/wizard/wizard.php:504
+msgid "Remove this language"
+msgstr "Înlătură această limbă"
+
+#: src/modules/wizard/view-wizard-step-languages.php:131
+#: src/modules/wizard/wizard.php:503
+msgid "Ignore"
+msgstr "Ignoră"
+
+#: src/modules/site-health/admin-site-health.php:300
+#: src/modules/wizard/view-wizard-step-languages.php:122
+#: src/modules/wizard/wizard.php:502
+msgid "No"
+msgstr "Nu"
+
+#: src/modules/site-health/admin-site-health.php:298
+#: src/modules/wizard/view-wizard-step-languages.php:113
+#: src/modules/wizard/wizard.php:501
+msgid "Yes"
+msgstr "Da"
+
+#: src/modules/wizard/view-wizard-step-home-page.php:40
+msgid "For your site to work correctly, this page must be translated in all available languages."
+msgstr "Pentru ca site-ul tău să funcționeze corect, această pagină trebuie să fie tradusă în toate limbile disponibile."
+
+#: src/modules/wizard/view-wizard-step-untranslated-contents.php:19
+msgid "For your site to work correctly, you need to assign a language to all your contents."
+msgstr "Pentru ca site-ul tău să funcționeze corect, trebuie să atribui o limbă pentru întreg conținutul."
+
+#: src/modules/wizard/wizard.php:203
+msgid "Sorry, you are not allowed to manage options for this site."
+msgstr "Regret, nu ai voie să administrezi opțiunile pentru acest site."
+
+#: src/modules/wizard/view-wizard-step-last.php:36
+msgid "To get your website ready, there are still two steps you need to perform manually: add menus in each language, and add a language switcher to allow your visitors to select their preferred language."
+msgstr "Pentru a-ți pregăti site-ul pentru traducere, există încă doi pași pe care trebuie să-i execuți manual: adaugă meniuri în fiecare limbă și adaugă un comutator de limbă pentru a permite vizitatorilor să selecteze limba dorită."
+
+#: src/modules/wizard/view-wizard-step-last.php:51
+msgid "You're ready to translate the posts on your website."
+msgstr "Ești gata să traduci articolele de pe site-ul tău web."
+
+#: src/modules/wizard/view-wizard-step-languages.php:23
+msgid "This wizard will help you configure your Polylang settings, and get you started quickly with your multilingual website."
+msgstr "Acest asistent de inițializare te va ajuta să configurezi setările Polylang și să începi rapid cu site-ul tău multilingv."
+
+#: src/modules/wizard/view-wizard-step-languages.php:26
+msgid "First we are going to define the languages that you will use on your website."
+msgstr "Mai întâi vom defini limbile pe care le vei folosi pe site-ul tău web."
+
+#: src/modules/wizard/view-wizard-step-media.php:19
+msgid "Polylang allows you to translate the text attached to your media, for example the title, the alternative text, the caption, or the description."
+msgstr "Polylang îți permite să traduci textul atașat la elementele tale media, de exemplu titlul, textul alternativ, textul asociat, subtitrarea sau descrierea."
+
+#: src/modules/wizard/view-wizard-step-media.php:20
+msgid "When you translate a media, the file is not duplicated on your disk, however you will see one entry per language in the media library."
+msgstr "Când traduci un element media, fișierul nu va fi duplicat pe discul tău, dar vei vedea o intrare pentru fiecare limbă în Biblioteca Media."
+
+#: src/modules/wizard/view-wizard-step-media.php:21
+msgid "When you want to insert media in a post, only the media in the language of the current post will be displayed."
+msgstr "Când vrei să inserezi elemente media într-un articol, vor fi afișate numai elementele media în limba articolului curent."
+
+#: src/modules/wizard/view-wizard-step-media.php:24
+msgid "You must activate media translation if you want to translate the title, the alternative text, the caption, or the description. Otherwise you can safely deactivate it."
+msgstr "Trebuie să activezi traducerea elementelor media dacă vrei să traduci titlul, textul alternativ, textul asociat, subtitrarea sau descrierea. Dacă nu, poți dezactiva traducerea în siguranță."
+
+#: src/modules/wizard/view-wizard-step-media.php:41
+msgid "Allow Polylang to translate media"
+msgstr "Permite-i modulului Polylang să traducă elementele media"
+
+#. translators: %s is the name of Polylang Business Pack product
+#: src/modules/wizard/view-wizard-step-last.php:88
+msgid "We have noticed that you are using Polylang with WooCommerce. To ensure a better compatibility, we recommend you use %s which includes both Polylang Pro and Polylang For WooCommerce."
+msgstr "Am observat că folosești Polylang cu WooCommerce. Pentru o compatibilitate mai bună, recomandăm să folosești %s care include atât Polylang Pro cât și Polylang For WooCommerce."
+
+#: src/modules/wizard/view-wizard-step-home-page.php:43
+msgid "After the pages is created, it is up to you to put the translated content in each page linked to each language."
+msgstr "După ce paginile sunt create, tu trebuie să pui conținutul tradus în fiecare pagină pentru fiecare limbă."
+
+#: src/modules/wizard/view-wizard-step-home-page.php:87
+msgid "We are going to prepare this page in"
+msgstr "Vom pregăti această pagină în"
+
+#: src/modules/wizard/view-wizard-step-last.php:67
+msgid "Thank you for activating Polylang. If you want more advanced features - duplication, synchronization, REST API support, integration with other plugins, etc. - or further help provided by our Premium support, we recommend you upgrade to Polylang Pro."
+msgstr "Îți mulțumim că ai activat Polylang. Dacă vrei să beneficiezi de funcționalități avansate - duplicare, sincronizare, suport REST API, integrare cu alte module etc. - sau ajutor suplimentar oferit de suportul nostru Premium, recomandăm să actualizezi la Polylang Pro."
+
+#: src/modules/wizard/view-wizard-step-licenses.php:19
+msgid "Please enter your license key:"
+msgstr "Te rog să introduci cheia de licență:"
+
+#: src/admin/admin-filters.php:143
+msgid "Privacy Policy Page"
+msgstr "Pagină Politică de confidențialitate"
+
+#: src/license.php:297
+msgid "Your license key has been disabled."
+msgstr "Cheia de licență a fost dezactivată."
+
+#. translators: 1: Plugin name 2: Current WordPress version 3: Required
+#. WordPress version
+#: src/install/usable.php:83
+msgid "%1$s has deactivated itself because you are using an old version of WordPress. You are using using WordPress %2$s. %1$s requires at least WordPress %3$s."
+msgstr "%1$s s-a dezactivat singur deoarece folosești o versiune veche de WordPress. Folosești WordPress %2$s. %1$s necesită cel puțin WordPress %3$s."
+
+#. translators: 1: Plugin name 2: Current PHP version 3: Required PHP version
+#: src/install/usable.php:57
+msgid "%1$s has deactivated itself because you are using an old version of PHP. You are using using PHP %2$s. %1$s requires PHP %3$s."
+msgstr "%1$s s-a dezactivat singur deoarece folosești o versiune veche de PHP. Folosești PHP %2$s. %1$s necesită cel puțin PHP %3$s."
+
+#: src/settings/flags.php:159
+msgid "North Macedonia"
+msgstr "Macedonia de Nord"
+
+#: src/settings/settings-module.php:348
+msgid "To enable this feature, you need Polylang Pro."
+msgstr "Pentru a activa această funcționalitate, ai nevoie de Polylang Pro."
+
+#: src/admin/admin-classic-editor.php:378
+msgid "If you attempt to modify them anyway, your changes will not be saved."
+msgstr "Oricum, dacă încerci să le modifici, modificările nu vor fi salvate."
+
+#: src/admin/admin-classic-editor.php:376
+msgid "Some taxonomies or metadata may be synchronized with existing translations that you are not allowed to modify."
+msgstr "Unele taxonomii sau metadate pot fi sincronizate cu traducerile existente pe care nu ai voie să le modifici."
+
+#. translators: %s is a comma separated list of native language names
+#: src/admin/admin-static-pages.php:154
+msgid "You must translate your static front page in %s."
+msgstr "Trebuie să traduci pagina din față statică în %s."
+
+#. translators: %1$s and %2$s are Polylang version numbers
+#: src/install/upgrade.php:93
+msgid "Before upgrading to %2$s, please upgrade to %1$s."
+msgstr "Înainte de a actualiza la %2$s, te rog actualizează la %1$s."
+
+#. translators: %1$s is link start tag, %2$s is link end tag.
+#: src/admin/admin-notices.php:243
+msgid "We have noticed that you are using Polylang with WooCommerce. To ensure compatibility, we recommend you use %1$sPolylang for WooCommerce%2$s."
+msgstr "Am observat că folosești Polylang cu WooCommerce. Pentru a asigura compatibilitatea, îți recomandăm să folosești %1$sPolylang pentru WooCommerce%2$s."
+
+#. translators: %1$s is link start tag, %2$s is link end tag.
+#: src/admin/admin-notices.php:268
+msgid "We have noticed that you have been using Polylang for some time. We hope you love it, and we would really appreciate it if you would %1$sgive us a 5 stars rating%2$s."
+msgstr "Am observat că folosești Polylang de ceva timp. Sperăm că îți place și am aprecia cu adevărat dacă ne %1$sacorzi o evaluare de 5 stele%2$s."
+
+#. translators: %1$s is a date, %2$s is link start tag, %3$s is link end tag.
+#: src/license.php:345
+msgid "Your license key will expire soon! Precisely, it will expire on %1$s. %2$sRenew your license key today!%3$s"
+msgstr "Cheia de licență va expira în curând! Mai exact, va expira pe %1$s. %2$sReînnoiește-ți cheia de licență azi!%3$s"
+
+#. Author of the plugin
+#: polylang.php
+msgid "WP SYNTEX"
+msgstr "WP SYNTEX"
+
+#. translators: accessibility text
+#: src/admin/admin-notices.php:224 src/modules/wizard/wizard.php:383
+#: src/modules/wizard/wizard.php:484 src/modules/wizard/wizard.php:675
+#: src/settings/settings.php:318
+msgid "Dismiss this notice."
+msgstr "Ignoră această notificare."
+
+#: src/filters.php:360
+msgid "User"
+msgstr "Utilizator"
+
+#. translators: %s is a language native name
+#: src/filters.php:351
+msgid "User description - %s"
+msgstr "Descriere utilizator - %s"
+
+#: src/filters.php:327
+msgid "Translated user descriptions"
+msgstr "Descrieri utilizatori traduse"
+
+#: src/settings/flags.php:234
+msgid "Tibet"
+msgstr "Tibet"
+
+#: src/install/plugin-updater.php:574
+msgid "Error"
+msgstr "Eroare"
+
+#: src/modules/share-slug/settings-preview-share-slug.php:38
+msgid "Share slugs"
+msgstr "Partajare descriptori"
+
+#: src/modules/translate-slugs/settings-preview-translate-slugs.php:38
+msgid "Translate slugs"
+msgstr "Traducere descriptori"
+
+#. translators: %1$s is a date, %2$s is link start tag, %3$s is link end tag.
+#: src/license.php:288
+msgid "Your license key expired on %1$s. Please %2$srenew your license key%3$s."
+msgstr "Cheia ta de licență a expirat la %1$s. Te rog %2$sreînnoiește-ți cheia de licență%3$s."
+
+#: src/settings/settings-licenses.php:38
+msgid "License keys"
+msgstr "Chei de licență"
+
+#. translators: %1$s is a product name, %2$s is link start tag, %3$s is link
+#. end tag.
+#: src/license.php:313
+msgid "Your %1$s license key is not active for this URL. Please %2$svisit your account page%3$s to manage your license key URLs."
+msgstr "Cheia ta de licență %1$s nu este activă pentru acest URL. Te rog %2$saccesează pagina contului%3$s pentru a-ți gestiona URL-urile cheii de licență."
+
+#. translators: %s is a product name
+#: src/license.php:322
+msgid "This is not a %s license key."
+msgstr "Aceasta nu este o cheia de licență %s."
+
+#: src/license.php:340
+msgid "The license key never expires."
+msgstr "Cheia de licență nu expiră niciodată."
+
+#. translators: %s is a date
+#: src/license.php:353
+msgid "Your license key expires on %s."
+msgstr "Cheia ta de licență expiră pe %s."
+
+#: src/settings/settings-module.php:350
+msgid "Upgrade now."
+msgstr "Actualizează acum."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: polylang.php
+msgid "https://polylang.pro"
+msgstr "https://polylang.pro"
+
+#. translators: %1$s is link start tag, %2$s is link end tag.
+#: src/settings/view-about.php:23
+msgid "Support and extra features are available to %1$sPolylang Pro%2$s users."
+msgstr "Suportul și funcționalitățile suplimentare sunt disponibile pentru utilizatorii %1$sPolylang Pro%2$s."
+
+#. translators: %1$s is link start tag, %2$s is link end tag
+#: src/license.php:328
+msgid "Your license key has reached its activation limit. %1$sView possible upgrades%2$s now."
+msgstr "Cheia ta de licență a ajuns la limita de activare. %1$sVezi actualizările posibile%2$s acum."
+
+#. translators: %1$s is link start tag, %2$s is link end tag.
+#: src/license.php:303
+msgid "Invalid license. Please %1$svisit your account page%2$s and verify it."
+msgstr "Licență invalidă. Te rog %1$svizitează pagina contului tău%2$s și verific-o."
+
+#: src/settings/settings-licenses.php:39
+msgid "Manage licenses for Polylang Pro and add-ons."
+msgstr "Administrează licențele pentru Polylang Pro și suplimentele."
+
+#: src/modules/translate-slugs/settings-preview-translate-slugs.php:54
+msgid "Allows to translate custom post types and taxonomies slugs in URLs."
+msgstr "Îți permite să traduci descriptorii pentru tipuri de articol personalizat și taxonomii în URL-uri."
+
+#: src/modules/share-slug/settings-preview-share-slug.php:54
+msgid "Allows to share the same URL slug across languages for posts and terms."
+msgstr "Îți permite să partajezi același descriptor pentru URL, în mai multe limbi, pentru articole și termeni."
+
+#: src/install/plugin-updater.php:574
+msgid "You do not have permission to install plugin updates"
+msgstr "Nu ai permisiunea să instalezi actualizări pentru module"
+
+#. translators: Post calendar label. %s: Date.
+#: src/widget-calendar.php:292
+msgid "Posts published on %s"
+msgstr "Articole publicate în %s"
+
+#: src/widget-calendar.php:290
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "j F Y"
+
+#. translators: accessibility text
+#: src/settings/table-string.php:362
+msgid "Filter by group"
+msgstr "Sortează după grup"
+
+#: src/settings/view-tab-lang.php:140
+msgid "Choose a flag for the language."
+msgstr "Alege un steag pentru limbă."
+
+#. translators:  accessibility text, %s is a string potentially in any language
+#: src/settings/table-string.php:105
+msgid "Select %s"
+msgstr "Selectează %s"
+
+#: src/settings/table-settings.php:149
+msgid "Description"
+msgstr "Descriere"
+
+#: src/settings/table-settings.php:148
+msgid "Module"
+msgstr "Extensie"
+
+#: src/settings/settings-module.php:170
+msgid "Save Changes"
+msgstr "Salvază modificările"
+
+#: src/settings/settings-module.php:169 js/build/block-editor.js:160
+#: js/build/classic-editor.js:79
+msgid "Cancel"
+msgstr "Anulează"
+
+#: src/settings/table-languages.php:93 src/settings/table-languages.php:205
+msgid "Edit this language"
+msgstr "Editează această limbă"
+
+#: src/settings/table-languages.php:211
+msgid "Delete this language and all its associated data"
+msgstr "Șterge această limbă și informațiile asociate acesteia."
+
+#: src/settings/settings-url.php:39
+msgid "Decide how your URLs will look like."
+msgstr "Decide cum vor arăta URL-urile tale."
+
+#. translators: %s is a native language name.
+#: src/Options/Business/Domains.php:123
+msgid "Please enter a valid URL for %s."
+msgstr "Te rog introdu un URL valid pentru %s."
+
+#. translators: %s is a URL.
+#: src/Options/Business/Domains.php:154
+msgid "Polylang was unable to access the %s URL. Please check that the URL is valid."
+msgstr "Polylang nu a putut accesa URL-ul %s. Te rog verifică dacă URL-ul este valid."
+
+#: src/settings/settings.php:336
+msgid "You can set them all to the default language."
+msgstr "Le poți seta pe toate la limba implicită."
+
+#: src/settings/table-languages.php:114
+msgid "Select as default language"
+msgstr "Alege-o ca limbă implicită"
+
+#. translators: accessibility text, %s is a native language name
+#: src/settings/table-languages.php:117
+msgid "Choose %s as default language"
+msgstr "Alege %s ca limbă implicită"
+
+#: src/modules/wizard/view-wizard-step-untranslated-contents.php:18
+#: src/settings/settings.php:334
+msgid "There are posts, pages, categories or tags without language."
+msgstr "Sunt articole, pagini, categorii sau etichete fără limbă."
+
+#: src/settings/settings-module.php:165
+msgid "Deactivated"
+msgstr "Dezactivat"
+
+#: src/settings/settings-module.php:160
+msgid "Activate this module"
+msgstr "Activează această extensie"
+
+#: src/settings/flags.php:265
+msgid "Zambia"
+msgstr "Zambia"
+
+#: src/settings/flags.php:266
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: src/settings/settings-cpt.php:59
+msgid "Custom post types and Taxonomies"
+msgstr "Tipuri de articole și taxonomii personalizate"
+
+#: src/license.php:337 src/settings/settings-module.php:156
+msgid "Deactivate"
+msgstr "Dezactivează"
+
+#: src/settings/settings-module.php:154
+msgid "Deactivate this module"
+msgstr "Dezactivează această extensie"
+
+#: src/settings/settings-module.php:148
+msgid "Configure this module"
+msgstr "Configurează această extensie"
+
+#: src/settings/settings-cpt.php:60
+msgid "Activate languages and translations management for the custom post types and the taxonomies."
+msgstr "Activează managementul limbilor și traducerilor pentru tipuri de articol personalizat și taxonomii personalizate."
+
+#: src/settings/flags.php:262
+msgid "Yemen"
+msgstr "Yemen"
+
+#: src/settings/flags.php:264
+msgid "South Africa"
+msgstr "Africa de Sud"
+
+#: src/settings/flags.php:263
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: src/settings/flags.php:258
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: src/settings/flags.php:259
+msgid "Wales"
+msgstr "Țara Galilor"
+
+#: src/settings/flags.php:261
+msgid "Western Samoa"
+msgstr "Samoa de Vest"
+
+#: src/settings/flags.php:260
+msgid "Wallis and Futuna"
+msgstr "Wallis și Futuna"
+
+#: src/settings/flags.php:253
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: src/settings/flags.php:254
+msgid "Veneto"
+msgstr "Veneția"
+
+#: src/settings/flags.php:257
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: src/settings/flags.php:255
+msgid "British Virgin Islands"
+msgstr "Insulele Virgine Britanice"
+
+#: src/settings/flags.php:256
+msgid "United States Virgin Islands"
+msgstr "Insulele Virgine Americane"
+
+#: src/settings/flags.php:252
+msgid "Saint Vincent and the Grenadines"
+msgstr "Sfântul Vicențiu și Grenadinele"
+
+#: src/settings/flags.php:249
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: src/settings/flags.php:250
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+#: src/settings/flags.php:251
+msgid "Vatican"
+msgstr "Vatican"
+
+#: src/settings/flags.php:246
+msgid "Ukraine"
+msgstr "Ucraina"
+
+#: src/settings/flags.php:247
+msgid "Uganda"
+msgstr "Uganda"
+
+#: src/settings/flags.php:248
+msgid "United States"
+msgstr "Statele Unite ale Americii"
+
+#: src/settings/flags.php:243
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: src/settings/flags.php:244
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: src/settings/flags.php:245
+msgid "Tanzania"
+msgstr "Tanzania"
+
+#: src/settings/flags.php:242
+msgid "Trinidad and Tobago"
+msgstr "Trinidad și Tobago"
+
+#: src/settings/flags.php:239
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: src/settings/flags.php:240
+msgid "Tonga"
+msgstr "Tonga"
+
+#: src/settings/flags.php:241
+msgid "Turkey"
+msgstr "Turcia"
+
+#: src/settings/flags.php:235
+msgid "Tajikistan"
+msgstr "Tadjikistan"
+
+#: src/settings/flags.php:236
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: src/settings/flags.php:238
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: src/settings/flags.php:237
+msgid "Timor-Leste"
+msgstr "Timorul de Est"
+
+#: src/settings/flags.php:232
+msgid "Togo"
+msgstr "Togo"
+
+#: src/settings/flags.php:230
+msgid "Chad"
+msgstr "Ciad"
+
+#: src/settings/flags.php:233
+msgid "Thailand"
+msgstr "Thailanda"
+
+#: src/settings/flags.php:231
+msgid "French Southern Territories"
+msgstr "Teritoriile australe și antarctice franceze"
+
+#: src/settings/flags.php:227
+msgid "Syria"
+msgstr "Siria"
+
+#: src/settings/flags.php:228
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: src/settings/flags.php:229
+msgid "Turks and Caicos Islands"
+msgstr "Insulele Turks și Caicos"
+
+#: src/settings/flags.php:224
+msgid "South Sudan"
+msgstr "Sudanul de Sud"
+
+#: src/settings/flags.php:223
+msgid "Suriname"
+msgstr "Surinam"
+
+#: src/settings/flags.php:225
+msgid "São Tomé and Príncipe"
+msgstr "São Tomé și Príncipe"
+
+#: src/settings/flags.php:226
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: src/settings/flags.php:221
+msgid "Senegal"
+msgstr "Senegal"
+
+#: src/settings/flags.php:222
+msgid "Somalia"
+msgstr "Somalia"
+
+#: src/settings/flags.php:217
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: src/settings/flags.php:219
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: src/settings/flags.php:220
+msgid "San Marino"
+msgstr "San Marino"
+
+#: src/settings/flags.php:216
+msgid "Saint Helena"
+msgstr "Sfânta Elena"
+
+#: src/settings/flags.php:218
+msgid "Slovakia"
+msgstr "Slovacia"
+
+#: src/settings/flags.php:215
+msgid "Singapore"
+msgstr "Singapore"
+
+#: src/settings/flags.php:214
+msgid "Sweden"
+msgstr "Suedia"
+
+#: src/settings/flags.php:211
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: src/settings/flags.php:212
+msgid "Scotland"
+msgstr "Scoția"
+
+#: src/settings/flags.php:213
+msgid "Sudan"
+msgstr "Sudan"
+
+#: src/settings/flags.php:210
+msgid "Solomon Islands"
+msgstr "Insulele Solomon"
+
+#: src/settings/flags.php:207
+msgid "Russia"
+msgstr "Rusia"
+
+#: src/settings/flags.php:209
+msgid "Saudi Arabia"
+msgstr "Arabia Saudită"
+
+#: src/settings/flags.php:208
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: src/settings/flags.php:204
+msgid "Quebec"
+msgstr "Quebec"
+
+#: src/settings/flags.php:206
+msgid "Serbia"
+msgstr "Serbia"
+
+#: src/settings/flags.php:205
+msgid "Romania"
+msgstr "România"
+
+#: src/settings/flags.php:201
+msgid "Belau"
+msgstr "Belau"
+
+#: src/settings/flags.php:202
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: src/settings/flags.php:203
+msgid "Qatar"
+msgstr "Qatar"
+
+#: src/settings/flags.php:200
+msgid "Portugal"
+msgstr "Portugalia"
+
+#: src/settings/flags.php:199
+msgid "Palestinian Territory"
+msgstr "Teritoriile Palestiniene"
+
+#: src/settings/flags.php:196
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre și Miquelon"
+
+#: src/settings/flags.php:198
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: src/settings/flags.php:197
+msgid "Pitcairn"
+msgstr "Insulele Pitcairn"
+
+#: src/settings/flags.php:194
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: src/settings/flags.php:193
+msgid "Philippines"
+msgstr "Filipine"
+
+#: src/settings/flags.php:195
+msgid "Poland"
+msgstr "Polonia"
+
+#: src/settings/flags.php:190
+msgid "Peru"
+msgstr "Peru"
+
+#: src/settings/flags.php:191
+msgid "French Polynesia"
+msgstr "Polinezia Franceză"
+
+#: src/settings/flags.php:192
+msgid "Papua New Guinea"
+msgstr "Papua Noua Guinee"
+
+#: src/settings/flags.php:186
+msgid "New Zealand"
+msgstr "Noua Zeelandă"
+
+#: src/settings/flags.php:187
+msgid "Occitania"
+msgstr "Occitania"
+
+#: src/settings/flags.php:188
+msgid "Oman"
+msgstr "Oman"
+
+#: src/settings/flags.php:189
+msgid "Panama"
+msgstr "Panama"
+
+#: src/settings/flags.php:184
+msgid "Nauru"
+msgstr "Nauru"
+
+#: src/settings/flags.php:185
+msgid "Niue"
+msgstr "Niue"
+
+#: src/settings/flags.php:183
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/settings/flags.php:182
+msgid "Norway"
+msgstr "Norvegia"
+
+#: src/settings/flags.php:181
+msgid "Netherlands"
+msgstr "Țările de Jos"
+
+#: src/settings/flags.php:179
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: src/settings/flags.php:180
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: src/settings/flags.php:178
+msgid "Norfolk Island"
+msgstr "Insula Norfolk"
+
+#: src/settings/flags.php:177
+msgid "Niger"
+msgstr "Niger"
+
+#: src/settings/flags.php:175
+msgid "Namibia"
+msgstr "Namibia"
+
+#: src/settings/flags.php:176
+msgid "New Caledonia"
+msgstr "Noua Caledonie"
+
+#: src/settings/flags.php:174
+msgid "Mozambique"
+msgstr "Mozambic"
+
+#: src/settings/flags.php:173
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: src/settings/flags.php:171
+msgid "Malawi"
+msgstr "Malawi"
+
+#: src/settings/flags.php:172
+msgid "Mexico"
+msgstr "Mexic"
+
+#: src/settings/flags.php:170
+msgid "Maldives"
+msgstr "Maldive"
+
+#: src/settings/flags.php:169
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: src/settings/flags.php:166
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: src/settings/flags.php:167
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: src/settings/flags.php:168
+msgid "Malta"
+msgstr "Malta"
+
+#: src/settings/flags.php:165
+msgid "Martinique"
+msgstr "Martinica"
+
+#: src/settings/flags.php:164
+msgid "Northern Mariana Islands"
+msgstr "Comunitatea Insulelor Mariane de Nord"
+
+#: src/settings/flags.php:161
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: src/settings/flags.php:162
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: src/settings/flags.php:163
+msgid "Macao"
+msgstr "Macao"
+
+#: src/settings/flags.php:160
+msgid "Mali"
+msgstr "Mali"
+
+#: src/settings/flags.php:158
+msgid "Marshall Islands"
+msgstr "Insulele Marshall"
+
+#: src/settings/flags.php:157
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: src/settings/flags.php:156
+msgid "Montenegro"
+msgstr "Muntenegru"
+
+#: src/settings/flags.php:155
+msgid "Moldova"
+msgstr "Republica Moldova"
+
+#: src/settings/flags.php:152
+msgid "Libya"
+msgstr "Libia"
+
+#: src/settings/flags.php:154
+msgid "Monaco"
+msgstr "Monaco"
+
+#: src/settings/flags.php:153
+msgid "Morocco"
+msgstr "Maroc"
+
+#: src/settings/flags.php:150
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: src/settings/flags.php:151
+msgid "Latvia"
+msgstr "Letonia"
+
+#: src/settings/flags.php:147
+msgid "Liberia"
+msgstr "Liberia"
+
+#: src/settings/flags.php:149
+msgid "Lithuania"
+msgstr "Lituania"
+
+#: src/settings/flags.php:148
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: src/settings/flags.php:145
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: src/settings/flags.php:146
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: src/settings/flags.php:144
+msgid "Saint Lucia"
+msgstr "Sfânta Lucia"
+
+#: src/settings/flags.php:142
+msgid "Laos"
+msgstr "Laos"
+
+#: src/settings/flags.php:143
+msgid "Lebanon"
+msgstr "Liban"
+
+#: src/settings/flags.php:141
+msgid "Kazakhstan"
+msgstr "Kazahstan"
+
+#: src/settings/flags.php:138
+msgid "Kurdistan"
+msgstr "Kurdistan"
+
+#: src/settings/flags.php:139
+msgid "Kuwait"
+msgstr "Kuweit"
+
+#: src/settings/flags.php:140
+msgid "Cayman Islands"
+msgstr "Insulele Cayman"
+
+#: src/settings/flags.php:136
+msgid "North Korea"
+msgstr "Coreea de Nord"
+
+#: src/settings/flags.php:137
+msgid "South Korea"
+msgstr "Coreea de Sud"
+
+#: src/settings/flags.php:135
+msgid "Saint Kitts and Nevis"
+msgstr "Sfântul Kitts și Nevis"
+
+#: src/settings/flags.php:133
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: src/settings/flags.php:134
+msgid "Comoros"
+msgstr "Comore"
+
+#: src/settings/flags.php:132
+msgid "Cambodia"
+msgstr "Cambodgia"
+
+#: src/settings/flags.php:130
+msgid "Kenya"
+msgstr "Kenya"
+
+#: src/settings/flags.php:131
+msgid "Kyrgyzstan"
+msgstr "Kârgâzstan"
+
+#: src/settings/flags.php:128
+msgid "Jordan"
+msgstr "Iordania"
+
+#: src/settings/flags.php:129
+msgid "Japan"
+msgstr "Japonia"
+
+#: src/settings/flags.php:127
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: src/settings/flags.php:123
+msgid "Iraq"
+msgstr "Irak"
+
+#: src/settings/flags.php:124
+msgid "Iran"
+msgstr "Iran"
+
+#: src/settings/flags.php:126
+msgid "Italy"
+msgstr "Italia"
+
+#: src/settings/flags.php:125
+msgid "Iceland"
+msgstr "Islanda"
+
+#: src/settings/flags.php:120
+msgid "Israel"
+msgstr "Israel"
+
+#: src/settings/flags.php:121
+msgid "India"
+msgstr "India"
+
+#: src/settings/flags.php:122
+msgid "British Indian Ocean Territory"
+msgstr "Teritoriul Britanic din Oceanul Indian"
+
+#: src/settings/flags.php:116
+msgid "Haiti"
+msgstr "Haiti"
+
+#: src/settings/flags.php:118
+msgid "Indonesia"
+msgstr "Indonezia"
+
+#: src/settings/flags.php:119
+msgid "Republic of Ireland"
+msgstr "Irlanda"
+
+#: src/settings/flags.php:117
+msgid "Hungary"
+msgstr "Ungaria"
+
+#: src/settings/flags.php:114
+msgid "Honduras"
+msgstr "Honduras"
+
+#: src/settings/flags.php:115
+msgid "Croatia"
+msgstr "Croația"
+
+#: src/settings/flags.php:113
+msgid "Heard Island and McDonald Islands"
+msgstr "Insula Heard și Insulele McDonald"
+
+#: src/settings/flags.php:112
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: src/settings/flags.php:111
+msgid "Guyana"
+msgstr "Guyana"
+
+#: src/settings/flags.php:110
+msgid "Guinea-Bissau"
+msgstr "Guineea-Bissau"
+
+#: src/settings/flags.php:109
+msgid "Guam"
+msgstr "Guam"
+
+#: src/settings/flags.php:108
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: src/settings/flags.php:107
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Georgia de Sud și Insulele Sandwich de Sud"
+
+#: src/settings/flags.php:105
+msgid "Equatorial Guinea"
+msgstr "Guineea Ecuatorială"
+
+#: src/settings/flags.php:106
+msgid "Greece"
+msgstr "Grecia"
+
+#: src/settings/flags.php:102
+msgid "Gambia"
+msgstr "Gambia"
+
+#: src/settings/flags.php:103
+msgid "Guinea"
+msgstr "Guineea"
+
+#: src/settings/flags.php:104
+msgid "Guadeloupe"
+msgstr "Guadelupa"
+
+#: src/settings/flags.php:100
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: src/settings/flags.php:101
+msgid "Greenland"
+msgstr "Groenlanda"
+
+#: src/settings/flags.php:98
+msgid "Georgia"
+msgstr "Georgia"
+
+#: src/settings/flags.php:99
+msgid "Ghana"
+msgstr "Ghana"
+
+#: src/settings/flags.php:95
+msgid "Galicia"
+msgstr "Galicia"
+
+#: src/settings/flags.php:97
+msgid "Grenada"
+msgstr "Grenada"
+
+#: src/settings/flags.php:96
+msgid "United Kingdom"
+msgstr "Regatul Unit"
+
+#: src/settings/flags.php:94
+msgid "Gabon"
+msgstr "Gabon"
+
+#: src/settings/flags.php:93
+msgid "France"
+msgstr "Franța"
+
+#: src/settings/flags.php:92
+msgid "Faroe Islands"
+msgstr "Insulele Feroe"
+
+#: src/settings/flags.php:90
+msgid "Falkland Islands"
+msgstr "Insulele Falkland"
+
+#: src/settings/flags.php:91
+msgid "Micronesia"
+msgstr "Statele Federate ale Microneziei"
+
+#: src/settings/flags.php:86
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: src/settings/flags.php:87
+msgid "Ethiopia"
+msgstr "Etiopia"
+
+#: src/settings/flags.php:89
+msgid "Fiji"
+msgstr "Fiji"
+
+#: src/settings/flags.php:88
+msgid "Finland"
+msgstr "Finlanda"
+
+#: src/settings/flags.php:83
+msgid "England"
+msgstr "Anglia"
+
+#: src/settings/flags.php:84
+msgid "Eritrea"
+msgstr "Eritreea"
+
+#: src/settings/flags.php:85
+msgid "Spain"
+msgstr "Spania"
+
+#: src/settings/flags.php:80
+msgid "Estonia"
+msgstr "Estonia"
+
+#: src/settings/flags.php:81
+msgid "Egypt"
+msgstr "Egipt"
+
+#: src/settings/flags.php:82
+msgid "Western Sahara"
+msgstr "Sahara de Vest"
+
+#: src/settings/flags.php:77
+msgid "Dominican Republic"
+msgstr "Republica Dominicană"
+
+#: src/settings/flags.php:78
+msgid "Algeria"
+msgstr "Algeria"
+
+#: src/settings/flags.php:79
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: src/settings/flags.php:76
+msgid "Dominica"
+msgstr "Dominica"
+
+#: src/settings/flags.php:75
+msgid "Denmark"
+msgstr "Danemarca"
+
+#: src/settings/flags.php:74
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: src/settings/flags.php:73
+msgid "Germany"
+msgstr "Germania"
+
+#: src/settings/flags.php:71
+msgid "Cyprus"
+msgstr "Cipru"
+
+#: src/settings/flags.php:72
+msgid "Czech Republic"
+msgstr "Cehia"
+
+#: src/settings/flags.php:70
+msgid "Christmas Island"
+msgstr "Insula Christmas"
+
+#: src/settings/flags.php:68
+msgid "Cuba"
+msgstr "Cuba"
+
+#: src/settings/flags.php:69
+msgid "Cape Verde"
+msgstr "Cabo Verde"
+
+#: src/settings/flags.php:65
+msgid "China"
+msgstr "China"
+
+#: src/settings/flags.php:67
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: src/settings/flags.php:66
+msgid "Colombia"
+msgstr "Columbia"
+
+#: src/settings/flags.php:64
+msgid "Cameroon"
+msgstr "Camerun"
+
+#: src/settings/flags.php:63
+msgid "Chile"
+msgstr "Chile"
+
+#: src/settings/flags.php:61
+msgid "Ivory Coast"
+msgstr "Coasta de Fildeș"
+
+#: src/settings/flags.php:62
+msgid "Cook Islands"
+msgstr "Insulele Cook"
+
+#: src/settings/flags.php:58
+msgid "Central African Republic"
+msgstr "Republica Centrafricană"
+
+#: src/settings/flags.php:60
+msgid "Switzerland"
+msgstr "Elveția"
+
+#: src/settings/flags.php:59
+msgid "Congo"
+msgstr "Republica Congo"
+
+#: src/settings/flags.php:57
+msgid "Democratic Republic of the Congo"
+msgstr "Republica Democrată Congo"
+
+#: src/settings/flags.php:54
+msgid "Canada"
+msgstr "Canada"
+
+#: src/settings/flags.php:55
+msgid "Catalonia"
+msgstr "Catalonia"
+
+#: src/settings/flags.php:56
+msgid "Cocos"
+msgstr "Insulele Cocos"
+
+#: src/settings/flags.php:53
+msgid "Belize"
+msgstr "Belize"
+
+#: src/settings/flags.php:52
+msgid "Belarus"
+msgstr "Belarus"
+
+#: src/settings/flags.php:49
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: src/settings/flags.php:51
+msgid "Botswana"
+msgstr "Botswana"
+
+#: src/settings/flags.php:50
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: src/settings/flags.php:47
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: src/settings/flags.php:48
+msgid "Brazil"
+msgstr "Brazilia"
+
+#: src/settings/flags.php:46
+msgid "Brunei"
+msgstr "Brunei"
+
+#: src/settings/flags.php:45
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: src/settings/flags.php:43
+msgid "Burundi"
+msgstr "Burundi"
+
+#: src/settings/flags.php:44
+msgid "Benin"
+msgstr "Benin"
+
+#: src/settings/flags.php:40
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: src/settings/flags.php:41
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: src/settings/flags.php:42
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: src/settings/flags.php:38
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: src/settings/flags.php:39
+msgid "Belgium"
+msgstr "Belgia"
+
+#: src/settings/flags.php:37
+msgid "Barbados"
+msgstr "Barbados"
+
+#: src/settings/flags.php:35
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia și Herțegovina"
+
+#: src/settings/flags.php:36
+msgid "Basque Country"
+msgstr "Ținutul Basc"
+
+#: src/settings/flags.php:34
+msgid "Azerbaijan"
+msgstr "Azerbaidjan"
+
+#: src/settings/flags.php:33
+msgid "Åland Islands"
+msgstr "Insulele Åland"
+
+#: src/settings/flags.php:32
+msgid "Aruba"
+msgstr "Aruba"
+
+#: src/settings/flags.php:31
+msgid "Australia"
+msgstr "Australia"
+
+#: src/settings/flags.php:28
+msgid "Arab league"
+msgstr "Liga Arabă"
+
+#: src/settings/flags.php:30
+msgid "Austria"
+msgstr "Austria"
+
+#: src/settings/flags.php:29
+msgid "American Samoa"
+msgstr "Samoa Americană"
+
+#: src/settings/flags.php:26
+msgid "Angola"
+msgstr "Angola"
+
+#: src/settings/flags.php:27
+msgid "Argentina"
+msgstr "Argentina"
+
+#: src/settings/flags.php:25
+msgid "Netherlands Antilles"
+msgstr "Antilele Olandeze"
+
+#: src/settings/flags.php:23
+msgid "Albania"
+msgstr "Albania"
+
+#: src/settings/flags.php:24
+msgid "Armenia"
+msgstr "Armenia"
+
+#: src/settings/flags.php:22
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: src/settings/flags.php:20
+msgid "Afghanistan"
+msgstr "Afganistan"
+
+#: src/settings/flags.php:21
+msgid "Antigua and Barbuda"
+msgstr "Antigua și Barbuda"
+
+#: src/settings/flags.php:19
+msgid "United Arab Emirates"
+msgstr "Emiratele Arabe Unite"
+
+#: src/settings/flags.php:18
+msgid "Andorra"
+msgstr "Andorra"
+
+#. translators: accessibility text
+#: src/admin/view-translations-post.php:67
+#: src/admin/view-translations-term.php:81
+msgid "Translation"
+msgstr "Traducere"
+
+#: src/admin/admin-static-pages.php:56
+msgid "Posts Page"
+msgstr "Pagină articole"
+
+#: src/admin/admin-static-pages.php:52
+msgid "Front Page"
+msgstr "Pagina din față"
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:232 src/admin/admin-links.php:236
+msgid "Edit the translation in %s"
+msgstr "Editează traducerea în %s"
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:143
+msgid "Add a translation in %s"
+msgstr "Adaugă o traducere în %s"
+
+#: src/Model/Languages.php:1083 src/modules/wizard/wizard.php:499
+msgid "The flag does not exist"
+msgstr "Acest steag nu există"
+
+#. translators: accessibility text, %s is a native language name
+#: src/admin/admin-links.php:229
+msgid "Edit this item in %s"
+msgstr "Editează acest element în %s"
+
+#: src/admin/admin-nav-menu.php:90
+msgid "Add to Menu"
+msgstr "Adaugă în meniu"
+
+#. Plugin Name of the plugin
+#: polylang.php
+msgid "Polylang"
+msgstr "Polylang"
+
+#: src/settings/settings-module.php:164
+msgid "Activated"
+msgstr "Activat"
+
+#: src/settings/settings-module.php:162
+msgid "Activate"
+msgstr "Activează"
+
+#. Description of the plugin
+#: polylang.php
+msgid "Adds multilingual capability to WordPress"
+msgstr "Adaugă capabilități multilingvistice la WordPress"
+
+#: src/switcher.php:50
+msgid "Hides the current language"
+msgstr "Ascunde limba curentă"
+
+#: src/admin/admin-base.php:524 src/admin/admin-base.php:556
+msgid "Filters content by language"
+msgstr "Filtrează conținutul după limbă"
+
+#: src/admin/admin-base.php:672 src/admin/view-translations-media.php:14
+#: src/admin/view-translations-post.php:14
+#: src/admin/view-translations-term.php:18
+#: src/admin/view-translations-term.php:25 src/settings/table-string.php:169
+msgid "Translations"
+msgstr "Traduceri"
+
+#: src/admin/admin-filters-term.php:144 src/admin/admin-filters-term.php:216
+msgid "Sets the language"
+msgstr "Setează limba"
+
+#: src/filters-widgets-options.php:53
+msgid "All languages"
+msgstr "Toate limbile"
+
+#: src/admin/admin-base.php:675 src/admin/admin.php:104
+#: src/settings/settings-module.php:150
+msgid "Settings"
+msgstr "Setări"
+
+#: src/settings/settings.php:113
+msgid "About Polylang"
+msgstr "Despre Polylang"
+
+#: src/Model/Languages.php:1064 src/modules/wizard/wizard.php:497
+msgid "The language code must be unique"
+msgstr "Codul de limbă trebuie să fie unic"
+
+#: src/Model/Languages.php:1071 src/modules/wizard/wizard.php:498
+msgid "The language must have a name"
+msgstr "Limba trebuie să aibă un nume"
+
+#: src/modules/sync/settings-sync.php:103
+msgid "Taxonomies"
+msgstr "Taxonomii"
+
+#: src/modules/sync/settings-sync.php:108
+msgid "Published date"
+msgstr "Data publicării"
+
+#: src/settings/view-tab-lang.php:32
+msgid "Edit language"
+msgstr "Editează limba"
+
+#: src/modules/wizard/view-wizard-step-languages.php:50
+#: src/modules/wizard/view-wizard-step-languages.php:54
+#: src/settings/view-tab-lang.php:32 src/settings/view-tab-lang.php:172
+msgid "Add new language"
+msgstr "Adaugă o limbă nouă"
+
+#: src/modules/Blocks/Language_Switcher/Standard/Block.php:60
+#: src/settings/view-tab-lang.php:53 src/widget-languages.php:88
+msgid "Choose a language"
+msgstr "Alege o limbă"
+
+#: src/settings/view-tab-lang.php:120
+msgid "Choose the text direction for the language"
+msgstr "Alege direcția textului pentru limbă"
+
+#: src/settings/view-tab-strings.php:16
+msgid "Search translations"
+msgstr "Caută traduceri"
+
+#: src/modules/wizard/view-wizard-step-media.php:17
+#: src/modules/wizard/wizard.php:620 src/settings/settings-media.php:31
+msgid "Media"
+msgstr "Media"
+
+#: src/modules/sync/settings-sync.php:31
+msgid "Synchronization"
+msgstr "Sincronizare"
+
+#: src/settings/table-languages.php:207
+msgid "Edit"
+msgstr "Editează"
+
+#: src/settings/table-languages.php:214 src/settings/table-string.php:328
+msgid "Delete"
+msgstr "Șterge"
+
+#: src/settings/table-languages.php:151
+msgid "Code"
+msgstr "Cod"
+
+#: src/settings/table-languages.php:154 src/settings/view-tab-lang.php:124
+msgid "Flag"
+msgstr "Steag"
+
+#: src/settings/table-string.php:167
+msgid "Name"
+msgstr "Nume"
+
+#: src/settings/table-string.php:168
+msgid "Group"
+msgstr "Grup"
+
+#: src/settings/table-string.php:368
+msgid "View all groups"
+msgstr "Vezi toate grupurile"
+
+#: src/Model/Languages.php:1058 src/modules/wizard/wizard.php:496
+msgid "The language code contains invalid characters"
+msgstr "Codul de limbă conține caractere invalide"
+
+#: src/settings/settings-url.php:83 src/settings/settings-url.php:94
+#: src/settings/settings-url.php:166 src/settings/settings-url.php:181
+msgid "Example:"
+msgstr "Exemplu:"
+
+#: src/modules/wizard/wizard.php:494
+msgid "Impossible to add the language."
+msgstr "Imposibil de adăugat limba."
+
+#: src/settings/table-string.php:446
+msgid "Translations updated."
+msgstr "Traduceri actualizate."
+
+#: src/switcher.php:51
+msgid "Hides languages with no translation"
+msgstr "Ascunde limbile fără traduceri"
+
+#: src/switcher.php:49
+msgid "Forces link to front page"
+msgstr "Forțează legătura către prima pagină"
+
+#: src/settings/settings-licenses.php:43
+msgid "Close"
+msgstr "Închide"
+
+#: src/admin/admin-classic-editor.php:258
+msgid "(no parent)"
+msgstr "(fără părinte)"
+
+#. translators: Hidden accessibility text.
+#: src/frontend/frontend-filters-search.php:122
+#: src/frontend/frontend-filters-search.php:124
+msgid "Search"
+msgstr "Caută"
+
+#: src/default-term.php:137
+msgid "Uncategorized"
+msgstr "Fără categorie"
+
+#. translators: Calendar caption: 1: Month name, 2: 4-digit year.
+#: src/widget-calendar.php:219
+msgctxt "calendar caption"
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#: src/switcher.php:48
+msgid "Displays flags"
+msgstr "Afișează steaguri"
+
+#: src/switcher.php:47
+msgid "Displays language names"
+msgstr "Afișează numele limbilor"
+
+#: src/admin/admin-base.php:147 src/admin/admin-base.php:667
+#: src/admin/admin-classic-editor.php:79 src/admin/admin-nav-menu.php:80
+#: src/admin/admin-nav-menu.php:83 src/admin/admin-nav-menu.php:116
+#: src/modules/Blocks/Language_Switcher/Navigation/Block.php:241
+#: src/modules/wizard/view-wizard-step-languages.php:28
+#: src/modules/wizard/wizard.php:510 src/nav-menu.php:72
+#: src/settings/settings.php:123
+msgid "Languages"
+msgstr "Limbi"
+
+#: src/modules/sync/settings-sync.php:106
+msgid "Ping status"
+msgstr "Stare ping"
+
+#: src/modules/sync/settings-sync.php:105
+msgid "Comment status"
+msgstr "Stare comentariu"
+
+#: src/modules/sync/settings-sync.php:104
+msgid "Custom fields"
+msgstr "Câmpuri personalizate"
+
+#: src/admin/admin-strings.php:69
+msgid "Widget title"
+msgstr "Titlu piesă"
+
+#: src/settings/settings.php:190
+msgid "The language was created, but the WordPress language file was not downloaded. Please install it manually."
+msgstr "Limba a fost creată, dar fișierul de limbă WordPress nu a fost descărcat. Te rog instalează-l manual."
+
+#: src/filters-widgets-options.php:68
+msgid "The widget is displayed for:"
+msgstr "Piesa este afișată pentru:"
+
+#: src/admin/admin-base.php:515
+msgid "Show all languages"
+msgstr "Arată toate limbile"
+
+#: src/settings/settings-browser.php:34
+msgid "Detect browser language"
+msgstr "Detectează limba navigatorului"
+
+#: src/settings/view-tab-strings.php:21
+msgid "Clean strings translation database"
+msgstr "Curăță baza de date cu șirurile traduse"
+
+#: src/settings/view-tab-lang.php:151
+msgid "Position of the language in the language switcher"
+msgstr "Poziția limbii în comutatorul de limbi"
+
+#: src/settings/view-tab-lang.php:107
+msgid "Text direction"
+msgstr "Direcție text"
+
+#: src/settings/view-tab-lang.php:96
+msgid "Language code"
+msgstr "Cod limbă"
+
+#: src/settings/table-languages.php:150 src/settings/view-tab-lang.php:85
+msgid "Locale"
+msgstr "Locala"
+
+#: src/settings/view-tab-lang.php:70
+msgid "You can choose a language in the list or directly edit it below."
+msgstr "Poți alege o limbă din listă sau s-o editezi direct mai jos."
+
+#: src/modules/sync/settings-sync.php:113
+msgid "Featured image"
+msgstr "Imagine reprezentativă"
+
+#: src/modules/sync/settings-sync.php:112
+msgid "Page order"
+msgstr "Ordine pagini"
+
+#: src/install/upgrade.php:90
+msgid "Polylang has been deactivated because you upgraded from a too old version."
+msgstr "Polylang a fost dezactivat deoarece ai actualizat de la o versiune prea veche."
+
+#: src/widget-languages.php:154
+msgid "Title:"
+msgstr "Titlu:"
+
+#: src/settings/table-string.php:166
+msgid "String"
+msgstr "Șir"
+
+#: src/Options/Business/Hide_Default.php:45 src/settings/settings-url.php:136
+msgid "Hide URL language information for default language"
+msgstr "Ascunde informația de limbă din URL pentru limba implicită"
+
+#: src/settings/settings-url.php:38
+msgid "URL modifications"
+msgstr "Modificări URL"
+
+#: src/settings/settings-url.php:79
+msgid "The language is set from the code in the URL"
+msgstr "Limba e setată din codul din URL"
+
+#: src/admin/admin-strings.php:70
+msgid "Widget text"
+msgstr "Text piesă"
+
+#: src/settings/view-tab-lang.php:103
+msgid "Language code - preferably 2-letters ISO 639-1  (for example: en)"
+msgstr "Codul de limbă - preferabil cel în 2 litere conform ISO 639-1 (de exemplu: ro)"
+
+#: src/settings/settings.php:184
+msgid "Language added."
+msgstr "Limbă adăugată."
+
+#: src/Options/Business/Force_Lang.php:50 src/settings/settings-url.php:90
+msgid "The language is set from the subdomain name in pretty permalinks"
+msgstr "Limba e setată din numele subdomeniului în legăturile permanente drăguțe"
+
+#: src/Options/Business/Force_Lang.php:47 src/settings/settings-url.php:79
+msgid "The language is set from the directory name in pretty permalinks"
+msgstr "Limba e setată din numele directorului în legăturile permanente drăguțe"
+
+#: src/Options/Business/Force_Lang.php:44 src/settings/settings-url.php:62
+msgid "The language is set from content"
+msgstr "Limba e setată din conținut"
+
+#: src/settings/view-tab-strings.php:23
+msgid "Use this to remove unused strings from database, for example after a plugin has been uninstalled."
+msgstr "Folosește asta pentru a înlătura șirurile nefolosite din baza de date, spre exemplu, după dezinstalarea unui modul."
+
+#: src/settings/table-languages.php:213
+msgid "You are about to permanently delete this language. Are you sure?"
+msgstr "Ești pe cale să ștergi permanent această limbă. Ești sigur?"
+
+#: src/modules/sync/settings-sync.php:107
+msgid "Sticky posts"
+msgstr "Articole reprezentative"
+
+#: src/settings/table-languages.php:155
+msgid "Posts"
+msgstr "Articole"
+
+#: src/modules/sync/settings-sync.php:32
+msgid "The synchronization options allow to maintain exact same values (or translations in the case of taxonomies and page parent) of meta content between the translations of a post or page."
+msgstr "Opțiunile de sincronizare permit menținerea exact a acelorași valori (sau traduceri, în cazul taxonomiilor și a paginii părinte) pentru conținutului meta, între traducerile unui articol sau a unei pagini."
+
+#: src/settings/settings-cpt.php:156
+msgid "Activate languages and translations for custom taxonomies."
+msgstr "Activează limbi și traduceri pentru taxonomii personalizate."
+
+#: src/settings/settings-cpt.php:131
+msgid "Custom taxonomies"
+msgstr "Taxonomii personalizate"
+
+#: src/settings/settings-cpt.php:125
+msgid "Activate languages and translations for custom post types."
+msgstr "Activează limbi și traduceri pentru tipuri de articole personalizate."
+
+#: src/admin/admin-filters-term.php:483
+msgid "None"
+msgstr "Niciunul"
+
+#: src/settings/table-string.php:381
+msgid "Filter"
+msgstr "Filtrează"
+
+#: src/integrations/wp-importer/wordpress-importer.php:45
+msgid "Import <strong>posts, pages, comments, custom fields, categories, and tags</strong> from a WordPress export file."
+msgstr "Importă <strong>articole, pagini, comentarii, câmpuri personalizate, categorii și etichete</strong> dintr-un fișier WordPress de export."
+
+#: src/Model/Languages.php:1053 src/modules/wizard/wizard.php:495
+msgid "Enter a valid WordPress locale"
+msgstr "Introdu o locală validă pentru WordPress"
+
+#: src/settings/view-tab-lang.php:92
+msgid "WordPress Locale for the language (for example: en_US). You will need to install the .mo file for this language."
+msgstr "Locala WordPress pentru limbă (de exemplu: ro_RO). Va trebui să instalezi fișierul .mo pentru această limbă."
+
+#: src/settings/table-languages.php:149 src/settings/view-tab-lang.php:74
+msgid "Full name"
+msgstr "Nume complet"
+
+#: src/admin/admin-classic-editor.php:136
+#: src/admin/admin-filters-columns.php:215 src/admin/admin-filters-media.php:79
+#: src/admin/admin-filters-term.php:142 src/admin/admin-filters-term.php:214
+#: src/modules/wizard/view-wizard-step-languages.php:62
+msgid "Language"
+msgstr "Limbă"
+
+#: src/settings/settings.php:143
+msgid "Strings translations"
+msgstr "Traduceri șiruri"
+
+#: src/settings/table-languages.php:153 src/settings/view-tab-lang.php:144
+msgid "Order"
+msgstr "Ordine"
+
+#: src/settings/view-tab-lang.php:112
+msgid "left to right"
+msgstr "de la stânga la dreapta"
+
+#: src/settings/view-tab-lang.php:117
+msgid "right to left"
+msgstr "de la dreapta la stânga"
+
+#: src/Options/Business/Force_Lang.php:53 src/settings/settings-url.php:101
+msgid "The language is set from different domains"
+msgstr "Limba e setată din domenii diferite"
+
+#: src/widget-languages.php:34
+msgid "Displays a language switcher"
+msgstr "Afișează un comutator limbă"
+
+#: src/modules/sync/settings-sync.php:110
+msgid "Page parent"
+msgstr "Părinte pagină"
+
+#: src/settings/settings-cpt.php:100
+msgid "Custom post types"
+msgstr "Tipuri de articol personalizat"
+
+#. translators: %1$s example url when the option is active. %2$s example url
+#. when the option is not active
+#: src/settings/settings-url.php:211
+msgid "Example: %1$s instead of %2$s"
+msgstr "Exemplu: %1$s în loc de %2$s"
+
+#: src/settings/view-tab-lang.php:172
+msgid "Update"
+msgstr "Actualizează"
+
+#: src/settings/settings-url.php:66
+msgid "Posts, pages, categories and tags URLs will not be modified."
+msgstr "URL-urile articolelor, paginilor, categoriilor și etichetelor nu vor fi modificate."
+
+#: src/switcher.php:46
+msgid "Displays as a dropdown"
+msgstr "Afișează ca o listă derulantă"
+
+#: src/admin/admin-filters-columns.php:202
+msgid "&mdash; No Change &mdash;"
+msgstr "- nicio modificare -"
+
+#. translators: %1$s is link start tag, %2$s is link end tag.
+#: src/settings/view-about.php:15
+msgid "Polylang is provided with an extensive %1$sdocumentation%2$s (in English). It includes information on how to set up your multilingual site and use it on a daily basis; FAQs, and documentation for developers to adapt their plugins and themes."
+msgstr "Polylang este furnizat cu o %1$sdocumentație%2$s extensivă (doar în limba engleză). Ea include informații despre cum să-ți inițializezi site-ul multilingv și cum să-l utilizezi zilnic; Întrebări frecvente și documentație pentru dezvoltatori pentru a-și adapta modulele și temele."
+
+#: src/modules/REST/V1/Languages.php:445 src/settings/view-tab-lang.php:81
+msgid "The name is how it is displayed on your site (for example: English)."
+msgstr "Numele, așa cum va fi afișat pe site (de exemplu: English)."
+
+#: src/Options/Business/Redirect_Lang.php:44 src/settings/settings-url.php:199
+msgid "The front page URL contains the language code instead of the page name or page id"
+msgstr "URL-ul paginii din față conține codul de limbă în loc de numele sau ID-ul paginii"
+
+#: src/settings/settings.php:204
+msgid "Language deleted."
+msgstr "Limba a fost ștearsă."
+
+#: src/modules/sync/settings-sync.php:111
+msgid "Page template"
+msgstr "Șablon de pagini"
+
+#: src/settings/settings-licenses.php:113 src/settings/settings-module.php:288
+msgid "Settings saved."
+msgstr "Am salvat setările."
+
+#: src/settings/settings.php:216
+msgid "Language updated."
+msgstr "Am actualizat limba."
+
+#. translators: accessibility text
+#: src/modules/wizard/view-wizard-step-home-page.php:69
+#: src/modules/wizard/view-wizard-step-home-page.php:83
+#: src/modules/wizard/view-wizard-step-home-page.php:114
+#: src/modules/wizard/view-wizard-step-languages.php:71
+#: src/modules/wizard/view-wizard-step-languages.php:86
+#: src/settings/table-languages.php:133 src/settings/table-languages.php:152
+msgid "Default language"
+msgstr "Limbă implicită"
+
+#: src/modules/sync/settings-sync.php:109
+msgid "Post format"
+msgstr "Format articol"
+
+#: src/admin/admin-nav-menu.php:59 src/nav-menu.php:73
+#: src/widget-languages.php:32
+msgid "Language switcher"
+msgstr "Comutator de limbi"

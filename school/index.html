@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>American Academy School | Doha, Qatar - Modern Demo</title>
+  <meta name="description" content="American Academy School (AAS) is an English Medium private school in Doha, Qatar offering US Common Core Curriculum from KG to Grade 12.">
+  <link rel="icon" href="images/aas_logo.png" type="image/png">
+
+  <!-- Google Fonts: Poppins & Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Swiper 11 CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: {
+              DEFAULT: '#0f2b5c',
+              dark: '#081735',
+              light: '#1d3b7a',
+              glow: '#254b96'
+            },
+            brandRed: {
+              DEFAULT: '#d32f2f',
+              dark: '#b71c1c',
+              light: '#ef5350',
+              accent: '#e53935'
+            },
+            slateDark: '#0b1329'
+          },
+          fontFamily: {
+            roboto: ['Roboto', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+            reem: ['Poppins', 'sans-serif'],
+            jost: ['Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Default Body Typography: Roboto, sans-serif */
+    body, p, li, input, select, textarea, .font-roboto {
+      font-family: 'Roboto', sans-serif !important;
+    }
+
+    /* Headings, Titles & Brand Headers: Poppins, sans-serif */
+    h1, h2, h3, h4, h5, h6, .font-poppins, .font-reem, #logoTextTitle, #logoTextSub, .nav-link {
+      font-family: 'Poppins', sans-serif !important;
+    }
+
+    /* Enforce Font Weight 500 for h2 headings */
+    h2 {
+      font-weight: 500 !important;
+    }
+
+    /* Enforce Maximum Font Weight of 600 across other headings */
+    h1, h3, h4, h5, h6, .font-extrabold, .font-black, .font-bold, .font-semibold {
+      font-weight: 600 !important;
+    }
+    /* Custom Animations & Refinements */
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .animate-float {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+
+    .glass-nav {
+      background: rgba(15, 43, 92, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-nav-scrolled {
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(15, 43, 92, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(15, 43, 92, 0.15);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .glass-card-dark {
+      background: rgba(15, 43, 92, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Scroll animations */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-on-scroll.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Video Overlay Gradient */
+    .hero-overlay {
+      background: transparent;
+    }
+
+    .academic-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .academic-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -15px rgba(211, 47, 47, 0.2);
+    }
+
+    /* Red Accent Line Animation */
+    .hover-line {
+      position: relative;
+    }
+    .hover-line::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #d32f2f;
+      transition: width 0.3s ease-in-out;
+    }
+    .hover-line:hover::after {
+      width: 100%;
+    }
+
+    /* Active Liquid Mesh Gradient Moving Flow Animation */
+    @keyframes liquidMeshFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Primary Pill Buttons (APPLY NOW AND BELONG & Apply Online Header CTA) */
+    .btn-gradient-flow {
+      background: linear-gradient(135deg, #ffaa00 0%, #ff0066 25%, #b0008e 50%, #4a0072 75%, #ffaa00 100%) !important;
+      background-size: 350% 350% !important;
+      animation: liquidMeshFlow 2.8s ease infinite !important;
+      transition: all 400ms cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 8px 24px -4px rgba(255, 0, 102, 0.45);
+    }
+    .btn-gradient-flow:hover {
+      animation: liquidMeshFlow 1.4s ease infinite !important;
+      transform: translateY(-2.5px) scale(1.02);
+      box-shadow: 0 14px 32px -4px rgba(255, 0, 102, 0.65), 0 0 20px rgba(255, 170, 0, 0.4);
+    }
+
+    /* Floating Side Circular Action Buttons */
+    .btn-circle-gradient-hover {
+      background: linear-gradient(135deg, #ffaa00 0%, #ff0066 25%, #b0008e 50%, #4a0072 75%, #ffaa00 100%) !important;
+      background-size: 350% 350% !important;
+      animation: liquidMeshFlow 2.8s ease infinite !important;
+      transition: all 400ms cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 8px 20px rgba(255, 0, 102, 0.4);
+      border: none !important;
+    }
+    .btn-circle-gradient-hover:hover {
+      animation: liquidMeshFlow 1.4s ease infinite !important;
+      transform: scale(1.15) rotate(4deg);
+      box-shadow: 0 12px 28px rgba(255, 0, 102, 0.65), 0 0 18px rgba(255, 255, 255, 0.4);
+      border: none !important;
+    }
+
+    /* Continuous 3D Footer Logo Flipping Animation Keyframes */
+    @keyframes continuousLogoFlip3D {
+      0% {
+        transform: rotateY(0deg);
+      }
+      50% {
+        transform: rotateY(180deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .footer-logo-flip-container {
+      perspective: 1000px;
+    }
+    .footer-logo-flip-badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #d32f2f;
+      animation: continuousLogoFlip3D 5s ease-in-out infinite;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .footer-logo-flip-badge:hover {
+      box-shadow: 0 15px 35px rgba(211, 47, 47, 0.65), 0 0 25px rgba(255, 255, 255, 0.8);
+    }
+    .footer-logo-flip-badge img {
+      backface-visibility: hidden;
+    }
+
+    /* Staggered Smooth Slide-In Entrance Animation for Side Action Buttons */
+    @keyframes slideInSideButton {
+      0% {
+        opacity: 0;
+        transform: translateX(80px) scale(0.5);
+      }
+      70% {
+        opacity: 1;
+        transform: translateX(-6px) scale(1.06);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    .side-btn-slide-1 {
+      animation: slideInSideButton 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.2s 1 normal forwards;
+    }
+    .side-btn-slide-2 {
+      animation: slideInSideButton 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s 1 normal forwards;
+    }
+    .side-btn-slide-3 {
+      animation: slideInSideButton 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.5s 1 normal forwards;
+    }
+    .side-btn-slide-4 {
+      animation: slideInSideButton 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.65s 1 normal forwards;
+    }
+
+    /* Counter Number Pop Accent Animation */
+    @keyframes counterPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); filter: brightness(1.2); }
+      100% { transform: scale(1); }
+    }
+    .counter-pop {
+      animation: counterPop 0.45s ease-out;
+      display: inline-block;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b1329;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d32f2f;
+      border-radius: 4px;
+    }
+    /* Swiper custom active slide styling matching design reference */
+    .storySwiper .swiper-slide {
+      opacity: 1 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      transition: all 0.4s ease;
+    }
+    .storySwiper .swiper-slide-active {
+      opacity: 1 !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: none !important;
+      z-index: 10;
+    }
+
+    /* Swiper Pagination Strict Center Alignment Fix */
+    .opps-swiper-pagination,
+    .story-swiper-pagination {
+      position: static !important;
+      width: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      left: auto !important;
+      bottom: auto !important;
+      top: auto !important;
+      right: auto !important;
+      transform: none !important;
+    }
+    .opps-swiper-pagination .swiper-pagination-bullet {
+      background: #cbd5e1;
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px !important;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border-radius: 9999px;
+    }
+    .opps-swiper-pagination .swiper-pagination-bullet-active {
+      background: #0c2340 !important;
+      width: 20px;
+      border-radius: 9999px;
+    }
+    .story-swiper-pagination .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.4);
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px !important;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border-radius: 9999px;
+    }
+    /* Editorial Poster School Divisions System */
+    .poster-section-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      background-color: #ffffff;
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .poster-section-container {
+        align-items: stretch;
+        justify-content: center;
+      }
+      .poster-panel {
+        flex: 1;
+        transition: flex 650ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .poster-section-container:hover .poster-panel {
+        flex: 0.86;
+      }
+      .poster-section-container:hover .poster-panel:hover {
+        flex: 1.4;
+      }
+    }
+
+    .poster-panel {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Colored Box Container Frame */
+    .poster-box-frame {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      border-radius: 20px;
+      background-color: #ffffff;
+    }
+    @media (min-width: 1024px) {
+      .poster-box-frame {
+        height: 560px;
+      }
+    }
+
+    /* Background Upward Expand Layer (62% Default -> 100% Full Cover on Hover) */
+    .poster-bg-reveal {
+      position: absolute;
+      top: 38%;
+      bottom: 0%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      transition: all 650ms cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: 20px;
+    }
+    .poster-panel:hover .poster-bg-reveal,
+    .poster-panel.active .poster-bg-reveal {
+      top: 0%;
+      bottom: 0%;
+      border-radius: 20px;
+    }
+
+    /* Student Cutout Layer (z-index: 2) */
+    .poster-student-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      pointer-events: none;
+      padding-bottom: 0rem;
+    }
+
+    .poster-student-img {
+      height: 92%;
+      width: auto;
+      max-width: 96%;
+      object-fit: contain;
+      object-position: bottom center;
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), filter 600ms ease;
+      transform: translateY(0) scale(1);
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.12));
+    }
+    .poster-panel:hover .poster-student-img,
+    .poster-panel.active .poster-student-img {
+      transform: translateY(-16px) scale(1.04);
+      filter: drop-shadow(0 25px 35px rgba(0,0,0,0.22));
+    }
+
+    /* Text Layer Inside/Over Box Frame (z-index: 3 - Glides UPWARD & turns WHITE on hover) */
+    .poster-text-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(0);
+      pointer-events: none;
+    }
+    .poster-panel:hover .poster-text-layer,
+    .poster-panel.active .poster-text-layer {
+      transform: translateY(-28px);
+    }
+
+    .poster-sub-title {
+      font-family: serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: #ffffff !important;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 500ms ease;
+      display: block;
+      opacity: 0.95;
+    }
+    .poster-panel:hover .poster-sub-title,
+    .poster-panel.active .poster-sub-title {
+      color: #ffffff !important;
+      opacity: 1;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+    }
+
+    .poster-main-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 1.85rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      transition: all 500ms ease;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .poster-panel:hover .poster-main-title,
+    .poster-panel.active .poster-main-title {
+      color: #ffffff !important;
+      text-shadow: 0 4px 14px rgba(0,0,0,0.45);
+    }
+
+    .poster-grade-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      padding-top: 0.35rem;
+      transition: all 500ms ease;
+    }
+    .poster-panel:hover .poster-grade-label,
+    .poster-panel.active .poster-grade-label {
+      color: #ffffff !important;
+      opacity: 1;
+    }
+
+    /* Hide scrollbar for clean swipeable mobile view */
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="font-jost text-slate-800 bg-slate-50 antialiased selection:bg-brandRed selection:text-white overflow-x-hidden">
+
+  <!-- Header / Navigation Bar (Fixed Header on Scroll with White BG) -->
+  <header id="mainNav" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-gradient-to-b from-[#061026]/90 via-[#061026]/50 to-transparent py-4 sm:py-5 border-none">
+    <div class="w-full px-6 sm:px-12 flex items-center justify-between relative">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <img id="navLogo" src="images/aas_logo.png" alt="American Academy School Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+        <div class="hidden sm:block">
+          <span id="logoTextTitle" class="block font-poppins font-extrabold text-lg tracking-tight leading-none text-white transition-colors">
+            AMERICAN ACADEMY
+          </span>
+          <span id="logoTextSub" class="block font-jost text-xs tracking-widest uppercase font-semibold text-red-400">
+            SCHOOL • DOHA, QATAR
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        
+        <!-- About AAS (Dropdown) -->
+        <div class="relative group py-2">
+          <a href="#stem" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1 flex items-center space-x-1">
+            <span>About AAS</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180 text-red-400"></i>
+          </a>
+          <!-- Dropdown Panel -->
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white text-slate-800 rounded-none shadow-2xl border border-slate-200 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <a href="#" class="block px-4 py-2.5 rounded-none text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brandRed transition-colors">Vision & Mission</a>
+            <a href="#" class="block px-4 py-2.5 rounded-none text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brandRed transition-colors">Learner Outcomes</a>
+            <a href="#" class="block px-4 py-2.5 rounded-none text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brandRed transition-colors">Goals & Objectives</a>
+            <a href="#principal" class="block px-4 py-2.5 rounded-none text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brandRed transition-colors">Principal Message</a>
+            <a href="#" class="block px-4 py-2.5 rounded-none text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brandRed transition-colors">Our Facilities</a>
+          </div>
+        </div>
+
+        <!-- Academics (Mega Menu inspired by V7 Labs) -->
+        <div class="group py-2">
+          <a href="#academics" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1 flex items-center space-x-1.5 group-hover:text-red-400">
+            <span>Academics</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180 text-red-400"></i>
+          </a>
+          
+          <!-- Hover Bridge to prevent premature cursor closing -->
+          <div class="absolute top-full left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+
+          <!-- Pure White V7 Labs-Inspired Mega Menu Panel (~1280px wide, centered on header container) -->
+          <div class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+6px)] w-[1280px] max-w-[calc(100vw-3rem)] bg-white text-slate-800 rounded-[14px] shadow-[0_16px_45px_rgba(20,40,70,0.08)] border border-slate-200/80 p-9 lg:p-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-380 transform -translate-y-3 scale-[0.985] group-hover:translate-y-0 group-hover:scale-100 z-50 pointer-events-none group-hover:pointer-events-auto origin-top" style="transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);">
+            
+            <div class="grid grid-cols-12 gap-8 lg:gap-10 relative z-10 items-start text-left">
+              
+              <!-- Column 1: SCHOOL DIVISIONS (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-0 group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  SCHOOL DIVISIONS
+                </span>
+
+                <ul class="space-y-1 font-roboto">
+                  <li>
+                    <a href="#" class="group/aclink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Kindergarten</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Elementary School</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Middle School</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>High School</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>AP & College Prep</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: CURRICULUM & ACADEMICS (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-[40ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  CURRICULUM & ACADEMICS
+                </span>
+
+                <ul class="space-y-1 font-roboto">
+                  <li>
+                    <a href="#" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>US Common Core Standards</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Learner Outcomes (ESLRs)</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#stem" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>STEM & Robotics Program</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#opportunities" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Fine Arts & Music</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#opportunities" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>World Languages & Arabic</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#opportunities" class="group/aclink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Physical Education & Sports</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 3: ACADEMIC STANDARDS (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-[80ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  ACADEMIC STANDARDS
+                </span>
+
+                <ul class="space-y-2 font-roboto">
+                  <li>
+                    <a href="#" class="group/aclink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Accreditation & Quality</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                      <p class="text-[13px] text-slate-500 font-normal leading-tight mt-0.5 group-hover/aclink:text-slate-600">Cognia accredited US curriculum framework.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Assessment & Testing</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                      <p class="text-[13px] text-slate-500 font-normal leading-tight mt-0.5 group-hover/aclink:text-slate-600">MAP Growth & PSAT/SAT college testing.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Graduation Requirements</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Health & Safety Protocols</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/aclink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Thumama Campus Facilities</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/aclink:opacity-100 group-hover/aclink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 4: FEATURED ACADEMIC SPOTLIGHT (col-span-3) -->
+              <div class="col-span-3 border-l border-[#E8EBEF] pl-8 lg:pl-10 space-y-3 transition-all duration-300 delay-[120ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-3 block">
+                  FEATURED
+                </span>
+
+                <div class="group/feat rounded-[8px] overflow-hidden">
+                  <div class="overflow-hidden rounded-[8px] bg-slate-100 mb-3 aspect-[16/9] relative">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" alt="Academic Science Lab" class="w-full h-full object-cover group-hover/feat:scale-105 transition-transform duration-500">
+                  </div>
+                  
+                  <h4 class="font-poppins font-semibold text-[16px] text-[#10294A] group-hover/feat:text-[#d32f2f] transition-colors leading-snug mb-1">
+                    Advanced Placement (AP) Pathway
+                  </h4>
+                  <p class="text-xs text-slate-500 font-roboto leading-relaxed mb-3">
+                    Rigorous university-level coursework preparing students for global higher education.
+                  </p>
+                  
+                  <a href="#" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-[#d32f2f] hover:text-[#b71c1c] transition-colors">
+                    <span>Explore AP Courses</span>
+                    <span class="transition-transform duration-200 group-hover/feat:translate-x-1">→</span>
+                  </a>
+                </div>
+
+                <div class="pt-3 border-t border-[#E8EBEF] mt-3">
+                  <a href="#" class="group/fee flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#d32f2f] transition-colors">
+                    <span>View Tuition & Fee Schedule</span>
+                    <span class="text-[#d32f2f] transition-transform duration-200 group-hover/fee:translate-x-1">→</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources (Mega Menu inspired by V7 Labs) -->
+        <div class="group py-2">
+          <a href="#resources" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1 flex items-center space-x-1.5 group-hover:text-red-400">
+            <span>Resources</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180 text-red-400"></i>
+          </a>
+          
+          <!-- Hover Bridge to prevent premature cursor closing -->
+          <div class="absolute top-full left-0 w-full h-4 bg-transparent pointer-events-auto"></div>
+
+          <!-- Pure White V7 Labs-Inspired Mega Menu Panel (~1280px wide, centered on header container) -->
+          <div class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+6px)] w-[1280px] max-w-[calc(100vw-3rem)] bg-white text-slate-800 rounded-[14px] shadow-[0_16px_45px_rgba(20,40,70,0.08)] border border-slate-200/80 p-9 lg:p-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-380 transform -translate-y-3 scale-[0.985] group-hover:translate-y-0 group-hover:scale-100 z-50 pointer-events-none group-hover:pointer-events-auto origin-top" style="transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);">
+            
+            <div class="grid grid-cols-12 gap-8 lg:gap-10 relative z-10 items-start text-left">
+              
+              <!-- Column 1: DISCOVER (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-0 group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  DISCOVER
+                </span>
+
+                <ul class="space-y-1 font-roboto">
+                  <li>
+                    <a href="#" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>School News</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#events" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Upcoming Events</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>School Calendar</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#events" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Campus Life</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#gallery" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Photo Gallery</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#stories" class="group/reslink py-2 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Student Stories</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: PARENTS & STUDENTS (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-[40ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  PARENTS & STUDENTS
+                </span>
+
+                <ul class="space-y-1 font-roboto">
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Parent Resources</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Student Resources</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Academic Calendar</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>School Policies</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Forms & Downloads</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Transportation</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink py-1.5 px-1 flex items-center justify-between text-[16px] font-medium text-[#10294A] hover:text-[#d32f2f] transition-colors rounded-[6px]">
+                      <span>Lunch & Cafeteria</span>
+                      <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 3: LEARNING RESOURCES (col-span-3) -->
+              <div class="col-span-3 space-y-3.5 transition-all duration-300 delay-[80ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-4 block">
+                  LEARNING RESOURCES
+                </span>
+
+                <ul class="space-y-2 font-roboto">
+                  <li>
+                    <a href="#academics" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Curriculum Overview</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>College Counseling</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                      <p class="text-[13px] text-slate-500 font-normal leading-tight mt-0.5 group-hover/reslink:text-slate-600">Planning pathways for university and beyond.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Library</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                      <p class="text-[13px] text-slate-500 font-normal leading-tight mt-0.5 group-hover/reslink:text-slate-600">Books, databases and research resources.</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#stem" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Technology & Digital Learning</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Learning Support</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group/reslink block p-1 text-[#10294A] hover:text-[#d32f2f] transition-colors">
+                      <div class="flex items-center justify-between text-[16px] font-medium">
+                        <span>Health & Wellbeing</span>
+                        <span class="text-[#d32f2f] opacity-0 group-hover/reslink:opacity-100 group-hover/reslink:translate-x-1 transition-all duration-200 text-sm">→</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 4: FEATURED RESOURCE (col-span-3) -->
+              <div class="col-span-3 border-l border-[#E8EBEF] pl-8 lg:pl-10 space-y-3 transition-all duration-300 delay-[120ms] group-hover:translate-y-0 group-hover:opacity-100 translate-y-2 opacity-0">
+                <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#d32f2f] mb-3 block">
+                  FEATURED
+                </span>
+
+                <div class="group/feat rounded-[8px] overflow-hidden">
+                  <div class="overflow-hidden rounded-[8px] bg-slate-100 mb-3 aspect-[16/9] relative">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Students in Classroom" class="w-full h-full object-cover group-hover/feat:scale-105 transition-transform duration-500">
+                  </div>
+                  
+                  <h4 class="font-poppins font-semibold text-[16px] text-[#10294A] group-hover/feat:text-[#d32f2f] transition-colors leading-snug mb-1">
+                    2026–27 Academic Calendar
+                  </h4>
+                  <p class="text-xs text-slate-500 font-roboto leading-relaxed mb-3">
+                    Important dates, holidays and school events for the upcoming academic year.
+                  </p>
+                  
+                  <a href="#" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-[#d32f2f] hover:text-[#b71c1c] transition-colors">
+                    <span>View Calendar</span>
+                    <span class="transition-transform duration-200 group-hover/feat:translate-x-1">→</span>
+                  </a>
+                </div>
+
+                <div class="pt-3 border-t border-[#E8EBEF] mt-3">
+                  <a href="#" class="group/prospectus flex items-center justify-between text-xs font-medium text-slate-600 hover:text-[#d32f2f] transition-colors">
+                    <span>Download School Prospectus</span>
+                    <span class="text-[#d32f2f] transition-transform duration-200 group-hover/prospectus:translate-x-1">→</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="#stem" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">STEM</a>
+        <a href="#opportunities" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">Divisions</a>
+        <a href="#principal" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">Leadership</a>
+        <a href="#events" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">Life at AAS</a>
+        <a href="#gallery" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">Gallery</a>
+        <a href="#contact" class="nav-link font-medium text-white hover:text-red-400 transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Action CTAs -->
+      <div class="hidden md:flex items-center space-x-4">
+        <button id="inquireBtn" onclick="openModal('inquiryModal')" class="px-5 py-2.5 rounded-full border border-white/40 text-white hover:bg-white hover:text-[#0c2340] transition-all font-medium text-sm shadow-sm flex items-center space-x-2">
+          <i class="fa-solid fa-paper-plane text-xs text-red-400"></i>
+          <span>Inquire Now</span>
+        </button>
+        <a href="#" class="px-6 py-2.5 rounded-full btn-gradient-flow text-white font-semibold text-sm transition-all shadow-lg flex items-center space-x-2">
+          <span>Apply Online</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-red-400 p-2 focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Clean Accordion UX) -->
+  <div id="mobileDrawer" class="fixed inset-0 z-50 bg-[#061026]/95 backdrop-blur-xl text-white transform translate-x-full transition-transform duration-500 flex flex-col justify-between p-6 overflow-y-auto">
+    <div>
+      <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+        <div class="flex items-center space-x-3">
+          <img src="images/aas_logo.png" alt="AAS Logo" class="h-10 w-auto">
+          <div>
+            <span class="font-poppins font-bold text-sm text-white block">AMERICAN ACADEMY</span>
+            <span class="text-xs text-[#D9343A] font-semibold block">SCHOOL QATAR</span>
+          </div>
+        </div>
+        <button id="closeDrawerBtn" class="text-slate-400 hover:text-white p-2 text-2xl" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Accordion Navigation -->
+      <nav class="mt-6 flex flex-col space-y-3 font-poppins">
+        <a href="#stem" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2 border-b border-white/10">About AAS</a>
+        
+        <!-- Accordion Item 1: Academics (V7 Labs Mobile Accordion) -->
+        <details class="group py-1 border-b border-white/10">
+          <summary class="flex justify-between items-center cursor-pointer text-base font-medium text-white hover:text-[#D9343A] list-none py-2">
+            <span>Academics</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180 text-[#D9343A]"></i>
+          </summary>
+          <div class="pl-3 py-3 space-y-4 text-sm text-slate-300">
+            <!-- School Divisions Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">School Divisions</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#" class="block hover:text-white transition-colors">Kindergarten</a>
+                <a href="#" class="block hover:text-white transition-colors">Elementary School</a>
+                <a href="#" class="block hover:text-white transition-colors">Middle School</a>
+                <a href="#" class="block hover:text-white transition-colors">High School</a>
+                <a href="#" class="block hover:text-white transition-colors">AP & College Prep</a>
+              </div>
+            </div>
+
+            <!-- Curriculum & Academics Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">Curriculum & Academics</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#" class="block hover:text-white transition-colors">US Common Core Standards</a>
+                <a href="#" class="block hover:text-white transition-colors">Learner Outcomes (ESLRs)</a>
+                <a href="#stem" class="block hover:text-white transition-colors">STEM & Robotics Program</a>
+                <a href="#opportunities" class="block hover:text-white transition-colors">Fine Arts & Music</a>
+                <a href="#opportunities" class="block hover:text-white transition-colors">World Languages & Arabic</a>
+                <a href="#opportunities" class="block hover:text-white transition-colors">Physical Education & Sports</a>
+              </div>
+            </div>
+
+            <!-- Academic Standards Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">Academic Standards</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#" class="block hover:text-white transition-colors">Accreditation & Quality</a>
+                <a href="#" class="block hover:text-white transition-colors">Assessment & Testing</a>
+                <a href="#" class="block hover:text-white transition-colors">Graduation Requirements</a>
+                <a href="#" class="block hover:text-white transition-colors">Health & Safety Protocols</a>
+                <a href="#" class="block hover:text-white transition-colors">Thumama Campus Facilities</a>
+              </div>
+            </div>
+
+            <!-- Highlighted Links near bottom -->
+            <div class="pt-2 border-t border-white/10 space-y-2">
+              <a href="#" class="flex items-center justify-between p-2 rounded bg-white/5 text-[#D9343A] font-semibold text-xs hover:bg-white/10 transition-colors">
+                <span>Advanced Placement (AP) Pathway</span>
+                <span>→</span>
+              </a>
+              <a href="#" class="flex items-center justify-between p-2 rounded bg-white/5 text-slate-200 font-semibold text-xs hover:bg-white/10 transition-colors">
+                <span>View Tuition & Fee Schedule</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </details>
+
+        <!-- Accordion Item 3: Resources (V7 Labs Mobile Accordion) -->
+        <details class="group py-1 border-b border-white/10">
+          <summary class="flex justify-between items-center cursor-pointer text-base font-medium text-white hover:text-[#D9343A] list-none py-2">
+            <span>Resources</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180 text-[#D9343A]"></i>
+          </summary>
+          <div class="pl-3 py-3 space-y-4 text-sm text-slate-300">
+            <!-- Discover Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">Discover</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#" class="block hover:text-white transition-colors">School News</a>
+                <a href="#events" class="block hover:text-white transition-colors">Upcoming Events</a>
+                <a href="#" class="block hover:text-white transition-colors">School Calendar</a>
+                <a href="#events" class="block hover:text-white transition-colors">Campus Life</a>
+                <a href="#gallery" class="block hover:text-white transition-colors">Photo Gallery</a>
+                <a href="#stories" class="block hover:text-white transition-colors">Student Stories</a>
+              </div>
+            </div>
+
+            <!-- Parents & Students Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">Parents & Students</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#" class="block hover:text-white transition-colors">Parent Resources</a>
+                <a href="#" class="block hover:text-white transition-colors">Student Resources</a>
+                <a href="#" class="block hover:text-white transition-colors">Academic Calendar</a>
+                <a href="#" class="block hover:text-white transition-colors">School Policies</a>
+                <a href="#" class="block hover:text-white transition-colors">Forms & Downloads</a>
+                <a href="#" class="block hover:text-white transition-colors">Transportation</a>
+                <a href="#" class="block hover:text-white transition-colors">Lunch & Cafeteria</a>
+              </div>
+            </div>
+
+            <!-- Learning Resources Sub-group -->
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#D9343A] block mb-2">Learning Resources</span>
+              <div class="space-y-2 pl-2 border-l border-white/10">
+                <a href="#academics" class="block hover:text-white transition-colors">Curriculum Overview</a>
+                <a href="#" class="block hover:text-white transition-colors">College Counseling</a>
+                <a href="#" class="block hover:text-white transition-colors">Library</a>
+                <a href="#stem" class="block hover:text-white transition-colors">Technology & Digital Learning</a>
+                <a href="#" class="block hover:text-white transition-colors">Learning Support</a>
+                <a href="#" class="block hover:text-white transition-colors">Health & Wellbeing</a>
+              </div>
+            </div>
+
+            <!-- Highlighted Featured & Utility Links -->
+            <div class="pt-2 border-t border-white/10 space-y-2">
+              <a href="#" class="flex items-center justify-between p-2 rounded bg-white/5 text-[#D9343A] font-semibold text-xs hover:bg-white/10 transition-colors">
+                <span>2026–27 Academic Calendar</span>
+                <span>→</span>
+              </a>
+              <a href="#" class="flex items-center justify-between p-2 rounded bg-white/5 text-slate-200 font-semibold text-xs hover:bg-white/10 transition-colors">
+                <span>Download School Prospectus</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </details>
+
+        <a href="#opportunities" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2 border-b border-white/10">Divisions</a>
+        <a href="#principal" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2 border-b border-white/10">Leadership</a>
+        <a href="#events" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2 border-b border-white/10">News & Events</a>
+        <a href="#gallery" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2 border-b border-white/10">Gallery</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium hover:text-[#D9343A] transition-colors py-2">Contact Us</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Admissions CTA Box -->
+    <div class="space-y-4 pt-6 border-t border-slate-800">
+      <div class="bg-[#122B4D] p-5 rounded-[4px] text-white border border-white/10">
+        <span class="inline-block px-2 py-0.5 rounded-[4px] bg-[#D9343A]/20 text-[#D9343A] border border-[#D9343A]/30 text-[9px] font-bold uppercase tracking-widest mb-2">
+          2025–26 ADMISSIONS
+        </span>
+        <div class="font-poppins font-semibold text-sm mb-1">Join AAS Family in Doha</div>
+        <p class="text-xs text-slate-300 font-light mb-3">Experience a world-class US curriculum in a thriving multicultural community.</p>
+        <a href="#" class="w-full py-2.5 rounded-[4px] bg-[#D9343A] hover:bg-[#b8262b] text-center text-white font-bold text-xs block shadow-md">
+          Apply Online Now →
+        </a>
+      </div>
+
+      <div class="flex justify-center space-x-6 text-slate-400 text-xl pt-2">
+        <a href="#" class="hover:text-[#D9343A]" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="hover:text-[#D9343A]" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="hover:text-[#D9343A]" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-[#D9343A]" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION: Full-Bleed Video Backdrop with Bottom-Left Alignment -->
+  <section class="relative min-h-[85vh] lg:min-h-screen flex items-end justify-start overflow-hidden bg-slateDark">
+    
+    <!-- Hero Video Background -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60">
+      <source src="https://americanacademy.sch.qa/wp-content/uploads/2026/06/Americal-Acadamy-School-FHD-For-Social-Media.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay Gradient -->
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <!-- Hero Floating Accents -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-brandRed/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-brandNavy-light/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Hero Main Content (Bottom Left Aligned with Bottom Padding) -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 text-left text-white pb-20 sm:pb-28 pt-32">
+      
+      <!-- Main Headline -->
+      <h1 class="font-reem text-4xl sm:text-6xl md:text-7xl font-semibold leading-[1.15] tracking-tight mb-4 drop-shadow-2xl max-w-4xl">
+        EMPOWERING LEADERS.<br>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-red-300">
+          INSPIRING EXCELLENCE.
+        </span>
+      </h1>
+
+      <p class="text-slate-200 text-lg sm:text-xl font-light max-w-2xl leading-relaxed drop-shadow-lg">
+        Providing the US Common Core Curriculum Standards within a vibrant, multicultural learning environment in Qatar since 2000.
+      </p>
+
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a href="#stats" class="absolute bottom-6 right-12 z-10 text-slate-300 hover:text-brandRed transition-colors flex items-center space-x-2 animate-bounce" aria-label="Scroll Down">
+      <span class="text-xs uppercase tracking-widest font-medium">Scroll</span>
+      <i class="fa-solid fa-chevron-down text-xs"></i>
+    </a>
+  </section>
+
+  <!-- COMBINED STATS BANNER & STEM INNOVATION SECTION (Soft Gray to White Gradient Blend) -->
+  <section id="stem" class="relative overflow-hidden bg-gradient-to-b from-[#e2e8f0] via-[#f8fafc] to-white pt-12 sm:pt-16 pb-10 sm:pb-14">
+    
+    <!-- KEY STATS & HIGHLIGHTS BANNER (Animated Counters - Below Hero Banner) -->
+    <div id="stats" class="relative z-20 max-w-6xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12">
+      <div class="bg-white rounded-3xl shadow-2xl border border-slate-200/80 p-6 sm:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+        
+        <div class="p-4 reveal-on-scroll">
+          <div class="text-brandRed text-3xl font-extrabold font-poppins mb-1 flex justify-center items-center">
+            <span class="counter" data-target="2000">0</span>
+          </div>
+          <div class="text-slate-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">Year Established</div>
+          <div class="text-xs text-slate-400 mt-1">25+ Years Legacy</div>
+        </div>
+
+        <div class="p-4 reveal-on-scroll">
+          <div class="text-brandNavy text-3xl font-extrabold font-poppins mb-1 flex justify-center items-center">
+            <span>US</span>
+          </div>
+          <div class="text-slate-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">Curriculum</div>
+          <div class="text-xs text-slate-400 mt-1">Common Core Standards</div>
+        </div>
+
+        <div class="p-4 reveal-on-scroll">
+          <div class="text-brandRed text-3xl font-extrabold font-poppins mb-1 flex justify-center items-center">
+            <span class="counter" data-target="4">0</span>
+            <span>+</span>
+          </div>
+          <div class="text-slate-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">School Divisions</div>
+          <div class="text-xs text-slate-400 mt-1">KG to High School</div>
+        </div>
+
+        <div class="p-4 reveal-on-scroll">
+          <div class="text-brandNavy text-3xl font-extrabold font-poppins mb-1 flex justify-center items-center">
+            <span class="counter" data-target="100">0</span>
+            <span>%</span>
+          </div>
+          <div class="text-slate-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">English Medium</div>
+          <div class="text-xs text-slate-400 mt-1">Multicultural Campus</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEM INNOVATION CONTENT GRID -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[640px] lg:min-h-[700px] items-center gap-10 lg:gap-0">
+      
+      <!-- Left Visual Area (50% Desktop Width, Single Square Image) -->
+      <div class="lg:col-span-6 w-full h-full relative flex items-center reveal-on-scroll pr-0 lg:pr-12">
+        
+        <!-- Single Large Immersive Main Landscape Photo (Sharp Square Border) -->
+        <div class="w-full lg:w-[92%] h-[380px] sm:h-[480px] lg:h-[660px] relative overflow-hidden rounded-none shadow-md bg-slate-100" data-parallax-speed="0.05">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/09/382A4720-1024x683.jpg" alt="AAS STEM Students Hands-on Science" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Asymmetrical Overlapping Secondary Photo (Sharp Square Border) -->
+        <div class="absolute top-8 sm:top-12 right-2 sm:right-0 lg:-right-4 z-20 w-[180px] sm:w-[220px] lg:w-[250px] h-[140px] sm:h-[165px] lg:h-[180px] shadow-2xl border-4 border-white bg-white rounded-none overflow-hidden" data-parallax-speed="0.22">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/02/382A4466-1024x683.jpg" alt="Science Classroom Discovery" class="w-full h-full object-cover">
+        </div>
+
+      </div>
+
+      <!-- Right Content Area (50% Desktop Width with Generous Breathing Room) -->
+      <div class="lg:col-span-6 px-6 sm:px-12 lg:px-16 flex flex-col justify-center reveal-on-scroll">
+        
+        <div class="max-w-[650px] space-y-6">
+          
+          <!-- Main Heading -->
+          <h2 class="font-poppins font-normal text-3xl sm:text-4xl lg:text-[50px] text-[#0c2340] leading-[1.15]">
+            Empowering Tomorrow's<br class="hidden sm:inline"> Innovators With STEM
+          </h2>
+
+          <!-- Descriptive Body Paragraph -->
+          <p class="text-slate-600 text-[16px] sm:text-[17px] lg:text-[18px] leading-relaxed font-light">
+            At AAS, STEM comes alive. Students of all ages engage in real-world, hands-on learning, exploring robotics, coding, engineering, and other cutting-edge technologies through creative, practical projects. Each experience sparks curiosity, builds problem-solving skills, and prepares students to thrive in a fast-changing world. By collaborating, experimenting, and innovating, students gain the confidence to turn ideas into solutions that make a meaningful impact. From the classroom to the real world, students apply their knowledge to solve challenges that matter.
+          </p>
+
+          <!-- CTA Button -->
+          <div class="pt-4">
+            <button onclick="openModal('aboutModal')" class="px-9 sm:px-10 py-3.5 sm:py-4 rounded-full btn-gradient-flow text-white font-poppins font-medium text-[15px] transition-all shadow-lg">
+              Explore Our STEM Program
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACADEMIC DIVISIONS EDITORIAL POSTER SECTION -->
+  <section id="opportunities" class="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
+      
+      <!-- 4 Editorial Poster Panels Side-by-Side -->
+      <div class="poster-section-container overflow-x-auto lg:overflow-visible flex flex-row snap-x snap-mandatory lg:snap-none space-x-4 lg:space-x-0 scrollbar-none rounded-none border-none">
+        
+        <!-- PANEL 1: Lower Elementary School (Deep Red #d32f2f) -->
+        <div class="poster-panel group w-[85vw] sm:w-[320px] lg:w-auto shrink-0 snap-center" onclick="event.preventDefault();">
+          <div class="poster-box-frame">
+            <!-- Background Upward Reveal Layer (z-index: 1 - 60% default -> 100% on hover) -->
+            <div class="poster-bg-reveal bg-[#d32f2f]"></div>
+
+            <!-- Student Cutout Layer (z-index: 2 - Lower Elementary Layer 1) -->
+            <div class="poster-student-layer">
+              <img src="images/Layer 1.png" alt="Lower Elementary Student Cutout" class="poster-student-img">
+            </div>
+
+            <!-- Typography Layer Inside Box Frame (z-index: 3 - Glides UPWARD & turns WHITE on hover) -->
+            <div class="poster-text-layer">
+              <span class="poster-sub-title">Lower</span>
+              <h3 class="poster-main-title">ELEMENTARY<br>SCHOOL</h3>
+              <div class="poster-grade-label">PRE-K — GRADE 2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 2: Upper Elementary School (Deep Navy/Blue #0c2340) -->
+        <div class="poster-panel group w-[85vw] sm:w-[320px] lg:w-auto shrink-0 snap-center" onclick="event.preventDefault();">
+          <div class="poster-box-frame">
+            <div class="poster-bg-reveal bg-[#0c2340]"></div>
+
+            <!-- Student Cutout Layer (z-index: 2 - Upper Elementary Layer 2) -->
+            <div class="poster-student-layer">
+              <img src="images/Layer 2.png" alt="Upper Elementary Student Cutout" class="poster-student-img">
+            </div>
+
+            <div class="poster-text-layer">
+              <span class="poster-sub-title">Upper</span>
+              <h3 class="poster-main-title">ELEMENTARY<br>SCHOOL</h3>
+              <div class="poster-grade-label">GRADES 3 — 5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 3: Middle School (Warm Amber/Gold #d97706) -->
+        <div class="poster-panel group w-[85vw] sm:w-[320px] lg:w-auto shrink-0 snap-center" onclick="event.preventDefault();">
+          <div class="poster-box-frame">
+            <div class="poster-bg-reveal bg-[#d97706]"></div>
+
+            <!-- Student Cutout Layer (z-index: 2 - Middle School Layer 3) -->
+            <div class="poster-student-layer">
+              <img src="images/Layer 3.png" alt="Middle School Student Cutout" class="poster-student-img">
+            </div>
+
+            <div class="poster-text-layer">
+              <span class="poster-sub-title">Middle</span>
+              <h3 class="poster-main-title">MIDDLE<br>SCHOOL</h3>
+              <div class="poster-grade-label">GRADES 6 — 8</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 4: High School (Dark Navy #0a1936) -->
+        <div class="poster-panel group w-[85vw] sm:w-[320px] lg:w-auto shrink-0 snap-center" onclick="event.preventDefault();">
+          <div class="poster-box-frame">
+            <div class="poster-bg-reveal bg-[#0a1936]"></div>
+
+            <!-- Student Cutout Layer (z-index: 2 - High School Layer 4) -->
+            <div class="poster-student-layer">
+              <img src="images/Layer 4.png" alt="High School Student Cutout" class="poster-student-img">
+            </div>
+
+            <div class="poster-text-layer">
+              <span class="poster-sub-title">High</span>
+              <h3 class="poster-main-title">HIGH<br>SCHOOL</h3>
+              <div class="poster-grade-label">GRADES 9 — 12</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- YOUR STORY, ENDLESS POSSIBILITIES SECTION (Swiper Carousel with Active Red Border & Bottom Navigation) -->
+  <section id="stories" class="py-14 sm:py-16 bg-[#0a1936] text-white relative overflow-hidden group/storyNav">
+    
+    <!-- Top Header & Subtitle -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center mb-8 reveal-on-scroll">
+      <h2 class="font-poppins font-bold text-3xl sm:text-5xl text-white mb-4 leading-tight">
+        Endless Possibilities
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto">
+        At American Academy School, no one student is just one thing. Every student from Pre-K through graduation is a culmination of their interests, abilities, goals, and dreams — and they all have powerful stories to tell.
+      </p>
+    </div>
+
+    <!-- Swiper 11 Carousel Container -->
+    <div class="swiper storySwiper w-full px-4 sm:px-8 py-4">
+      <div class="swiper-wrapper">
+        
+        <!-- Story Card 1: Magdalena St. Louis (Yellow Day) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/02/DSC01001-1-1024x683.jpg" alt="Magdalena St. Louis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Magdalena St. Louis</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 2: Mason Kwon (Friendship Red Day) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/02/382A4466-1024x683.jpg" alt="Mason Kwon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Mason Kwon</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 3: Anne Marie G. (Graduation Commencement) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2024/12/Grad-cap-300x203-1.jpg" alt="Anne Marie G." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Anne Marie G.</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 4: Lia Beverly (Sports & Health Cup) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/09/382A4720-1024x683.jpg" alt="Lia Beverly" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Lia Beverly</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 5: McAllister Callejo (Campus Safety Week) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/09/382A5758-1024x683.jpeg" alt="McAllister Callejo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">McAllister Callejo</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 6: Sultan Al-Thani (Qatar National Cultural Day) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/03/AAS-School-2-1024x334.jpg" alt="Sultan Al-Thani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Sultan Al-Thani</h3>
+          </div>
+        </div>
+
+        <!-- Story Card 7: Fatima Al-Kuwari (STEM Fair) -->
+        <div class="swiper-slide story-card-item relative group h-[480px] lg:h-[520px] overflow-hidden cursor-pointer rounded-[8px]">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/09/382A4720-1024x683.jpg" alt="Fatima Al-Kuwari" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091736]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+            <span class="text-[11px] font-bold tracking-[0.25em] uppercase text-white/90">STUDENT</span>
+            <span class="w-8 h-[2px] bg-brandRed mx-auto my-2 block"></span>
+            <h3 class="font-poppins text-xl lg:text-2xl text-white font-normal leading-tight">Fatima Al-Kuwari</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Swiper Navigation Controls at Bottom (Centered with Arrow Reveal on Hover) -->
+    <div class="flex items-center justify-center space-x-6 mt-6 relative z-20">
+      <button id="storyPrevBtn" class="w-10 h-10 rounded-full border border-white/30 hover:border-brandRed hover:bg-brandRed text-white flex items-center justify-center text-sm shadow-md transition-all duration-300 opacity-0 group-hover/storyNav:opacity-100 transform group-hover/storyNav:translate-x-0 -translate-x-2 pointer-events-none group-hover/storyNav:pointer-events-auto" aria-label="Previous Slide">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      
+      <!-- Swiper Pagination Dots -->
+      <div class="story-swiper-pagination flex items-center space-x-2"></div>
+
+      <button id="storyNextBtn" class="w-10 h-10 rounded-full border border-white/30 hover:border-brandRed hover:bg-brandRed text-white flex items-center justify-center text-sm shadow-md transition-all duration-300 opacity-0 group-hover/storyNav:opacity-100 transform group-hover/storyNav:translate-x-0 translate-x-2 pointer-events-none group-hover/storyNav:pointer-events-auto" aria-label="Next Slide">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS JOURNEY SECTION: Playful Editorial Asymmetric Collage -->
+  <section id="admissions-journey" class="py-14 sm:py-18 bg-white relative overflow-hidden text-[#102D5C]">
+    
+    <!-- Subtle Background Shapes -->
+    <div class="absolute top-10 left-1/4 w-96 h-96 bg-[#F0F4F9]/60 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-[#FDF2F2]/60 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Organic Dashed Yellow Journey Flow Line (SVG) -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 hidden lg:block" preserveAspectRatio="none" viewBox="0 0 1440 700">
+      <path d="M 120 180 Q 320 60 520 280 T 920 160 T 1320 320" fill="none" stroke="#F5B800" stroke-width="2.5" stroke-dasharray="8 7" opacity="0.85" />
+    </svg>
+
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-12 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+        
+        <!-- Left Image Card (Tilted -6deg with Dashed Offset & Parallax) -->
+        <div class="lg:col-span-4 relative group flex justify-center lg:justify-start" data-parallax-speed="-0.15">
+          <div class="relative transform -rotate-6 group-hover:-rotate-2 group-hover:scale-[1.02] transition-all duration-500 cursor-pointer">
+            <!-- Dashed Red Offset Outline -->
+            <div class="absolute -inset-2 border-2 border-dashed border-[#D7193F] -rotate-3 transform -translate-x-2 translate-y-2 pointer-events-none rounded-xl"></div>
+            <!-- Photo -->
+            <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/03/AAS-School-2-1024x334.jpg" alt="AAS Students Learning Outdoors" class="w-72 sm:w-80 lg:w-[340px] h-56 sm:h-64 object-cover rounded-xl shadow-xl relative z-10 border-2 border-white">
+          </div>
+          <!-- Handwritten Note near lower-left -->
+          <div class="absolute -bottom-10 left-4 sm:left-8 transform -rotate-3 pointer-events-none hidden sm:block">
+            <span class="font-serif italic text-sm text-[#102D5C]/90 bg-white/95 px-3.5 py-1.5 border border-slate-200 shadow-sm rounded-md">
+              “Curiosity Today, Brighter Tomorrows”
+            </span>
+          </div>
+        </div>
+
+        <!-- Center Content (Slightly left of center) -->
+        <div class="lg:col-span-4 space-y-6 text-center lg:text-left reveal-on-scroll">
+          <h2 class="font-poppins font-bold text-4xl sm:text-5xl lg:text-[54px] text-[#102D5C] leading-[1.08] tracking-tight">
+            Begin the Journey<br>of a Lifetime
+          </h2>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-[480px] mx-auto lg:mx-0 font-light">
+            At AAS, your child’s potential meets endless possibilities. Join a community where curiosity is celebrated, passions are nurtured, and futures are built — one meaningful moment at a time.
+          </p>
+
+          <div class="pt-3 flex justify-center lg:justify-start">
+            <a href="#" class="group/cta w-full sm:w-[320px] h-[54px] rounded-full btn-gradient-flow text-white font-poppins font-bold text-xs uppercase tracking-wider transition-all shadow-xl flex items-center justify-center space-x-3 px-6">
+              <span>APPLY NOW AND BELONG</span>
+              <span class="text-sm transition-transform duration-300 group-hover/cta:translate-x-1.5">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Image Collage (2 Images with Parallax) -->
+        <div class="lg:col-span-4 relative flex flex-col sm:flex-row lg:flex-col items-center lg:items-end gap-10 lg:gap-8 pt-6 lg:pt-0">
+          
+          <!-- Tiny Red Paper Plane Doodles near upper right -->
+          <div class="absolute -top-10 right-10 text-[#D7193F] pointer-events-none hidden lg:block animate-bounce">
+            <svg class="w-8 h-8 transform rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+          </div>
+
+          <!-- Image 1: Medium Classroom Image (Tilted -5deg) -->
+          <div class="relative group transform -rotate-5 group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-500 cursor-pointer" data-parallax-speed="-0.22">
+            <!-- Dashed Red Offset Outline -->
+            <div class="absolute -inset-2 border-2 border-dashed border-[#D7193F] rotate-3 transform translate-x-2 -translate-y-2 pointer-events-none rounded-xl"></div>
+            <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/02/DSC01001-1-1024x683.jpg" alt="AAS Classroom Activity" class="w-64 sm:w-72 h-48 sm:h-52 object-cover rounded-xl shadow-lg relative z-10 border-2 border-white">
+          </div>
+
+          <!-- Image 2: Larger Sports/Activities Image (Tilted +7deg) -->
+          <div class="relative group transform rotate-7 group-hover:rotate-2 group-hover:scale-[1.02] transition-all duration-500 cursor-pointer lg:-mr-6" data-parallax-speed="-0.32">
+            <!-- Dashed Yellow Offset Outline -->
+            <div class="absolute -inset-2 border-2 border-dashed border-[#F5B800] -rotate-3 transform -translate-x-2 translate-y-2 pointer-events-none rounded-xl"></div>
+            <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/09/382A4720-1024x683.jpg" alt="AAS Sports & Activities" class="w-72 sm:w-80 lg:w-[320px] h-60 sm:h-68 object-cover rounded-xl shadow-xl relative z-10 border-2 border-white">
+            
+            <!-- Handwritten Note near far-right -->
+            <div class="absolute -bottom-6 -left-6 transform rotate-3 pointer-events-none hidden sm:block z-20">
+              <span class="font-serif italic text-xs text-[#102D5C] bg-[#F5B800]/30 border border-[#F5B800]/50 px-3 py-1 rounded-md shadow-sm">
+                “More Than a School”
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRINCIPAL MESSAGE SPOTLIGHT SECTION (Exact Match to 2-Column Design) -->
+  <section id="principal" class="py-14 sm:py-16 bg-[#0c2340] text-white relative overflow-hidden">
+    
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brandRed/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Principal Photo (No Border, Square Corners) -->
+        <div class="lg:col-span-5 reveal-on-scroll">
+          <div class="relative rounded-none border-none overflow-hidden shadow-2xl bg-white/5">
+            <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/04/WhatsApp-Image-2023-03-27-at-12.08.59-AM.jpeg" alt="AAS Principal" class="w-full h-[400px] sm:h-[460px] object-cover object-top rounded-none">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#091736] via-[#091736]/80 to-transparent p-6">
+              <span class="text-brandRed font-bold text-xs uppercase tracking-widest block mb-1">School Principal</span>
+              <span class="font-poppins font-bold text-xl text-white block">American Academy School</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Quote Content -->
+        <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
+          
+          <h3 class="font-poppins font-bold text-3xl sm:text-4xl text-white leading-tight">
+            A Message from Our School Principal
+          </h3>
+
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-light italic border-l-4 border-brandRed pl-6 py-1">
+            "It is a privilege to serve the AAS community as School Principal. I consider it an honor to lead a school with such a longstanding history in Qatar's educational sector. Our dedicated faculty is committed to providing high quality education, along with relevant extra-curricular opportunities that meet every student's needs at our Thumama campus."
+          </p>
+
+          <div class="pt-4 flex items-center">
+            <button onclick="openModal('principalModal')" class="px-8 py-3.5 rounded-full bg-brandRed hover:bg-red-700 text-white font-poppins font-semibold text-sm transition-all shadow-lg flex items-center space-x-2">
+              <span>Read Full Message</span>
+              <i class="fa-solid fa-envelope-open-text text-xs"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWS & EVENTS / STORIES FROM OUR COMMUNITY (ASD-Inspired Editorial Magazine Design) -->
+  <section id="events" class="py-14 sm:py-18 bg-[#fafafa] relative overflow-hidden text-[#0c2340]">
+    <div class="max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-16">
+      
+      <!-- Top Editorial Header Area -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 reveal-on-scroll pb-6 border-b border-slate-200/80">
+        <div>
+          <h2 class="font-poppins font-normal text-4xl sm:text-5xl lg:text-[60px] text-[#0c2340] leading-[1.08] tracking-tight">
+            Stories From<br>Our Community
+          </h2>
+        </div>
+
+        <div>
+          <a href="#" class="group text-slate-700 hover:text-brandRed font-semibold text-sm transition-colors inline-flex items-center space-x-2 pb-1">
+            <span>Catch All The News</span>
+            <span class="text-brandRed transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Asymmetric Editorial Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+        
+        <!-- LEFT FEATURED STORY (~58% Width / lg:col-span-7) -->
+        <div class="lg:col-span-7 relative group reveal-on-scroll">
+          
+          <!-- Oversized Background Watermark Number 01 -->
+          <div class="text-[160px] lg:text-[220px] font-poppins font-black text-slate-200/50 absolute -top-20 -left-6 select-none pointer-events-none z-0 leading-none">
+            01
+          </div>
+
+          <!-- Featured Landscape Photography (No Boxed Card) -->
+          <div class="relative z-10 rounded-[8px] overflow-hidden shadow-xl mb-8 group cursor-pointer" data-parallax-speed="0.05" onclick="event.preventDefault();">
+            <div class="w-full h-[360px] sm:h-[460px] lg:h-[500px] overflow-hidden bg-slate-200">
+              <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/03/AAS-School-2-1024x334.jpg" alt="AAS Cultural Day Celebration" class="w-full h-full object-cover group-hover:scale-[1.018] transition-transform duration-700">
+            </div>
+            <div class="absolute top-5 left-5 bg-brandRed text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-[8px] shadow-md">
+              FEATURED STORY
+            </div>
+          </div>
+
+          <!-- Featured Content Below Photo -->
+          <div class="relative z-10 max-w-2xl space-y-3">
+            <div class="flex items-center space-x-3 text-xs text-slate-500 font-medium uppercase tracking-wider">
+              <span class="text-brandRed font-bold">NEWS & EVENTS</span>
+              <span>•</span>
+              <div class="flex items-center space-x-1">
+                <i class="fa-regular fa-calendar text-slate-400"></i>
+                <span>May 7, 2025</span>
+              </div>
+            </div>
+
+            <h3 class="font-poppins font-bold text-2xl sm:text-3xl lg:text-[34px] text-[#0c2340] group-hover:text-brandRed transition-colors leading-snug cursor-pointer" onclick="event.preventDefault();">
+              AAS Cultural Day Celebration
+            </h3>
+
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+              Students and staff came together to celebrate multicultural diversity through traditional attire, performances, and international food stalls.
+            </p>
+
+            <div class="pt-2">
+              <a href="#" class="group/link text-brandRed font-bold text-sm inline-flex items-center space-x-2">
+                <span class="hover:underline">Discover the Story</span>
+                <span class="transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: 3 Vertically Stacked Editorial Stories (Total 4 Blog Stories with Featured) (~42% Width / lg:col-span-5) -->
+        <div class="lg:col-span-5 space-y-8 reveal-on-scroll">
+          
+          <!-- STORY 01 (SPORTS & HEALTH) -->
+          <div class="group flex flex-col sm:flex-row gap-5 items-start cursor-pointer border-b border-slate-200/80 pb-6" onclick="event.preventDefault();">
+            <div class="w-full sm:w-44 h-32 rounded-[8px] overflow-hidden shrink-0 shadow-md bg-slate-200 relative">
+              <img src="https://americanacademy.sch.qa/wp-content/uploads/2025/02/DSC01001-1-1024x683.jpg" alt="Qatar Sports Day" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500">
+            </div>
+            <div class="space-y-1.5 flex-1">
+              <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-brandRed">
+                <span>SPORTS & HEALTH</span>
+                <span class="text-slate-300">•</span>
+                <span class="text-slate-400 font-normal text-xs">Feb 11, 2025</span>
+              </div>
+              <h4 class="font-poppins font-bold text-base sm:text-lg text-[#0c2340] group-hover:text-brandRed transition-colors leading-snug">
+                Qatar Sports Day 2025
+              </h4>
+              <p class="text-slate-600 text-xs leading-relaxed font-light line-clamp-2">
+                Promoting wellness and active lifestyle through athletic competitions, team sports, and fitness challenges across all grades.
+              </p>
+              <div class="pt-0.5">
+                <span class="text-brandRed font-semibold text-xs inline-flex items-center space-x-1.5 group-hover:translate-x-1 transition-transform">
+                  <span>Read Story</span>
+                  <span>→</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STORY 02 (LEADERSHIP / MUN) -->
+          <div class="group flex flex-col sm:flex-row gap-5 items-start cursor-pointer border-b border-slate-200/80 pb-6" onclick="event.preventDefault();">
+            <div class="w-full sm:w-44 h-32 rounded-[8px] overflow-hidden shrink-0 shadow-md bg-slate-200 relative">
+              <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/10/WhatsApp-Image-2025-02-19-at-9.45.15-AM-2-1024x768.jpeg" alt="Model United Nations" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500">
+            </div>
+            <div class="space-y-1.5 flex-1">
+              <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-brandRed">
+                <span>LEADERSHIP</span>
+                <span class="text-slate-300">•</span>
+                <span class="text-slate-400 font-normal text-xs">Nov 18, 2024</span>
+              </div>
+              <h4 class="font-poppins font-bold text-base sm:text-lg text-[#0c2340] group-hover:text-brandRed transition-colors leading-snug">
+                Model United Nations (MUN)
+              </h4>
+              <p class="text-slate-600 text-xs leading-relaxed font-light line-clamp-2">
+                High school delegates debated pressing global issues, drafted resolutions, and demonstrated diplomatic negotiation skills.
+              </p>
+              <div class="pt-0.5">
+                <span class="text-brandRed font-semibold text-xs inline-flex items-center space-x-1.5 group-hover:translate-x-1 transition-transform">
+                  <span>Read Story</span>
+                  <span>→</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STORY 03 (INNOVATION & STEM FAIR) -->
+          <div class="group flex flex-col sm:flex-row gap-5 items-start cursor-pointer" onclick="event.preventDefault();">
+            <div class="w-full sm:w-44 h-32 rounded-[8px] overflow-hidden shrink-0 shadow-md bg-slate-200 relative">
+              <img src="https://americanacademy.sch.qa/wp-content/uploads/2023/09/382A4720-1024x683.jpg" alt="Annual STEM & Science Fair" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500">
+            </div>
+            <div class="space-y-1.5 flex-1">
+              <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-brandRed">
+                <span>INNOVATION</span>
+                <span class="text-slate-300">•</span>
+                <span class="text-slate-400 font-normal text-xs">Mar 24, 2025</span>
+              </div>
+              <h4 class="font-poppins font-bold text-base sm:text-lg text-[#0c2340] group-hover:text-brandRed transition-colors leading-snug">
+                Annual STEM & Science Exhibition
+              </h4>
+              <p class="text-slate-600 text-xs leading-relaxed font-light line-clamp-2">
+                Students showcased interactive robotics, coding prototypes, and environmental science projects to parents and guests.
+              </p>
+              <div class="pt-0.5">
+                <span class="text-brandRed font-semibold text-xs inline-flex items-center space-x-1.5 group-hover:translate-x-1 transition-transform">
+                  <span>Read Story</span>
+                  <span>→</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY LIGHTBOX SECTION (Exact Match to Design System) -->
+  <section id="gallery" class="py-14 sm:py-16 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+        <h2 class="font-poppins font-bold text-3xl sm:text-4xl lg:text-[42px] text-[#0c2340] leading-tight mb-4">
+          Life at Thumama Campus
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          State-of-the-art facilities, modern classrooms, reception hall, and vibrant outdoor spaces.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        
+        <div class="relative group rounded-[24px] overflow-hidden shadow-md cursor-pointer" onclick="openGalleryModal('https://americanacademy.sch.qa/wp-content/uploads/2022/02/8-1-2-150x150.jpg', 'Reception Hall')">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/02/8-1-2-150x150.jpg" alt="AAS Reception Hall" class="w-full h-52 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-[#0c2340]/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-4 text-center">
+            <div>
+              <i class="fa-solid fa-up-right-and-down-left-from-center text-xl mb-1"></i>
+              <span class="block text-xs font-semibold">Reception Hall</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group rounded-[24px] overflow-hidden shadow-md cursor-pointer" onclick="openGalleryModal('https://americanacademy.sch.qa/wp-content/uploads/2022/02/aaschool.1-1-150x150.jpg', 'Campus Entrance')">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/02/aaschool.1-1-150x150.jpg" alt="AAS Campus Building" class="w-full h-52 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-[#0c2340]/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-4 text-center">
+            <div>
+              <i class="fa-solid fa-up-right-and-down-left-from-center text-xl mb-1"></i>
+              <span class="block text-xs font-semibold">Campus Entrance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group rounded-[24px] overflow-hidden shadow-md cursor-pointer" onclick="openGalleryModal('https://americanacademy.sch.qa/wp-content/uploads/2022/02/6-2-1-150x150.jpg', 'Sports Grounds')">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/02/6-2-1-150x150.jpg" alt="Sports Grounds" class="w-full h-52 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-[#0c2340]/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-4 text-center">
+            <div>
+              <i class="fa-solid fa-up-right-and-down-left-from-center text-xl mb-1"></i>
+              <span class="block text-xs font-semibold">Sports & Recreation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group rounded-[24px] overflow-hidden shadow-md cursor-pointer" onclick="openGalleryModal('https://americanacademy.sch.qa/wp-content/uploads/2022/03/18671399-4c46-483e-85bc-8e138500c8cb-150x150.jpg', 'Academic Facilities')">
+          <img src="https://americanacademy.sch.qa/wp-content/uploads/2022/03/18671399-4c46-483e-85bc-8e138500c8cb-150x150.jpg" alt="Academic Facilities" class="w-full h-52 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-[#0c2340]/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white p-4 text-center">
+            <div>
+              <i class="fa-solid fa-up-right-and-down-left-from-center text-xl mb-1"></i>
+              <span class="block text-xs font-semibold">Classrooms & Labs</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER (Repton-Style Layout with AAS Brand Colors & Content) -->
+  <footer id="contact" class="bg-[#091736] text-slate-300 pt-20 pb-12 relative border-t-4 border-brandRed mt-12">
+    
+    <!-- Top Centered Floating Circular Seal Badge (Repton Style with 3D Flip) -->
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 z-20 footer-logo-flip-container">
+      <div class="footer-logo-flip-badge">
+        <img src="images/aas_logo.png" alt="AAS Seal" class="h-full w-auto object-contain">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+      
+      <!-- Top Centered Brand Name Header -->
+      <div class="text-center mb-16">
+        <h2 class="font-poppins font-extrabold text-3xl sm:text-5xl text-white tracking-[0.25em] uppercase">
+          AMERICAN ACADEMY
+        </h2>
+        <span class="block font-jost text-xs sm:text-sm tracking-[0.4em] text-brandRed font-semibold uppercase mt-2">
+          SCHOOL • DOHA, QATAR
+        </span>
+      </div>
+
+      <!-- 4-Column Navigation Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-16 border-b border-slate-800/80">
+        
+        <!-- Col 1: CONTACT DETAILS -->
+        <div class="space-y-4">
+          <h4 class="font-poppins font-bold text-xs tracking-[0.2em] text-red-400 uppercase mb-6">CONTACT DETAILS</h4>
+          <ul class="space-y-3 text-sm text-slate-300 font-light">
+            <li class="font-semibold text-white">American Academy School</li>
+            <li>Thumama Campus</li>
+            <li>P.O. Box: 22978</li>
+            <li>Doha, State of Qatar</li>
+            <li class="pt-2 flex items-center space-x-3 text-slate-200">
+              <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brandRed shrink-0">
+                <i class="fa-solid fa-phone text-xs"></i>
+              </div>
+              <span class="font-medium">+974 40206-900</span>
+            </li>
+            <li class="flex items-center space-x-3 text-slate-200">
+              <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brandRed shrink-0">
+                <i class="fa-solid fa-envelope text-xs"></i>
+              </div>
+              <span class="font-medium text-xs sm:text-sm">info@americanacademy.sch.qa</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 2: SCHOOL INFORMATION -->
+        <div>
+          <h4 class="font-poppins font-bold text-xs tracking-[0.2em] text-red-400 uppercase mb-6">SCHOOL INFORMATION</h4>
+          <ul class="space-y-2.5 text-sm text-slate-300 font-light">
+            <li><a href="#" class="hover:text-white transition-colors">Vision & Mission</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Learner Outcomes (ESLRs)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Goals & Objectives</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">AAS Student Policies</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">AAS Staff Policies</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Health & Safety Protocols</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Campus Facilities</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: OUR COMMUNITY & MEDIA -->
+        <div>
+          <h4 class="font-poppins font-bold text-xs tracking-[0.2em] text-red-400 uppercase mb-6">OUR COMMUNITY</h4>
+          <ul class="space-y-2.5 text-sm text-slate-300 font-light">
+            <li><a href="#principal" class="hover:text-white transition-colors">Principal Message</a></li>
+            <li><a href="#events" class="hover:text-white transition-colors">News & Events</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">School Newsletter</a></li>
+            <li><a href="#gallery" class="hover:text-white transition-colors">Campus Photo Gallery</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Model United Nations (MUN)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Cultural Day Celebrations</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: PORTALS AND ADMISSIONS -->
+        <div>
+          <h4 class="font-poppins font-bold text-xs tracking-[0.2em] text-red-400 uppercase mb-6">PORTALS & ADMISSIONS</h4>
+          <ul class="space-y-2.5 text-sm text-slate-300 font-light">
+            <li><a href="#" class="hover:text-white transition-colors font-medium text-brandRed">Apply Online (iSAMS)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Application Process</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Tuition & Fee Structure</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Tuition Fee Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Employment Opportunities</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Center Tagline Section (Repton Style) -->
+      <div class="py-12 text-center space-y-6">
+        <div class="font-jost italic text-2xl sm:text-4xl text-slate-200 tracking-wider">
+          The <span class="font-poppins uppercase tracking-[0.25em] not-italic font-extrabold text-white text-xl sm:text-2xl">LEGACY</span> of <span class="text-brandRed italic">EXCELLENCE</span>
+        </div>
+
+        <!-- Social Media Icons (Centered Below Tagline) -->
+        <div class="flex justify-center space-x-6 text-xl text-slate-400 pt-2">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brandRed hover:text-white flex items-center justify-center transition-all" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brandRed hover:text-white flex items-center justify-center transition-all" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brandRed hover:text-white flex items-center justify-center transition-all" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brandRed hover:text-white flex items-center justify-center transition-all" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright & Utilities Ribbon -->
+      <div class="pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+        <div>
+          © 2026 American Academy School Doha. All Rights Reserved.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+          <a href="#topRibbon" class="hover:text-brandRed text-slate-300">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl relative">
+      <button onclick="closeModal('searchModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-poppins font-bold text-xl text-brandNavy mb-4">Search American Academy School</h3>
+      <div class="relative">
+        <input type="text" placeholder="Search curriculum, admissions, events..." class="w-full px-5 py-3 rounded-full border border-slate-300 focus:outline-none focus:border-brandRed text-sm pr-12">
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-brandRed font-bold text-lg">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiry Modal -->
+  <div id="inquiryModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('inquiryModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-poppins font-bold text-2xl text-brandNavy mb-2">Admissions Inquiry</h3>
+      <p class="text-slate-500 text-sm mb-6">Fill out the form below to receive detailed info about AAS admissions.</p>
+      
+      <form onsubmit="event.preventDefault(); alert('Thank you for your inquiry! Our admissions team will contact you shortly.'); closeModal('inquiryModal');" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Parent Full Name</label>
+          <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+          <input type="email" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+          <input type="tel" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed text-sm" placeholder="+974 ...">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Grade Level of Interest</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed text-sm">
+            <option>Kindergarten (KG1 - KG2)</option>
+            <option>Elementary (Grades 1 - 5)</option>
+            <option>Middle School (Grades 6 - 8)</option>
+            <option>High School (Grades 9 - 12)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-brandRed hover:bg-brandRed-dark text-white font-bold text-sm transition-all shadow-lg">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Principal Message Modal -->
+  <div id="principalModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeModal('principalModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-poppins font-bold text-2xl text-brandNavy mb-4">Message from the Principal</h3>
+      <div class="text-slate-600 text-sm space-y-4 leading-relaxed">
+        <p>It is a privilege to serve the American Academy School (AAS) community as the School Principal. I consider it an honor to have the opportunity to lead a school with such a longstanding history in the educational sector in Qatar.</p>
+        <p>The privilege of working with such a talented and dedicated faculty and staff, a tremendous student body, and a supportive network of parents and community members will enable AAS towards new success stories.</p>
+        <p>The teachers, staff, and administration at AAS are committed to providing high quality education, along with relevant extra-curricular opportunities, that will meet the individual needs and interests of all the students here at our Thumama campus.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIXED RIGHT-SIDE FLOATING QUICK-ACTION BAR (Matching Image Layout) -->
+  <div class="fixed right-4 bottom-8 z-40 flex flex-col space-y-3">
+    
+    <!-- Info / Inquiry Button -->
+    <button onclick="openModal('inquiryModal')" class="group relative w-12 h-12 rounded-full btn-circle-gradient-hover text-white flex items-center justify-center border-0 shadow-lg side-btn-slide-1" aria-label="Inquire Info">
+      <i class="fa-solid fa-info text-base"></i>
+      <span class="absolute right-14 bg-slateDark text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none font-medium">
+        Admissions Inquiry
+      </span>
+    </button>
+
+    <!-- Location / Campus Pin -->
+    <a href="#contact" class="group relative w-12 h-12 rounded-full btn-circle-gradient-hover text-white flex items-center justify-center border-0 shadow-lg side-btn-slide-2" aria-label="Campus Location">
+      <i class="fa-solid fa-location-dot text-base"></i>
+      <span class="absolute right-14 bg-slateDark text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none font-medium">
+        Thumama Campus Location
+      </span>
+    </a>
+
+    <!-- Apply Portal Button -->
+    <a href="#" class="group relative w-12 h-12 rounded-full btn-circle-gradient-hover text-white flex items-center justify-center border-0 shadow-lg side-btn-slide-3" aria-label="Apply Online">
+      <i class="fa-solid fa-paper-plane text-base"></i>
+      <span class="absolute right-14 bg-slateDark text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none font-medium">
+        Apply Online (iSAMS)
+      </span>
+    </a>
+
+    <!-- Phone Call Button -->
+    <a href="#" class="group relative w-12 h-12 rounded-full btn-circle-gradient-hover text-white flex items-center justify-center border-0 shadow-lg side-btn-slide-4" aria-label="Call AAS">
+      <i class="fa-solid fa-phone text-base"></i>
+      <span class="absolute right-14 bg-slateDark text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none font-medium">
+        Call +974 40206-900
+      </span>
+    </a>
+
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full">
+      <button onclick="closeModal('galleryModal')" class="absolute -top-12 right-0 text-white text-3xl hover:text-brandRed" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="galleryModalImg" src="" alt="Gallery Preview" class="w-full max-h-[75vh] object-contain rounded-2xl">
+      <p id="galleryModalCaption" class="text-center text-white font-poppins text-lg mt-4 font-semibold"></p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT FOR INTERACTIVITY & ANIMATIONS -->
+  <script>
+    // Header Scroll White Background & Sticky Transition
+    const mainNav = document.getElementById('mainNav');
+    const logoTextTitle = document.getElementById('logoTextTitle');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const inquireBtn = document.getElementById('inquireBtn');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    function handleHeaderScroll() {
+      if (window.scrollY > 50) {
+        // Scrolled state: White background & dark text
+        mainNav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200/80', 'py-3');
+        mainNav.classList.remove('bg-gradient-to-b', 'from-[#061026]/90', 'via-[#061026]/50', 'to-transparent', 'py-4', 'sm:py-5');
+        
+        if (logoTextTitle) {
+          logoTextTitle.classList.remove('text-white');
+          logoTextTitle.classList.add('text-[#0c2340]');
+        }
+        navLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-[#0c2340]');
+        });
+        if (inquireBtn) {
+          inquireBtn.classList.remove('border-white/40', 'text-white', 'hover:bg-white', 'hover:text-[#0c2340]');
+          inquireBtn.classList.add('border-[#0c2340]', 'text-[#0c2340]', 'hover:bg-[#0c2340]', 'hover:text-white');
+        }
+        if (mobileMenuBtn) {
+          mobileMenuBtn.classList.remove('text-white');
+          mobileMenuBtn.classList.add('text-[#0c2340]');
+        }
+      } else {
+        // Top state: Transparent dark gradient overlay & white text
+        mainNav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200/80', 'py-3');
+        mainNav.classList.add('bg-gradient-to-b', 'from-[#061026]/90', 'via-[#061026]/50', 'to-transparent', 'py-4', 'sm:py-5');
+
+        if (logoTextTitle) {
+          logoTextTitle.classList.remove('text-[#0c2340]');
+          logoTextTitle.classList.add('text-white');
+        }
+        navLinks.forEach(link => {
+          link.classList.remove('text-[#0c2340]');
+          link.classList.add('text-white');
+        });
+        if (inquireBtn) {
+          inquireBtn.classList.remove('border-[#0c2340]', 'text-[#0c2340]', 'hover:bg-[#0c2340]', 'hover:text-white');
+          inquireBtn.classList.add('border-white/40', 'text-white', 'hover:bg-white', 'hover:text-[#0c2340]');
+        }
+        if (mobileMenuBtn) {
+          mobileMenuBtn.classList.remove('text-[#0c2340]');
+          mobileMenuBtn.classList.add('text-white');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
+
+    // Mobile Drawer Toggle
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileDrawer) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileDrawer.classList.remove('translate-x-full');
+      });
+    }
+
+    if (closeDrawerBtn && mobileDrawer) {
+      closeDrawerBtn.addEventListener('click', () => {
+        mobileDrawer.classList.add('translate-x-full');
+      });
+    }
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileDrawer) mobileDrawer.classList.add('translate-x-full');
+      });
+    });
+
+    // Scroll Reveal Intersection Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          
+          // Trigger Buttery-Smooth 60FPS Ease-Out Counter Animation
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'), 10);
+            if (isNaN(target) || counter.classList.contains('counted')) return;
+            counter.classList.add('counted');
+
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function easeOutExpo(x) {
+              return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+            }
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = easeOutExpo(progress);
+              
+              const currentVal = Math.floor(eased * target);
+              counter.innerText = currentVal;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.innerText = target;
+                counter.classList.add('counter-pop');
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+          });
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // News & Events Filter
+    const filterBtns = document.querySelectorAll('.event-filter-btn');
+    const eventCards = document.querySelectorAll('.event-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-brandNavy', 'text-white');
+          b.classList.add('bg-white', 'text-slate-600');
+        });
+        btn.classList.remove('bg-white', 'text-slate-600');
+        btn.classList.add('bg-brandNavy', 'text-white');
+
+        const filter = btn.getAttribute('data-filter');
+        eventCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Modal Helper Functions
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function openGalleryModal(imgSrc, caption) {
+      document.getElementById('galleryModalImg').src = imgSrc;
+      document.getElementById('galleryModalCaption').innerText = caption;
+      openModal('galleryModal');
+    }
+
+    // Swiper 11 Initialization for Endless Possibilities Stories Carousel
+    function initStorySwiper() {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.storySwiper', {
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.story-swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '#storyNextBtn',
+            prevEl: '#storyPrevBtn',
+          },
+          breakpoints: {
+            640: { slidesPerView: 2.2, spaceBetween: 16 },
+            768: { slidesPerView: 3.2, spaceBetween: 20 },
+            1024: { slidesPerView: 4.2, spaceBetween: 20 },
+            1280: { slidesPerView: 5, spaceBetween: 20, centeredSlides: false }
+          }
+        });
+
+        // Endless Opportunities 4-Item Division Carousel
+        new Swiper('.oppsSwiper', {
+          slidesPerView: 1.1,
+          spaceBetween: 16,
+          loop: true,
+          autoplay: {
+            delay: 3200,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          },
+          pagination: {
+            el: '.opps-swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '#oppsNextBtn',
+            prevEl: '#oppsPrevBtn',
+          },
+          breakpoints: {
+            640: { slidesPerView: 2.1, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 }
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initStorySwiper);
+    } else {
+      initStorySwiper();
+    }
+
+    // High-Performance Smooth Parallax Scroll Engine (60FPS requestAnimationFrame)
+    const parallaxElements = document.querySelectorAll('[data-parallax-speed]');
+    let isParallaxTicking = false;
+
+    function updateParallaxScroll() {
+      const windowHeight = window.innerHeight;
+
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0.08;
+        const rect = el.getBoundingClientRect();
+        
+        // Only calculate when element is near or inside viewport
+        if (rect.top < windowHeight + 100 && rect.bottom > -100) {
+          const centerY = rect.top + rect.height / 2;
+          const viewportCenter = windowHeight / 2;
+          const offset = (centerY - viewportCenter) * speed;
+          
+          el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+          el.style.transition = 'transform 0.1s cubic-bezier(0,0,0.2,1)';
+        }
+      });
+
+      isParallaxTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!isParallaxTicking) {
+        window.requestAnimationFrame(updateParallaxScroll);
+        isParallaxTicking = true;
+      }
+    }, { passive: true });
+
+    // Initial trigger on load
+    window.addEventListener('load', updateParallaxScroll);
+    updateParallaxScroll();
+  </script>
+</body>
+</html>

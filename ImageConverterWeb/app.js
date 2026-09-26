@@ -1,0 +1,494 @@
+// Image Converter Web App Engine - Redesign Dashboard
+// Features Before/After Split Slider, Size Estimation, & Active Defaults
+
+class AppState {
+  constructor() {
+    this.items = [];
+    this.selectedItemId = null;
+    this.format = 'webp';
+    this.quality = 0.85;
+    this.widthOption = 'original'; // 'original', '1920', '1600', '1200', 'custom'
+    this.customWidthVal = 500;
+    this.noUpscale = true;
+    this.optimizeWeb = true;
+    this.removeMetadata = true;
+    this.preserveTrans = false;
+    this.progressiveJpeg = false;
+    this.namingMode = 'original'; // 'original', 'sequence', 'seo'
+    this.seqBase = 'image';
+    this.seoKeywords = `* CFO financial strategy meeting Middle East
+* corporate governance board meeting Dubai
+* business executives financial planning GCC`;
+    this.theme = 'dark';
+    this.isExporting = false;
+  }
+}
+
+const state = new AppState();
+
+// DOM Elements
+const dropZone = document.getElementById('dropZone');
+const queueContainer = document.getElementById('queueContainer');
+const queueList = document.getElementById('queueList');
+const queueCount = document.getElementById('queueCount');
+const queueSizeStats = document.getElementById('queueSizeStats');
+const btnClearAll = document.getElementById('btnClearAll');
+
+const fileInput = document.getElementById('fileInput');
+const folderInput = document.getElementById('folderInput');
+const btnSelectFiles = document.getElementById('btnSelectFiles');
+const btnSelectFolder = document.getElementById('btnSelectFolder');
+
+const btnConvertMain = document.getElementById('btnConvertMain');
+const btnSubStats = document.getElementById('btnSubStats');
+
+const qualityRange = document.getElementById('qualityRange');
+const qualityValText = document.getElementById('qualityValText');
+
+const formatDesc = document.getElementById('formatDesc');
+const namingPreview = document.getElementById('namingPreview');
+
+const btnThemeToggle = document.getElementById('btnThemeToggle');
+const helpModal = document.getElementById('helpModal');
+const btnHelp = document.getElementById('btnHelp');
+const btnCloseHelp = document.getElementById('btnCloseHelp');
+
+// Comparison Elements
+const compFileName = document.getElementById('compFileName');
+const compDimensions = document.getElementById('compDimensions');
+const imgLeft = document.getElementById('imgLeft');
+const imgRight = document.getElementById('imgRight');
+const splitHandle = document.getElementById('splitHandle');
+const splitContainer = document.getElementById('splitContainer');
+const optBadge = document.getElementById('optBadge');
+const statOrigSize = document.getElementById('statOrigSize');
+const statOrigDim = document.getElementById('statOrigDim');
+const statOptSize = document.getElementById('statOptSize');
+const statOptDim = document.getElementById('statOptDim');
+const statSavingsTag = document.getElementById('statSavingsTag');
+
+// Init - Start with empty items array
+document.addEventListener('DOMContentLoaded', () => {
+  state.items = [];
+  state.selectedItemId = null;
+  renderAll();
+
+  setupEventListeners();
+  setupSplitSlider();
+});
+
+function setupEventListeners() {
+  // Format Pills & Dropdown
+  const btnMoreFormat = document.getElementById('btnMoreFormat');
+  const moreFormatMenu = document.getElementById('moreFormatMenu');
+
+  if (btnMoreFormat && moreFormatMenu) {
+    btnMoreFormat.addEventListener('click', (e) => {
+      e.stopPropagation();
+      moreFormatMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.dropdown-item').forEach(itemBtn => {
+      itemBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        btnMoreFormat.classList.add('active');
+
+        state.format = itemBtn.dataset.format;
+        btnMoreFormat.textContent = `${state.format.toUpperCase()} ∨`;
+        moreFormatMenu.classList.add('hidden');
+        updateFormatDesc();
+        renderAll();
+      });
+    });
+
+    document.addEventListener('click', () => {
+      if (moreFormatMenu) moreFormatMenu.classList.add('hidden');
+    });
+  }
+
+  document.querySelectorAll('.pill-btn[data-format]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      if (btnMoreFormat) {
+        btnMoreFormat.classList.remove('active');
+        btnMoreFormat.textContent = 'More ∨';
+      }
+      btn.classList.add('active');
+      state.format = btn.dataset.format;
+      updateFormatDesc();
+      renderAll();
+    });
+  });
+
+  // Quality Preset Pills
+  document.querySelectorAll('[data-qpreset]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-qpreset]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (btn.dataset.qpreset === 'smaller') state.quality = 0.60;
+      if (btn.dataset.qpreset === 'balanced') state.quality = 0.85;
+      if (btn.dataset.qpreset === 'high') state.quality = 0.95;
+      qualityRange.value = Math.round(state.quality * 100);
+      qualityValText.textContent = `${qualityRange.value}%`;
+      renderAll();
+    });
+  });
+
+  qualityRange.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value);
+    state.quality = val / 100.0;
+    qualityValText.textContent = `${val}%`;
+    document.querySelectorAll('[data-qpreset]').forEach(b => b.classList.remove('active'));
+    renderAll();
+  });
+
+  // Resize Image Pills
+  document.querySelectorAll('[data-width]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-width]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.widthOption = btn.dataset.width;
+      const customRow = document.getElementById('customWidthInputRow');
+      if (state.widthOption === 'custom') customRow.classList.remove('hidden');
+      else customRow.classList.add('hidden');
+      renderAll();
+    });
+  });
+
+  document.getElementById('customWidthVal').addEventListener('input', (e) => {
+    state.customWidthVal = Math.max(10, parseInt(e.target.value) || 500);
+    renderAll();
+  });
+
+  // File Naming Pills
+  document.querySelectorAll('[data-naming]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-naming]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.namingMode = btn.dataset.naming;
+
+      document.getElementById('seqInputBox').classList.toggle('hidden', state.namingMode !== 'sequence');
+      document.getElementById('seoInputBox').classList.toggle('hidden', state.namingMode !== 'seo');
+      renderAll();
+    });
+  });
+
+  document.getElementById('seqBaseText').addEventListener('input', (e) => {
+    state.seqBase = e.target.value || 'image';
+    renderAll();
+  });
+
+  document.getElementById('seoText').addEventListener('input', (e) => {
+    state.seoKeywords = e.target.value;
+    renderAll();
+  });
+
+  // File Input Pickers
+  btnSelectFiles.addEventListener('click', () => fileInput.click());
+  btnSelectFolder.addEventListener('click', () => folderInput.click());
+  fileInput.addEventListener('change', (e) => handleUserFiles(e.target.files));
+  folderInput.addEventListener('change', (e) => handleUserFiles(e.target.files));
+
+  // Drop Zone Drag & Drop
+  dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    if (e.dataTransfer.files) handleUserFiles(e.dataTransfer.files);
+  });
+
+  btnClearAll.addEventListener('click', () => {
+    state.items = [];
+    state.selectedItemId = null;
+    renderAll();
+  });
+
+  // Theme Toggle
+  btnThemeToggle.addEventListener('click', () => {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', state.theme);
+    btnThemeToggle.textContent = state.theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // Help Modal
+  btnHelp.addEventListener('click', () => helpModal.classList.remove('hidden'));
+  btnCloseHelp.addEventListener('click', () => helpModal.classList.add('hidden'));
+
+  // Main Batch Convert Action
+  btnConvertMain.addEventListener('click', downloadBatchZip);
+}
+
+function handleUserFiles(fileList) {
+  for (const file of fileList) {
+    if (file.type.startsWith('image/') || file.type === 'application/pdf') {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const item = {
+          id: Math.random().toString(36).substring(2),
+          name: file.name,
+          format: file.name.split('.').pop().toUpperCase(),
+          origW: img.naturalWidth || 1920,
+          origH: img.naturalHeight || 1080,
+          origSize: file.size,
+          src: url,
+          file: file
+        };
+        state.items.push(item);
+        if (!state.selectedItemId) state.selectedItemId = item.id;
+        renderAll();
+      };
+      img.src = url;
+    }
+  }
+}
+
+function updateFormatDesc() {
+  const descs = {
+    webp: 'WebP — Best for websites (smaller size, great quality)',
+    avif: 'AVIF — Modern next-gen image compression format',
+    jpg: 'JPG — Standard photo format for web & print',
+    png: 'PNG — Lossless format with full transparency support',
+    pdf: 'PDF — Optimized document vector & raster PDF format',
+    bmp: 'BMP — Bitmap image format',
+    gif: 'GIF — Graphics image format',
+    tiff: 'TIFF — High quality uncompressed image format',
+    heic: 'HEIC — Apple High Efficiency image format'
+  };
+  formatDesc.textContent = descs[state.format] || descs.webp;
+}
+
+function computeEstimatedSize(origBytes, quality) {
+  let factor = 0.20;
+  if (state.format === 'jpg') factor = 0.35;
+  if (state.format === 'png') factor = 0.70;
+  if (state.format === 'avif') factor = 0.15;
+  if (state.format === 'pdf') factor = 0.40;
+
+  factor = factor * (quality / 0.85);
+  return Math.round(origBytes * Math.max(0.08, factor));
+}
+
+function formatBytes(bytes) {
+  if (bytes === 0) return '0 B';
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function sanitizedSEOKeywords() {
+  const lines = state.seoKeywords.split('\n');
+  const result = [];
+  for (let line of lines) {
+    let trimmed = line.trim();
+    if (!trimmed) continue;
+    while (trimmed.startsWith('*') || trimmed.startsWith('-') || trimmed.startsWith('•') || trimmed.startsWith('#')) {
+      trimmed = trimmed.substring(1).trim();
+    }
+    trimmed = trimmed.replace(/^\d+[\.\)\-]?\s*/, '').trim();
+    if (!trimmed) continue;
+
+    const slug = trimmed.toLowerCase()
+      .replace(/[^a-z0-9\s\-]/g, '')
+      .replace(/[\s_]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    if (slug) result.push(slug);
+  }
+  return result;
+}
+
+function getProjectedName(item, index) {
+  let baseName = item.name.replace(/\.[^/.]+$/, "");
+  if (state.namingMode === 'sequence') {
+    baseName = `${state.seqBase}_${(index + 1).toString().padStart(3, '0')}`;
+  } else if (state.namingMode === 'seo') {
+    const list = sanitizedSEOKeywords();
+    if (list.length > 0) {
+      const kIdx = index % list.length;
+      const rep = Math.floor(index / list.length);
+      baseName = rep > 0 ? `${list[kIdx]}-${rep + 1}` : list[kIdx];
+    } else {
+      baseName = `seo-image-${index + 1}`;
+    }
+  }
+  return `${baseName}.${state.format}`;
+}
+
+function renderAll() {
+  if (state.items.length === 0) {
+    dropZone.classList.remove('hidden');
+    queueContainer.classList.add('hidden');
+    document.getElementById('comparisonCard').classList.add('hidden');
+    btnConvertMain.disabled = true;
+    btnConvertMain.querySelector('span').textContent = '📥 Convert Images & Download ZIP';
+    btnSubStats.textContent = 'Add images to start converting';
+    return;
+  }
+
+  dropZone.classList.add('hidden');
+  queueContainer.classList.remove('hidden');
+  document.getElementById('comparisonCard').classList.remove('hidden');
+  btnConvertMain.disabled = false;
+
+  // Render Queue Header Stats
+  let totalOrig = 0;
+  let totalEst = 0;
+  state.items.forEach(item => {
+    totalOrig += item.origSize;
+    totalEst += computeEstimatedSize(item.origSize, state.quality);
+  });
+
+  const totalPct = Math.round((1 - (totalEst / totalOrig)) * 100);
+  queueCount.textContent = `${state.items.length} Images`;
+  queueSizeStats.innerHTML = `Total: ${formatBytes(totalOrig)} → ${formatBytes(totalEst)} (<span class="summary-savings">${totalPct}% smaller</span>)`;
+
+  btnConvertMain.querySelector('span').textContent = `📥 Convert ${state.items.length} ${state.items.length === 1 ? 'Image' : 'Images'} & Download ZIP`;
+  btnSubStats.textContent = `Estimated size: ${formatBytes(totalEst)} (${totalPct}% smaller)`;
+
+  // Render Queue Items List
+  queueList.innerHTML = '';
+  state.items.forEach((item, idx) => {
+    const estSize = computeEstimatedSize(item.origSize, state.quality);
+    const pct = Math.round((1 - (estSize / item.origSize)) * 100);
+
+    const div = document.createElement('div');
+    div.className = `queue-item-row ${item.id === state.selectedItemId ? 'selected' : ''}`;
+    div.onclick = () => {
+      state.selectedItemId = item.id;
+      renderAll();
+    };
+
+    div.innerHTML = `
+      <img src="${item.src}" class="item-thumb" alt="thumb">
+      <div class="item-main-info">
+        <div class="item-name-row">
+          <span class="item-filename">${item.name}</span>
+          <span class="format-pill">${item.format}</span>
+        </div>
+        <div class="item-details-row">
+          <span>${item.origW} × ${item.origH}</span>
+          <span>•</span>
+          <span>${formatBytes(item.origSize)} Original</span>
+          <span class="size-arrow">→</span>
+          <span style="color: #60a5fa; font-weight: 600;">${formatBytes(estSize)} Est.</span>
+        </div>
+      </div>
+      <span class="savings-pill">${pct}% smaller</span>
+      <span class="output-pill">${state.format.toUpperCase()}</span>
+      <button class="btn-item-remove" onclick="event.stopPropagation(); removeQueueItem('${item.id}')">✕</button>
+    `;
+    queueList.appendChild(div);
+  });
+
+  // Render Selected Comparison Card
+  const activeItem = state.items.find(x => x.id === state.selectedItemId) || state.items[0];
+  if (activeItem) {
+    const activeEst = computeEstimatedSize(activeItem.origSize, state.quality);
+    const activePct = Math.round((1 - (activeEst / activeItem.origSize)) * 100);
+
+    compFileName.textContent = activeItem.name;
+    compDimensions.textContent = ` • ${activeItem.origW} × ${activeItem.origH} • ${formatBytes(activeItem.origSize)}`;
+
+    imgLeft.src = activeItem.src;
+
+    // Render live compressed canvas image for right side
+    convertItemToBlob(activeItem).then(blob => {
+      imgRight.src = URL.createObjectURL(blob);
+    });
+
+    optBadge.textContent = `Optimized (${state.format.toUpperCase()}, ${Math.round(state.quality * 100)}%)`;
+
+    statOrigSize.textContent = formatBytes(activeItem.origSize);
+    statOrigDim.textContent = `${activeItem.origW} × ${activeItem.origH}`;
+
+    statOptSize.textContent = formatBytes(activeEst);
+    statOptDim.textContent = `${activeItem.origW} × ${activeItem.origH}`;
+    statSavingsTag.textContent = `🟢 ${activePct}% smaller`;
+  }
+
+  namingPreview.textContent = `Example: ${getProjectedName(state.items[0], 0)}`;
+}
+
+window.removeQueueItem = function(id) {
+  state.items = state.items.filter(x => x.id !== id);
+  if (state.selectedItemId === id) {
+    state.selectedItemId = state.items.length > 0 ? state.items[0].id : null;
+  }
+  renderAll();
+};
+
+// Interactive Before / After Split Slider Handling (Pixel-perfect clip-path)
+function setupSplitSlider() {
+  let isDragging = false;
+
+  const updateSliderPos = (x) => {
+    const rect = splitContainer.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0, Math.min(1, pos));
+    const pct = (pos * 100).toFixed(1);
+    splitContainer.style.setProperty('--split-percent', `${pct}%`);
+    splitHandle.style.left = `${pct}%`;
+  };
+
+  splitHandle.addEventListener('mousedown', () => isDragging = true);
+  window.addEventListener('mouseup', () => isDragging = false);
+  window.addEventListener('mousemove', (e) => {
+    if (isDragging) updateSliderPos(e.clientX);
+  });
+
+  splitContainer.addEventListener('click', (e) => {
+    updateSliderPos(e.clientX);
+  });
+}
+
+// Download Batch ZIP
+async function downloadBatchZip() {
+  if (state.items.length === 0 || state.isExporting) return;
+  state.isExporting = true;
+  btnConvertMain.disabled = true;
+  btnConvertMain.querySelector('span').textContent = '⏳ Processing & Packaging ZIP...';
+
+  const zip = new JSZip();
+
+  for (let i = 0; i < state.items.length; i++) {
+    const item = state.items[i];
+    const outName = getProjectedName(item, i);
+    const blob = await convertItemToBlob(item);
+    zip.file(outName, blob);
+  }
+
+  const zipBlob = await zip.generateAsync({ type: 'blob' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(zipBlob);
+  a.download = `Converted_Images_${new Date().toISOString().slice(0, 10)}.zip`;
+  a.click();
+
+  state.isExporting = false;
+  btnConvertMain.disabled = false;
+  renderAll();
+}
+
+function convertItemToBlob(item) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = item.origW;
+      canvas.height = item.origH;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+
+      let mime = 'image/webp';
+      if (state.format === 'jpg') mime = 'image/jpeg';
+      if (state.format === 'png') mime = 'image/png';
+
+      canvas.toBlob((b) => resolve(b), mime, state.quality);
+    };
+    img.src = item.src;
+  });
+}

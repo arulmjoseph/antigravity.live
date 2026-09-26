@@ -1,0 +1,45 @@
+name: Build Windows Installer Package
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET 8 SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Publish Standalone .NET 8 Win-x64 Single File EXE
+      run: |
+        dotnet publish ImageConverterWin/ImageConverterWin.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true
+
+    - name: Install Inno Setup
+      run: |
+        choco install innosetup -y
+
+    - name: Compile Windows Setup Installer (.exe)
+      run: |
+        & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" ImageConverterWin/installer.iss
+
+    - name: Upload Single File Executable Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ImageConverterWin-Standalone-Exe
+        path: ImageConverterWin/bin/Release/net8.0-windows/win-x64/publish/ImageConverterWin.exe
+
+    - name: Upload Setup Installer (.exe) Package
+      uses: actions/upload-artifact@v3
+      with:
+        name: ImageConverter-Setup-Installer
+        path: ImageConverterWin/Output/ImageConverter_Setup_v1.0.exe

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <defs>
+    <linearGradient id="levixGreenGradW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2B8069"/>
+      <stop offset="100%" stop-color="#00C195"/>
+    </linearGradient>
+    <linearGradient id="levixYellowGradW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FECD4C"/>
+      <stop offset="100%" stop-color="#F4773D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Modern Emblem -->
+  <g transform="translate(6, 6)">
+    <rect x="0" y="0" width="48" height="48" rx="16" fill="url(#levixGreenGradW)"/>
+    <path d="M13 25 L24 14 L35 25" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17 26 V35 C17 36 18 37 19 37 H29 C30 37 31 36 31 35 V26" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+    <circle cx="24" cy="27" r="4.5" fill="url(#levixYellowGradW)"/>
+    <path d="M24 31.5 V35" stroke="url(#levixYellowGradW)" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(66, 12)">
+    <text x="0" y="22" font-family="'Quicksand', 'Poppins', sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">
+      AJITH<tspan fill="#FECD4C">.</tspan>
+    </text>
+    <text x="1" y="36" font-family="'Poppins', sans-serif" font-size="9" font-weight="700" fill="#00C195" letter-spacing="1.5">
+      MORTGAGE ADVISER
+    </text>
+  </g>
+</svg>

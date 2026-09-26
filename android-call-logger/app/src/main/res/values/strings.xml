@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Call Logger &amp; Excel Exporter</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="call_logs">Call Logs</string>
+    <string name="export">Export Excel</string>
+    <string name="sync_now">Sync Call Logs</string>
+</resources>

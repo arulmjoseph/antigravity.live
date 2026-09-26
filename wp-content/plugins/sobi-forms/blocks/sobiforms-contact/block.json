@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sobiforms/contact",
+	"version": "2.0.0",
+	"title": "Sobi Forms Contact",
+	"category": "sobiforms",
+	"icon": "email-alt",
+	"description": "Insert a Sobi Forms form.",
+	"keywords": ["sobi forms", "sobiforms", "contact", "email", "formulaire"],
+	"textdomain": "sobi-forms",
+	"attributes": {
+		"formId": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"multiple": true,
+		"interactivity": false
+	}
+}

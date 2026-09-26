@@ -1,0 +1,29 @@
+/*
+Theme Name:  Sparsha Ayurveda
+Theme URI:   https://sparshacare.com
+Author:      Sparsha Ayurveda Centre
+Author URI:  https://sparshacare.com
+Description: Authentic Ayurvedic healing centre theme — rooted in Kerala traditions, serving Budapest.
+Version:     1.0.0
+Text Domain: sparsha-wp
+*/
+
+:root {
+  --primary-color:      #285a14;
+  --secondary-color:    #347319;
+  --accent-color:       #f59e0b;
+  --text-color:         #2c1810;
+  --bg-color:           #fdf8f0;
+  --heading-color:      #1a3a10;
+  --border-color:       #ddefd3;
+  --header-bg-color:    #ffffff;
+  --header-text-color:  #1a3a10;
+  --top-bar-bg-color:   #1a3a10;
+  --top-bar-text-color: #fdf8f0;
+  --footer-bg-color:    #1a3a10;
+  --footer-text-color:  #dbe1d8;
+  --body-font:          'Inter', system-ui, sans-serif;
+  --heading-font:       'Cinzel', serif;
+  --base-font-size:     16px;
+  --base-line-height:   1.6;
+}

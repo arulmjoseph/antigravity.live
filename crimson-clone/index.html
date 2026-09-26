@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crimson Education | Premier US & UK University Admissions Consulting</title>
+  <meta name="description" content="Crimson Education students are 4.5x - 7x more likely to gain admission into Ivy League, Oxbridge & Top 15 global universities. Book a free consultation." />
+  <link rel="canonical" href="https://www.crimsoneducation.org/" />
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Crimson Education | World-Leading College Admissions Consulting" />
+  <meta property="og:description" content="Personalized strategy, SAT/ACT prep, and mentoring by former Ivy League & Oxbridge admissions officers." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:url" content="https://www.crimsoneducation.org/" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Crimson Education | US & UK University Admissions Support" />
+  <meta name="twitter:description" content="Achieve your dream university acceptance with 4.5x to 7x higher admission rates." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop" />
+
+  <!-- Fonts & Custom Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crimson: {
+              50: '#FDF2F2',
+              100: '#FDE8E8',
+              200: '#FBD0D0',
+              300: '#F8A9A9',
+              400: '#F27474',
+              500: '#E03B3B',
+              600: '#C00000',
+              700: '#990000',
+              800: '#7A0000',
+              900: '#5C0000',
+              950: '#3D0000',
+            },
+            gold: {
+              400: '#F3C649',
+              500: '#D4AF37',
+              600: '#B58F22',
+            },
+            navy: {
+              800: '#1E293B',
+              900: '#0F172A',
+              950: '#0B0F19',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Crimson Education",
+    "url": "https://www.crimsoneducation.org/",
+    "logo": "https://www.crimsoneducation.org/logo.png",
+    "description": "Global university admissions consultancy helping students gain admission into top US and UK universities including Harvard, Oxford, Stanford, and Cambridge.",
+    "sameAs": [
+      "https://www.facebook.com/crimsoneducation/",
+      "https://www.instagram.com/crimsoneducation/",
+      "https://www.linkedin.com/company/crimson-education"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1850"
+    }
+  }
+  </script>
+</head>
+<body class="bg-navy-950 text-slate-100 antialiased selection:bg-crimson-700 selection:text-white flex flex-col min-h-screen">
+
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-crimson-700 focus:text-white focus:font-bold focus:rounded-lg focus:shadow-xl focus:outline-none">
+    Skip to main content
+  </a>
+
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Global Announcement" class="bg-crimson-800 text-white text-xs sm:text-sm py-2 px-4 text-center border-b border-crimson-600/40">
+    <div class="max-w-7xl mx-auto flex items-center justify-center space-x-2">
+      <span class="bg-gold-500 text-navy-950 font-bold uppercase text-[10px] px-2 py-0.5 rounded-full">New Results</span>
+      <span>2026 Ivy League Regular Decision: Crimson students achieve 1,500+ Top 10 Offers!</span>
+      <a href="#results-matrix" class="underline font-semibold hover:text-gold-400 transition-colors ml-2">View Results &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Semantic Header Landmarks -->
+  <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="./index.html" class="flex items-center space-x-3 group" aria-label="Crimson Education Homepage">
+        <div class="w-10 h-10 bg-gradient-to-br from-crimson-600 to-crimson-800 rounded-lg flex items-center justify-center font-serif text-white font-extrabold text-2xl shadow-lg shadow-crimson-900/50 group-hover:scale-105 transition-transform">
+          C
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg leading-none tracking-tight text-white group-hover:text-crimson-400 transition-colors">CRIMSON</span>
+          <span class="text-[10px] tracking-widest uppercase font-semibold text-slate-400">EDUCATION</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Bar -->
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center space-x-8">
+        <ul class="flex items-center space-x-7 text-sm font-medium text-slate-300">
+          <li>
+            <a href="./us-admissions.html" class="hover:text-crimson-400 transition-colors py-2 flex items-center space-x-1">
+              <span>US College Admissions</span>
+              <span class="text-[10px] px-1.5 py-0.5 bg-crimson-900/60 text-crimson-300 rounded font-semibold">Popular</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services-section" class="hover:text-crimson-400 transition-colors py-2">UK & Oxbridge</a>
+          </li>
+          <li>
+            <a href="#calculator-section" class="hover:text-crimson-400 transition-colors py-2">Admissions Calculator</a>
+          </li>
+          <li>
+            <a href="#results-matrix" class="hover:text-crimson-400 transition-colors py-2">Success Rates</a>
+          </li>
+          <li>
+            <a href="#stories-section" class="hover:text-crimson-400 transition-colors py-2">Testimonials</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action CTAs & Language/Region Selector -->
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="flex items-center space-x-1 text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
+          <svg class="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11.065M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+          <span class="font-medium text-slate-200">Global / US</span>
+        </div>
+        
+        <button type="button" class="js-open-modal bg-gradient-to-r from-crimson-700 to-crimson-600 hover:from-crimson-600 hover:to-crimson-500 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-crimson-900/40 hover:shadow-crimson-700/50 transition-all focus:ring-2 focus:ring-crimson-500">
+          Book Free Consultation
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-crimson-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+      <nav aria-label="Mobile Primary Navigation">
+        <ul class="space-y-2 text-base font-medium text-slate-200">
+          <li><a href="./us-admissions.html" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-crimson-400 font-semibold">US College Admissions Support</a></li>
+          <li><a href="#services-section" class="block px-3 py-2 rounded-md hover:bg-slate-800">UK & Oxbridge Admissions</a></li>
+          <li><a href="#calculator-section" class="block px-3 py-2 rounded-md hover:bg-slate-800">Admission Chance Calculator</a></li>
+          <li><a href="#results-matrix" class="block px-3 py-2 rounded-md hover:bg-slate-800">Comparative Success Rates</a></li>
+          <li><a href="#stories-section" class="block px-3 py-2 rounded-md hover:bg-slate-800">Student Stories</a></li>
+        </ul>
+      </nav>
+      <div class="pt-3 border-t border-slate-800">
+        <button type="button" class="js-open-modal w-full bg-crimson-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md text-center">
+          Book Free Consultation
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Semantic Main Content Landmark -->
+  <main id="main-content" class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section aria-labelledby="hero-title" class="relative overflow-hidden bg-crimson-gradient py-16 lg:py-28">
+      <!-- Background Ambient Glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-crimson-700/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Text Content Column -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            <div class="inline-flex items-center space-x-2 bg-navy-900/80 border border-crimson-600/40 rounded-full px-4 py-1.5 text-xs sm:text-sm text-crimson-300 font-medium shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-crimson-500 animate-pulse"></span>
+              <span>4.5x - 7x Higher Acceptance into Top Global Universities</span>
+            </div>
+
+            <!-- Single Unique Page H1 Landmark -->
+            <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              Maximize Your Odds to <span class="font-serif italic font-normal text-gradient-crimson">Harvard, Stanford, Oxford</span> & Top Universities
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Don't navigate top US & UK university applications alone. Work 1-on-1 with former admissions officers, expert academic mentors, and standardized test strategists.
+            </p>
+
+            <!-- Action CTAs -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+              <a href="#calculator-section" class="w-full sm:w-auto bg-gradient-to-r from-crimson-700 to-crimson-600 hover:from-crimson-600 hover:to-crimson-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-crimson-950/60 transition-all text-center focus:ring-2 focus:ring-crimson-500">
+                Calculate Admission Odds &rarr;
+              </a>
+              <button type="button" class="js-open-modal w-full sm:w-auto bg-navy-900 hover:bg-navy-800 text-slate-200 border border-slate-700 font-semibold px-7 py-4 rounded-xl transition-colors text-center">
+                Speak With an Advisor
+              </button>
+            </div>
+
+            <!-- Key Trust Badges -->
+            <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-white">1,500+</div>
+                <div class="text-xs text-slate-400 font-medium">Ivy League Offers</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-gold-400">4.5x</div>
+                <div class="text-xs text-slate-400 font-medium">Higher Admission Rate</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-white">$68M+</div>
+                <div class="text-xs text-slate-400 font-medium">Scholarships Secured</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Media / Visual Column -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Explicit Image Dimensions & High Priority Loading -->
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 aspect-video lg:aspect-[4/3] bg-navy-900 min-h-[280px]">
+                <img 
+                  src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Graduation success of Crimson Education students at top US university campus" 
+                  width="1000" 
+                  height="750"
+                  fetchpriority="high"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent"></div>
+
+                <!-- Floating Social Proof Overlay Card -->
+                <div class="absolute bottom-4 left-4 right-4 bg-navy-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-700/80 shadow-xl flex items-center space-x-3">
+                  <div class="w-12 h-12 rounded-full bg-crimson-700 flex items-center justify-center font-bold text-white text-lg flex-shrink-0">
+                    4.8★
+                  </div>
+                  <div class="text-xs">
+                    <div class="font-bold text-white">Trustpilot Rated "Excellent"</div>
+                    <div class="text-slate-400">Based on 1,850+ verified student & parent reviews</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: UNIVERSITY CRESTS & SOCIAL PROOF -->
+    <section aria-labelledby="crests-title" class="bg-navy-900 py-10 border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="crests-title" class="text-center text-xs uppercase font-bold tracking-widest text-slate-400 mb-8">
+          Helping Students Gain Admission To Elite Global Institutions
+        </h2>
+
+        <!-- Responsive Crest Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-items-center opacity-80">
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">HARVARD</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">14.8% vs 3.4%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">STANFORD</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">16.1% vs 3.6%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">MIT</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">18.5% vs 3.9%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">OXFORD</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">32.5% vs 14.1%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">CAMBRIDGE</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">35.0% vs 15.7%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">YALE</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">19.8% vs 4.3%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">COLUMBIA</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">17.4% vs 3.8%</span>
+          </div>
+          <div class="flex flex-col items-center space-y-1">
+            <span class="font-serif font-bold text-xl text-slate-300">PRINCETON</span>
+            <span class="text-[10px] text-crimson-400 font-semibold">20.1% vs 4.4%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE ADMISSIONS CALCULATOR WIDGET -->
+    <section id="calculator-section" aria-labelledby="calculator-title" class="py-20 bg-navy-950 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-crimson-400 text-sm font-bold uppercase tracking-wider">Interactive Assessment</span>
+          <h2 id="calculator-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+            Calculate Your University Admission Chances
+          </h2>
+          <p class="text-slate-400 mt-3 text-base">
+            Select your target institution and academic credentials to compare typical national acceptance rates against Crimson student acceptance rates.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-navy-900 p-6 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl">
+          
+          <!-- Input Controls Form -->
+          <form id="admissions-calc-form" class="lg:col-span-6 space-y-6" onsubmit="return false;">
+            
+            <div>
+              <label for="calc-university" class="block text-sm font-semibold text-slate-200 mb-2">Target University</label>
+              <select id="calc-university" class="w-full bg-navy-950 border border-slate-700 text-white rounded-xl px-4 py-3 focus:ring-2 focus:ring-crimson-500 focus:border-transparent font-medium">
+                <option value="harvard">Harvard University (US Ivy League)</option>
+                <option value="stanford">Stanford University (US West Coast)</option>
+                <option value="mit">MIT - Massachusetts Institute of Tech</option>
+                <option value="oxford">Oxford University (UK Oxbridge)</option>
+                <option value="cambridge">Cambridge University (UK Oxbridge)</option>
+                <option value="yale">Yale University (US Ivy League)</option>
+                <option value="columbia">Columbia University (US Ivy League)</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="calc-gpa" class="text-sm font-semibold text-slate-200">Unweighted GPA (4.0 Scale)</label>
+                <span id="calc-gpa-val" class="text-crimson-400 font-bold text-base">3.85</span>
+              </div>
+              <input type="range" id="calc-gpa" min="3.0" max="4.0" step="0.05" value="3.85" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-crimson-600" />
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="calc-sat" class="text-sm font-semibold text-slate-200">SAT Score (or ACT equivalent)</label>
+                <span id="calc-sat-val" class="text-crimson-400 font-bold text-base">1500</span>
+              </div>
+              <input type="range" id="calc-sat" min="1100" max="1600" step="10" value="1500" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-crimson-600" />
+            </div>
+
+            <div class="p-4 bg-navy-950/80 rounded-xl border border-slate-800 text-xs text-slate-400">
+              <span class="text-slate-200 font-semibold">Note:</span> Crimson's holistic methodology considers extracurricular leadership, passion project portfolios, and personal essays alongside academic metrics.
+            </div>
+
+          </form>
+
+          <!-- Dynamic Output Results Card -->
+          <div class="lg:col-span-6 bg-navy-950 p-6 sm:p-8 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[320px]">
+            <div>
+              <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Admission Chance Comparison</div>
+              <h3 id="res-uni-name" class="text-2xl font-bold text-white mt-1">Harvard University</h3>
+
+              <!-- Dual Rate Display Grid -->
+              <div class="grid grid-cols-2 gap-4 mt-6">
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                  <div class="text-xs text-slate-400 font-medium">General National Rate</div>
+                  <div id="res-national-rate" class="text-2xl font-extrabold text-slate-300 mt-1">3.4%</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-crimson-900/40 border border-crimson-700/60 text-center relative overflow-hidden">
+                  <div class="text-xs text-crimson-300 font-semibold">Crimson Student Rate</div>
+                  <div id="res-crimson-rate" class="text-3xl font-extrabold text-crimson-400 mt-1">15.2%</div>
+                </div>
+              </div>
+
+              <!-- Multiplier Badge -->
+              <div class="mt-6 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-medium">Crimson Advantage Factor:</span>
+                <span id="res-multiplier" class="text-sm font-bold bg-gold-500/20 text-gold-400 px-3 py-1 rounded-full border border-gold-500/30">
+                  4.5x Higher Odds
+                </span>
+              </div>
+
+              <!-- Visual Progress Bar -->
+              <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden mt-3">
+                <div id="res-progress-bar" class="bg-gradient-to-r from-crimson-600 to-gold-400 h-full rounded-full transition-all duration-500" style="width: 28%;"></div>
+              </div>
+
+              <div id="res-advice" class="mt-6 text-xs sm:text-sm text-slate-300 bg-navy-900 p-4 rounded-xl border border-slate-800">
+                <strong>Key Strategy:</strong> Strong academic baseline! Focus now on authentic passion projects, essay positioning, and early action strategy.
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+              <button type="button" class="js-open-modal text-xs font-bold text-crimson-400 hover:text-crimson-300 underline flex items-center space-x-1">
+                <span>Request Detailed Profile Evaluation</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: CORE SERVICES GRID -->
+    <section id="services-section" aria-labelledby="services-title" class="py-20 bg-navy-900 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-crimson-400 text-sm font-bold uppercase tracking-wider">Holistic Guidance</span>
+          <h2 id="services-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+            Tailored Consulting Programs For Global Success
+          </h2>
+          <p class="text-slate-400 mt-3 text-base">
+            Every student works with a dedicated team of former Ivy League admissions officers, top essay mentors, and extracurricular strategists.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Service Card 1 -->
+          <article class="bg-navy-950 p-8 rounded-2xl border border-slate-800 hover:border-crimson-700/50 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-crimson-900/50 border border-crimson-700/40 flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-crimson-400 transition-colors">US College Admissions</h3>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                Strategic Common App support, Early Decision optimization, and essay editing by former US Ivy League admissions officers.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <a href="./us-admissions.html" class="text-xs font-bold text-crimson-400 hover:text-crimson-300 flex items-center justify-between">
+                <span>Explore US Program</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 2 -->
+          <article class="bg-navy-950 p-8 rounded-2xl border border-slate-800 hover:border-crimson-700/50 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-crimson-900/50 border border-crimson-700/40 flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-crimson-400 transition-colors">UK & Oxbridge Admissions</h3>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                UCAS personal statement coaching, Oxford/Cambridge interview simulation, and TSA/MAT/STEP test prep.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <button type="button" class="js-open-modal text-xs font-bold text-crimson-400 hover:text-crimson-300 flex items-center justify-between w-full">
+                <span>Explore UK Program</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Service Card 3 -->
+          <article class="bg-navy-950 p-8 rounded-2xl border border-slate-800 hover:border-crimson-700/50 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-crimson-900/50 border border-crimson-700/40 flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-crimson-400 transition-colors">Extracurricular Leadership</h3>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                Build standout non-profit initiatives, research papers, capstone projects, and high-impact national leadership positions.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <button type="button" class="js-open-modal text-xs font-bold text-crimson-400 hover:text-crimson-300 flex items-center justify-between w-full">
+                <span>Leadership Projects</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Service Card 4 -->
+          <article class="bg-navy-950 p-8 rounded-2xl border border-slate-800 hover:border-crimson-700/50 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-crimson-900/50 border border-crimson-700/40 flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white group-hover:text-crimson-400 transition-colors">SAT & ACT Test Prep</h3>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                1-on-1 standardized test tutoring with 99th-percentile tutors targeting 1500+ SAT or 34+ ACT scores.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <button type="button" class="js-open-modal text-xs font-bold text-crimson-400 hover:text-crimson-300 flex items-center justify-between w-full">
+                <span>View Tutoring</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: COMPARATIVE ACCEPTANCE MATRIX -->
+    <section id="results-matrix" aria-labelledby="matrix-title" class="py-20 bg-navy-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-gold-400 text-sm font-bold uppercase tracking-wider">Proven Results Data</span>
+          <h2 id="matrix-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+            Crimson Acceptance Rates vs. Global Averages
+          </h2>
+          <p class="text-slate-400 mt-3 text-base">
+            Empirical acceptance comparison across top Ivy League and world-ranking universities.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto bg-navy-900 rounded-2xl border border-slate-800 shadow-xl">
+          <table class="w-full text-left border-collapse min-w-[640px]">
+            <thead>
+              <tr class="bg-navy-950 text-slate-300 text-xs font-bold uppercase tracking-wider border-b border-slate-800">
+                <th scope="col" class="py-5 px-6">Target University</th>
+                <th scope="col" class="py-5 px-6 text-center">General Acceptance Rate</th>
+                <th scope="col" class="py-5 px-6 text-center bg-crimson-900/30 text-crimson-300">Crimson Student Rate</th>
+                <th scope="col" class="py-5 px-6 text-center">Crimson Multiplier</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-sm font-medium text-slate-200">
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <th scope="row" class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+                  <span>Harvard University</span>
+                </th>
+                <td class="py-4 px-6 text-center text-slate-400">3.4%</td>
+                <td class="py-4 px-6 text-center font-bold text-crimson-400 bg-crimson-900/20">15.2%</td>
+                <td class="py-4 px-6 text-center text-gold-400 font-bold">4.5x Higher</td>
+              </tr>
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <th scope="row" class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+                  <span>Stanford University</span>
+                </th>
+                <td class="py-4 px-6 text-center text-slate-400">3.6%</td>
+                <td class="py-4 px-6 text-center font-bold text-crimson-400 bg-crimson-900/20">16.1%</td>
+                <td class="py-4 px-6 text-center text-gold-400 font-bold">4.4x Higher</td>
+              </tr>
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <th scope="row" class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+                  <span>MIT (Massachusetts Inst. of Tech)</span>
+                </th>
+                <td class="py-4 px-6 text-center text-slate-400">3.9%</td>
+                <td class="py-4 px-6 text-center font-bold text-crimson-400 bg-crimson-900/20">18.5%</td>
+                <td class="py-4 px-6 text-center text-gold-400 font-bold">4.7x Higher</td>
+              </tr>
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <th scope="row" class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+                  <span>Oxford University</span>
+                </th>
+                <td class="py-4 px-6 text-center text-slate-400">14.1%</td>
+                <td class="py-4 px-6 text-center font-bold text-crimson-400 bg-crimson-900/20">32.5%</td>
+                <td class="py-4 px-6 text-center text-gold-400 font-bold">2.3x Higher</td>
+              </tr>
+              <tr class="hover:bg-slate-800/40 transition-colors">
+                <th scope="row" class="py-4 px-6 font-bold text-white flex items-center space-x-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+                  <span>Cambridge University</span>
+                </th>
+                <td class="py-4 px-6 text-center text-slate-400">15.7%</td>
+                <td class="py-4 px-6 text-center font-bold text-crimson-400 bg-crimson-900/20">35.0%</td>
+                <td class="py-4 px-6 text-center text-gold-400 font-bold">2.2x Higher</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: STUDENT SUCCESS STORIES / TESTIMONIALS -->
+    <section id="stories-section" aria-labelledby="stories-title" class="py-20 bg-navy-900 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-crimson-400 text-sm font-bold uppercase tracking-wider">Student Case Studies</span>
+            <h2 id="stories-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+              Real Students. Real Admissions Offers.
+            </h2>
+          </div>
+          <a href="#calculator-section" class="mt-4 md:mt-0 text-sm font-bold text-crimson-400 hover:text-crimson-300 flex items-center space-x-1">
+            <span>Calculate your odds today</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Story Card 1 -->
+          <article class="bg-navy-950 rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+            <div class="relative aspect-video bg-navy-900">
+              <img 
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop" 
+                alt="Student accepted to Harvard University with Crimson Education mentoring" 
+                width="600" 
+                height="338" 
+                loading="lazy" 
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-crimson-700 text-white font-bold text-xs px-3 py-1 rounded-full">
+                Accepted to Harvard '28
+              </div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <blockquote class="text-slate-300 text-sm italic leading-relaxed">
+                "My Crimson strategy team transformed my research passion into a nationally recognized project. Their essay guidance was fundamental to my Harvard acceptance!"
+              </blockquote>
+              <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-white font-bold text-sm">Alex Chen</div>
+                  <div class="text-xs text-slate-400">SAT 1560 | Major: Computer Science</div>
+                </div>
+                <span class="text-gold-400 font-serif font-bold text-xs">Harvard '28</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Story Card 2 -->
+          <article class="bg-navy-950 rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+            <div class="relative aspect-video bg-navy-900">
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
+                alt="Student accepted to Oxford University" 
+                width="600" 
+                height="338" 
+                loading="lazy" 
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-navy-800 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/30">
+                Accepted to Oxford PPE
+              </div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <blockquote class="text-slate-300 text-sm italic leading-relaxed">
+                "The mock interview preparation with former Oxford tutors gave me absolute confidence during my admissions assessment. I couldn't have done it without them."
+              </blockquote>
+              <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-white font-bold text-sm">Maya Patel</div>
+                  <div class="text-xs text-slate-400">A-Levels: A*A*A* | PPE</div>
+                </div>
+                <span class="text-gold-400 font-serif font-bold text-xs">Oxford '27</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Story Card 3 -->
+          <article class="bg-navy-950 rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+            <div class="relative aspect-video bg-navy-900">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" 
+                alt="Student accepted to Stanford University" 
+                width="600" 
+                height="338" 
+                loading="lazy" 
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-3 left-3 bg-crimson-700 text-white font-bold text-xs px-3 py-1 rounded-full">
+                Accepted to Stanford '28
+              </div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <blockquote class="text-slate-300 text-sm italic leading-relaxed">
+                "Starting early with Crimson in 10th grade helped me build a coherent extracurricular storyline. The result? Admission to my top-choice university!"
+              </blockquote>
+              <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-white font-bold text-sm">Sophia Martinez</div>
+                  <div class="text-xs text-slate-400">ACT 35 | Major: Bioengineering</div>
+                </div>
+                <span class="text-gold-400 font-serif font-bold text-xs">Stanford '28</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: CONVERSION CTA BANNER -->
+    <section aria-labelledby="cta-banner-title" class="py-16 bg-gradient-to-r from-crimson-900 via-crimson-800 to-navy-950 text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 id="cta-banner-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Ready to Start Your Journey to a Top University?
+        </h2>
+        <p class="text-crimson-200 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
+          Book your initial 1-on-1 admissions consultation with an expert strategist today. Zero commitment required.
+        </p>
+        <div class="mt-8 flex justify-center">
+          <button type="button" class="js-open-modal bg-white text-crimson-900 font-extrabold text-base px-8 py-4 rounded-xl shadow-2xl hover:bg-slate-100 transition-all focus:ring-2 focus:ring-white">
+            Schedule Free Initial Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Semantic Footer Landmark -->
+  <footer class="bg-navy-950 text-slate-400 text-xs py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Brand & Address -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-crimson-700 rounded-lg flex items-center justify-center font-serif text-white font-bold text-lg">C</div>
+            <span class="font-bold text-white text-base tracking-tight">CRIMSON EDUCATION</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            Crimson Education is the world's leading college admissions consulting company, helping students reach their target US and UK universities.
+          </p>
+          <div class="text-slate-400 space-y-1">
+            <div>Global HQ: Auckland | New York | London | Singapore</div>
+            <div>Support: contact@crimsoneducation.org | +1 (800) 274-6766</div>
+          </div>
+        </div>
+
+        <!-- Quick Links Column 1 -->
+        <div>
+          <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Admissions Services</h3>
+          <ul class="space-y-2.5">
+            <li><a href="./us-admissions.html" class="hover:text-white transition-colors">US College Admissions</a></li>
+            <li><a href="#services-section" class="hover:text-white transition-colors">UK & Oxbridge Consulting</a></li>
+            <li><a href="#services-section" class="hover:text-white transition-colors">SAT/ACT Tutoring</a></li>
+            <li><a href="#services-section" class="hover:text-white transition-colors">Extracurricular Building</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links Column 2 -->
+        <div>
+          <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Tools & Calculators</h3>
+          <ul class="space-y-2.5">
+            <li><a href="#calculator-section" class="hover:text-white transition-colors">Admission Odds Estimator</a></li>
+            <li><a href="./us-admissions.html#target-calculator" class="hover:text-white transition-colors">SAT & GPA Goal Targeter</a></li>
+            <li><a href="#results-matrix" class="hover:text-white transition-colors">Success Rates Matrix</a></li>
+            <li><a href="#stories-section" class="hover:text-white transition-colors">Student Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Compliance & Legal -->
+        <div>
+          <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Legal & Trust</h3>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Accessibility Statement</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Trustpilot Accreditation</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-slate-400">
+        <div>&copy; 2026 Crimson Education Ltd. All rights reserved. Built for technical performance, accessibility & SEO.</div>
+        <div class="mt-4 sm:mt-0 flex space-x-4">
+          <a href="#" class="hover:text-white" aria-label="Crimson Facebook">Facebook</a>
+          <a href="#" class="hover:text-white" aria-label="Crimson Instagram">Instagram</a>
+          <a href="#" class="hover:text-white" aria-label="Crimson LinkedIn">LinkedIn</a>
+          <a href="#" class="hover:text-white" aria-label="Crimson YouTube">YouTube</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- CONSULTATION MODAL -->
+  <div id="consultation-modal" class="hidden fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-sm items-center justify-center p-4" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="bg-navy-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      
+      <button type="button" class="js-close-modal absolute top-4 right-4 text-slate-400 hover:text-white p-2" aria-label="Close modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-10 h-10 bg-crimson-700 rounded-lg flex items-center justify-center font-bold text-white text-xl mx-auto mb-3">C</div>
+        <h2 id="modal-title" class="text-2xl font-bold text-white">Book Free Initial Consultation</h2>
+        <p class="text-xs text-slate-400 mt-1">Speak 1-on-1 with an expert university admissions strategist.</p>
+      </div>
+
+      <form class="js-lead-form space-y-4">
+        <div>
+          <label for="modal-name" class="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
+          <input type="text" id="modal-name" required class="w-full bg-navy-950 border border-slate-700 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-crimson-500 focus:border-transparent" placeholder="e.g. Eleanor Vance" />
+        </div>
+
+        <div>
+          <label for="modal-email" class="block text-xs font-semibold text-slate-300 mb-1">Email Address *</label>
+          <input type="email" id="modal-email" required class="w-full bg-navy-950 border border-slate-700 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-crimson-500 focus:border-transparent" placeholder="eleanor@example.com" />
+        </div>
+
+        <div>
+          <label for="modal-target" class="block text-xs font-semibold text-slate-300 mb-1">Primary Admission Goal</label>
+          <select id="modal-target" class="w-full bg-navy-950 border border-slate-700 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-crimson-500">
+            <option value="us-ivy">US Ivy League & Top 20 Universities</option>
+            <option value="uk-oxbridge">UK Oxford / Cambridge / Imperial</option>
+            <option value="sat-prep">SAT / ACT Standardized Test Prep</option>
+            <option value="extracurricular">Extracurricular Leadership Projects</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="modal-grade" class="block text-xs font-semibold text-slate-300 mb-1">Current Grade / Year</label>
+          <select id="modal-grade" class="w-full bg-navy-950 border border-slate-700 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-crimson-500">
+            <option value="11">Grade 11 / Year 12 (Crucial Year)</option>
+            <option value="10">Grade 10 / Year 11</option>
+            <option value="12">Grade 12 / Year 13 (Applying Now)</option>
+            <option value="9">Grade 9 or Earlier (Early Prep)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-crimson-700 hover:bg-crimson-600 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-lg shadow-crimson-950/50">
+          Request Free Consultation
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

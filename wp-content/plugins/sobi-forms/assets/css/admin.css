@@ -1,0 +1,1541 @@
+/**
+ * SobiForms admin — settings tabs.
+ */
+
+.sobiforms-forms-list .sobiforms-badge-default {
+	margin-left: 0.15em;
+	font-weight: 400;
+	color: #646970;
+}
+
+.sobiforms-settings-tab {
+	display: none;
+	margin-top: 1em;
+}
+
+.sobiforms-settings-tab.is-active {
+	display: block;
+}
+
+.sobiforms-settings-tab .form-table {
+	margin-top: 0;
+}
+
+.sobiforms-usage-card {
+	max-width: 40rem;
+	padding: 1rem 1.25rem;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+}
+
+.sobiforms-usage-card code {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.25rem 0.5rem;
+	background: #f0f0f1;
+}
+
+.sobiforms-status-failed {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+.sobiforms-delete-submission {
+	color: #b32d2e;
+	text-decoration: none;
+}
+
+.sobiforms-delete-submission:hover {
+	color: #8a2424;
+	text-decoration: underline;
+}
+
+.sobiforms-consent-text-row--hidden {
+	display: none;
+}
+
+/* Shared admin list layout (submissions + forms). */
+.sobiforms-admin-list .sobiforms-admin-list__views-row {
+	position: relative;
+	margin: 8px 0 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__views-row .subsubsub {
+	float: left;
+	margin: 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__views-row .search-box {
+	float: right;
+	margin: 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__filters {
+	clear: both;
+	height: auto;
+	margin: 1.25rem 0 0.5rem;
+	padding: 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__filters .alignleft.actions {
+	padding: 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__filters .tablenav-pages {
+	float: right;
+	margin: 0;
+}
+
+.sobiforms-admin-list .sobiforms-admin-list__filters .displaying-num {
+	margin-right: 0;
+}
+
+.sobiforms-forms-list .sobiforms-admin-list__filters .tablenav-pages {
+	float: left;
+}
+
+.sobiforms-submissions-list .wp-list-table .column-form {
+	width: 18%;
+}
+
+.sobiforms-submissions-list .wp-list-table .column-mail-status {
+	width: 12%;
+}
+
+.sobiforms-submissions-list .wp-list-table .column-note {
+	width: 22%;
+}
+
+.sobiforms-submission-note-excerpt {
+	font-size: 13px;
+	color: #50575e;
+	line-height: 1.4;
+}
+
+/* Submissions inbox — split list + detail */
+.sobiforms-submissions-inbox-page.wrap {
+	margin: 0;
+	max-width: none;
+}
+
+.sobiforms-submissions-inbox {
+	--sobiforms-inbox-list-width: 320px;
+	display: flex;
+	height: calc(100vh - 32px);
+	min-height: 420px;
+	background: #fff;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+.sobiforms-submissions-inbox__list {
+	width: var(--sobiforms-inbox-list-width);
+	min-width: 220px;
+	max-width: 55%;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow: hidden;
+}
+
+.sobiforms-inbox-list__header {
+	flex-shrink: 0;
+	background: #fff;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+/*
+ * Lucide icons (https://lucide.dev)
+ * License: ISC (https://lucide.dev/license)
+ * Copyright (c) Lucide Contributors
+ */
+
+.sobiforms-wp-icon,
+.sobiforms-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	line-height: 0;
+	color: currentColor;
+	vertical-align: middle;
+}
+
+.sobiforms-wp-icon svg,
+.sobiforms-icon svg {
+	width: 100%;
+	height: 100%;
+	stroke: currentColor;
+	fill: none;
+}
+
+.sobiforms-icon svg [fill="currentColor"] {
+	fill: currentColor;
+}
+
+.sobiforms-inbox-list__form-tab-bar {
+	display: flex;
+	align-items: stretch;
+	padding: 0;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.sobiforms-inbox-view-tabs {
+	display: flex;
+	align-items: stretch;
+	flex: 1;
+	min-width: 0;
+}
+
+.sobiforms-inbox-view-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	box-sizing: border-box;
+	height: 48px;
+	padding: 0 12px;
+	border: none;
+	border-bottom: 3px solid transparent;
+	margin-bottom: -1px;
+	background: transparent;
+	color: #646970;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.3;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.sobiforms-inbox-view-tab:hover,
+.sobiforms-inbox-view-tab:focus-visible {
+	color: #2271b1;
+}
+
+.sobiforms-inbox-view-tab.is-active {
+	color: #2271b1;
+	border-bottom-color: #2271b1;
+}
+
+.sobiforms-inbox-view-tab__count {
+	font-size: 11px;
+	font-weight: 400;
+	color: #646970;
+}
+
+.sobiforms-inbox-view-tab.is-active .sobiforms-inbox-view-tab__count {
+	color: #2271b1;
+}
+
+.sobiforms-inbox-form-tab {
+	position: relative;
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	padding: 0 16px 0 8px;
+}
+
+.sobiforms-inbox-form-tab__trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	box-sizing: border-box;
+	width: auto;
+	max-width: min(240px, 40vw);
+	height: 32px;
+	padding: 0 8px 0 10px;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: #fff;
+	cursor: pointer;
+	color: #1d2327;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.3;
+}
+
+.sobiforms-inbox-form-tab__trigger:hover,
+.sobiforms-inbox-form-tab__trigger:focus-visible {
+	border-color: #2271b1;
+	color: #2271b1;
+	outline: none;
+}
+
+.sobiforms-inbox-form-tab__icon {
+	flex-shrink: 0;
+	opacity: 0.9;
+}
+
+.sobiforms-inbox-form-tab__label {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.sobiforms-inbox-form-tab__chevron {
+	flex-shrink: 0;
+	opacity: 0.75;
+}
+
+.sobiforms-inbox-form-tab__menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	right: 16px;
+	left: auto;
+	z-index: 30;
+	min-width: 220px;
+	max-width: min(320px, 90vw);
+	max-height: 280px;
+	overflow-y: auto;
+	margin: 0;
+	padding: 4px 0;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.sobiforms-inbox-form-tab__menu > li {
+	margin: 0;
+}
+
+.sobiforms-inbox-form-tab__menu a {
+	display: block;
+	padding: 8px 14px;
+	text-decoration: none;
+	color: #1d2327;
+	font-size: 13px;
+	line-height: 1.35;
+}
+
+.sobiforms-inbox-form-tab__menu a:hover,
+.sobiforms-inbox-form-tab__menu a:focus-visible {
+	background: #f6f7f7;
+	color: #2271b1;
+}
+
+.sobiforms-inbox-form-tab__menu a.is-current {
+	font-weight: 600;
+	color: #2271b1;
+}
+
+.sobiforms-inbox-list__search-form {
+	padding: 10px 16px 0;
+}
+
+.sobiforms-inbox-list__search-wrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.sobiforms-inbox-list__search-icon {
+	position: absolute;
+	left: 11px;
+	top: 50%;
+	z-index: 1;
+	width: 16px;
+	height: 16px;
+	color: #646970;
+	pointer-events: none;
+	transform: translateY(-50%);
+}
+
+.sobiforms-inbox-list__search-wrap .sobiforms-inbox-list__search-input[type="search"] {
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	margin: 0;
+	padding: 7px 10px 7px 38px;
+	border: none;
+	border-radius: 16px;
+	background: #f6f7f7;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.sobiforms-inbox-list__search-wrap .sobiforms-inbox-list__search-input[type="search"]:focus {
+	border: none;
+	background: #f0f0f1;
+	box-shadow: none;
+	outline: none;
+}
+
+.sobiforms-inbox-list__toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 6px 1rem;
+	min-height: 40px;
+	overflow: visible;
+}
+
+.sobiforms-inbox-toolbar__left,
+.sobiforms-inbox-toolbar__right {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	min-width: 0;
+}
+
+.sobiforms-inbox-toolbar__right {
+	flex-shrink: 0;
+}
+
+.sobiforms-inbox-select {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	position: relative;
+}
+
+.sobiforms-inbox-select input.sobiforms-inbox-select__master[type="checkbox"] {
+	flex: 0 0 0.875rem;
+	width: 0.875rem;
+	height: 0.875rem;
+	min-width: 0.875rem;
+	margin: 0 2px 0 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.sobiforms-inbox-select__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #50575e;
+}
+
+.sobiforms-inbox-select__toggle:hover {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.sobiforms-inbox-select__menu,
+.sobiforms-inbox-more__menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	z-index: 30;
+	min-width: 160px;
+	margin: 0;
+	padding: 4px 0;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.sobiforms-inbox-select__menu > li,
+.sobiforms-inbox-more__menu > li {
+	margin: 0;
+}
+
+.sobiforms-inbox-more {
+	position: relative;
+}
+
+.sobiforms-inbox-more__menu {
+	right: 0;
+	left: auto;
+}
+
+.sobiforms-inbox-select__menu button,
+.sobiforms-inbox-more__menu a {
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 13px;
+	line-height: 1.3;
+	text-align: left;
+	text-decoration: none;
+	color: #1d2327;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.sobiforms-inbox-select__menu button:hover,
+.sobiforms-inbox-more__menu a:hover {
+	background: #f6f7f7;
+}
+
+.sobiforms-inbox-more__danger {
+	color: #b32d2e;
+}
+
+.sobiforms-inbox-more__separator {
+	height: 1px;
+	margin: 4px 0;
+	background: #f0f0f1;
+	list-style: none;
+}
+
+.sobiforms-inbox-bulk-actions {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.sobiforms-inbox-bulk-actions[hidden] {
+	display: none !important;
+}
+
+.sobiforms-inbox-action-tip {
+	position: relative;
+}
+
+.sobiforms-inbox-action-tip::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: calc(100% + 6px);
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 4px 8px;
+	background: #1d2327;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.4;
+	white-space: nowrap;
+	border-radius: 4px;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.15s ease, visibility 0.15s ease;
+	z-index: 30;
+}
+
+.sobiforms-inbox-action-tip:hover::after,
+.sobiforms-inbox-action-tip:focus-visible::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+.sobiforms-inbox-bulk-actions__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #50575e;
+}
+
+.sobiforms-inbox-bulk-actions__btn:hover {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.sobiforms-inbox-bulk-actions__btn--danger:hover {
+	color: #b32d2e;
+}
+
+.sobiforms-inbox-bulk-actions__btn[hidden] {
+	display: none !important;
+}
+
+.sobiforms-inbox-toolbar__icon-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #50575e;
+}
+
+.sobiforms-inbox-toolbar__icon-btn:hover {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.sobiforms-inbox-toolbar__range {
+	font-size: 12px;
+	color: #646970;
+	white-space: nowrap;
+	margin-right: 4px;
+}
+
+.sobiforms-inbox-toolbar__page-nav {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.sobiforms-inbox-toolbar__page-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	color: #1d2327;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+.sobiforms-inbox-toolbar__page-btn:hover {
+	background: #f0f0f1;
+}
+
+.sobiforms-inbox-list__body {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	padding-bottom: 8px;
+}
+
+.sobiforms-inbox-bulk-form {
+	display: block;
+}
+
+.sobiforms-submissions-inbox__resize {
+	flex-shrink: 0;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	cursor: col-resize;
+	background: #e2e8f0;
+	position: relative;
+	z-index: 1;
+}
+
+.sobiforms-submissions-inbox__resize::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -4px;
+	right: -4px;
+}
+
+.sobiforms-submissions-inbox__resize:hover,
+.sobiforms-submissions-inbox__resize:focus,
+.sobiforms-submissions-inbox__resize:focus-visible {
+	background: #2271b1;
+	outline: none;
+	box-shadow: none;
+}
+
+body.sobiforms-inbox-resizing {
+	cursor: col-resize;
+	user-select: none;
+}
+
+body.sobiforms-inbox-resizing .sobiforms-submissions-inbox__resize {
+	background: #2271b1;
+}
+
+.sobiforms-submissions-inbox__detail {
+	flex: 1;
+	overflow-y: auto;
+	min-width: 0;
+}
+
+.sobiforms-submissions-inbox__detail:has(> .sobiforms-inbox-empty:only-child) {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.sobiforms-inbox-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sobiforms-inbox-list__empty {
+	padding: 1.25rem 1rem;
+	color: #646970;
+	font-size: 13px;
+}
+
+.sobiforms-inbox-list__empty-message {
+	margin: 0 0 0.5rem;
+}
+
+.sobiforms-inbox-list__empty-action {
+	margin: 0;
+}
+
+.sobiforms-inbox-list__empty-action a {
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.sobiforms-inbox-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	margin: 0;
+	padding: 1rem 1rem 0.875rem;
+	border-bottom: 1px solid #f0f0f1;
+	background: #f6f7f7;
+	transition: background 0.15s ease;
+}
+
+.sobiforms-inbox-row input.sobiforms-inbox-row__check[type="checkbox"] {
+	flex: 0 0 0.875rem;
+	width: 0.875rem;
+	height: 0.875rem;
+	min-width: 0.875rem;
+	margin: 0.15rem 0 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.sobiforms-inbox-row__content {
+	flex: 1;
+	min-width: 0;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	grid-template-rows: auto auto;
+	column-gap: 0.75rem;
+	row-gap: 0.15rem;
+	align-items: start;
+}
+
+.sobiforms-inbox-row.sobiforms-submission--unread:not(.sobiforms-submission--spam) {
+	background: #fff;
+}
+
+.sobiforms-inbox-row:hover:not(.is-selected) {
+	background: #f0f0f1;
+}
+
+.sobiforms-inbox-row.sobiforms-submission--unread:not(.sobiforms-submission--spam):hover:not(.is-selected) {
+	background: #f6f7f7;
+}
+
+.sobiforms-inbox-row.is-selected {
+	background: #f0f6fc;
+	box-shadow: inset 3px 0 0 #2271b1;
+}
+
+.sobiforms-inbox-row.is-selected:hover {
+	background: #e8f2fa;
+}
+
+.sobiforms-inbox-row__star {
+	grid-column: 2;
+	grid-row: 2;
+	justify-self: end;
+	align-self: end;
+	margin: 0;
+}
+
+.sobiforms-inbox-row__star.sobiforms-item-star {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.sobiforms-inbox-row__link {
+	grid-column: 1;
+	grid-row: 1 / -1;
+	min-width: 0;
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+.sobiforms-inbox-row__title {
+	display: block;
+	min-width: 0;
+	font-size: 13px;
+	line-height: 1.35;
+	color: #1d2327;
+}
+
+.sobiforms-inbox-row__date {
+	grid-column: 2;
+	grid-row: 1;
+	min-width: 4.25rem;
+	font-size: 12px;
+	line-height: 1.35;
+	color: #646970;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.sobiforms-inbox-row__meta {
+	display: block;
+	margin-top: 0.1rem;
+	font-size: 12px;
+	line-height: 1.35;
+	color: #646970;
+}
+
+.sobiforms-submission--unread .sobiforms-inbox-row__date {
+	color: #1d2327;
+	font-weight: 600;
+}
+
+.sobiforms-submission--unread .sobiforms-inbox-row__title {
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.sobiforms-submission--spam.sobiforms-inbox-row {
+	background-color: #fcf9e8;
+}
+
+.sobiforms-submission--spam.sobiforms-inbox-row.is-selected {
+	background-color: #f0f6fc;
+}
+
+.sobiforms-inbox-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 3rem 1.5rem;
+}
+
+.sobiforms-submissions-inbox__detail > .sobiforms-inbox-empty:only-child {
+	flex: 1;
+	min-height: 0;
+}
+
+.sobiforms-inbox-empty__icon {
+	color: #c3c4c7;
+	margin-bottom: 0.75rem;
+}
+
+.sobiforms-inbox-empty__title {
+	margin: 0 0 0.35rem;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.sobiforms-inbox-empty__hint {
+	margin: 0;
+	font-size: 13px;
+	color: #646970;
+	max-width: 320px;
+}
+
+.sobiforms-inbox-empty__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid #e2e8f0;
+	max-width: 360px;
+}
+
+.sobiforms-inbox-empty__actions .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+.sobiforms-inbox-empty__actions .sobiforms-icon {
+	color: #dba617;
+}
+
+.sobiforms-inbox-detail {
+	padding: 1rem 1.25rem;
+}
+
+.sobiforms-inbox-detail__header {
+	margin-bottom: 1rem;
+}
+
+.sobiforms-inbox-detail__title {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1d2327;
+	min-width: 0;
+}
+
+.sobiforms-inbox-detail .sobiforms-submission-detail__layout {
+	margin-top: 0;
+}
+
+@media (max-width: 782px) {
+	.sobiforms-submissions-inbox {
+		flex-direction: column;
+		height: auto;
+		min-height: 0;
+	}
+
+	.sobiforms-inbox-view-tabs {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.sobiforms-inbox-form-tab {
+		padding-right: 12px;
+	}
+
+	.sobiforms-inbox-form-tab__trigger {
+		max-width: min(200px, 45vw);
+	}
+
+	.sobiforms-submissions-inbox__list {
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		min-height: 280px;
+		max-height: 50vh;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.sobiforms-submissions-inbox__resize {
+		display: none;
+	}
+
+	.sobiforms-submissions-inbox__detail {
+		min-height: 320px;
+	}
+}
+
+.sobiforms-form-title-field {
+	margin: 1rem 0 1.75rem;
+}
+
+.sobiforms-form-title-input {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	padding: 0.25rem 0;
+	font-size: 1.625rem;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #1d2327;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid transparent;
+	box-shadow: none;
+	outline: none;
+}
+
+.sobiforms-form-title-input:focus {
+	border-bottom-color: #2271b1;
+}
+
+.sobiforms-form-title-input::placeholder {
+	color: #a7aaad;
+	font-weight: 400;
+}
+
+/* Submissions inbox — full-bleed white canvas (no WP gray bleed). */
+body.sobiforms-inbox-screen #wpcontent,
+body.sobiforms-inbox-screen #wpbody,
+body.sobiforms-inbox-screen #wpbody-content {
+	background: #fff;
+}
+
+body.sobiforms-inbox-screen #wpcontent {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body.sobiforms-inbox-screen #wpbody-content {
+	padding: 0;
+}
+
+body.sobiforms-inbox-screen #wpbody {
+	padding-top: 0;
+}
+
+body.sobiforms-inbox-screen .sobiforms-submissions-inbox-page.wrap {
+	margin: 0;
+	padding: 0;
+	max-width: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+body.sobiforms-inbox-screen .sobiforms-submissions-inbox {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body.sobiforms-inbox-screen .notice {
+	margin: 0;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+@media screen and (max-width: 782px) {
+	body.sobiforms-inbox-screen .sobiforms-submissions-inbox {
+		height: calc(100vh - 46px);
+	}
+}
+
+/* Form builder — full-bleed white canvas (no WP gray bleed). */
+body.sobiforms-form-builder-screen #wpcontent,
+body.sobiforms-form-builder-screen #wpbody,
+body.sobiforms-form-builder-screen #wpbody-content {
+	background: #fff;
+}
+
+body.sobiforms-form-builder-screen #wpcontent {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body.sobiforms-form-builder-screen #wpbody-content {
+	padding: 0;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-form-edit {
+	margin: 0;
+	padding: 0;
+	max-width: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+body.sobiforms-form-builder-screen #sobiforms-form-builder-form,
+body.sobiforms-form-builder-screen .sobiforms-builder-app,
+body.sobiforms-form-builder-screen .sobiforms-form-editor {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body.sobiforms-form-builder-screen #wpbody {
+	padding-top: 0;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-form-edit .notice {
+	margin: 0;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.sobiforms-form-edit .sobiforms-builder-app {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	min-height: 0;
+}
+
+/* Notion-style title — override WP admin input chrome */
+body.sobiforms-form-builder-screen .sobiforms-editor-header__title {
+	border: 0 !important;
+	box-shadow: none !important;
+	background: transparent;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-editor-header__title:focus {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Question label — override WP admin 40px input min-height */
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__label-input {
+	border: 0 !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	min-height: 1.5rem !important;
+	height: 1.5rem !important;
+	padding: 0 !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__label-input:focus {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__title-input,
+body.sobiforms-form-builder-screen .sobiforms-builder-app textarea.sobiforms-block-row__paragraph-input {
+	border: 0 !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	min-height: 0 !important;
+	padding: 0 !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__title-input:focus,
+body.sobiforms-form-builder-screen .sobiforms-builder-app textarea.sobiforms-block-row__paragraph-input:focus {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Field previews — override WP admin input chrome */
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__field-preview,
+body.sobiforms-form-builder-screen .sobiforms-builder-app textarea.sobiforms-block-row__field-preview {
+	border: 1px solid #e2e8f0 !important;
+	border-radius: 8px !important;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.04 ), 0 1px 3px rgba( 0, 0, 0, 0.06 ) !important;
+	background: #fff !important;
+	min-height: 0 !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__field-preview {
+	height: auto !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-builder-app input.sobiforms-block-row__field-preview:focus,
+body.sobiforms-form-builder-screen .sobiforms-builder-app textarea.sobiforms-block-row__field-preview:focus {
+	border-color: #dcdcde !important;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.05 ), 0 2px 4px rgba( 0, 0, 0, 0.07 ) !important;
+}
+
+/* Context menu header label — plain text until hover/focus */
+body.sobiforms-form-builder-screen .sobiforms-field-context-menu__header-input {
+	border: 1px solid transparent !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	min-height: 0 !important;
+	height: auto !important;
+	padding: 1px 4px !important;
+	margin: -1px -4px !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-field-context-menu__header-title--editable:hover .sobiforms-field-context-menu__header-input,
+body.sobiforms-form-builder-screen .sobiforms-field-context-menu__header-title--editable:focus-within .sobiforms-field-context-menu__header-input {
+	border-color: #dcdcde !important;
+	background: #fff !important;
+}
+
+body.sobiforms-form-builder-screen .sobiforms-field-context-menu__header-input:focus {
+	border-color: #2271b1 !important;
+	background: #fff !important;
+	box-shadow: 0 0 0 1px #2271b1 !important;
+}
+
+.sobiforms-copy-shortcode--done {
+	border-color: #00a32a;
+	color: #00a32a;
+}
+
+.sobiforms-settings-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.sobiforms-submission--spam td {
+	background-color: #fcf9e8;
+}
+
+.sobiforms-spam-badge {
+	display: inline-block;
+	padding: 0.15rem 0.5rem;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	background: #fcf0f1;
+	color: #b32d2e;
+	border: 1px solid #d63638;
+}
+
+.sobiforms-spam-badge--ham {
+	background: #edfaef;
+	color: #00a32a;
+	border-color: #00a32a;
+}
+
+.sobiforms-submission--unread td {
+	background-color: #f0f6fc;
+}
+
+.sobiforms-submission--unread td:first-child {
+	box-shadow: inset 3px 0 0 #2271b1;
+}
+
+.sobiforms-submission--unread .column-title .row-title {
+	font-weight: 600;
+}
+
+.sobiforms-admin-list .row-actions {
+	font-weight: 400;
+}
+
+.sobiforms-col-star {
+	width: 2.5rem;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.sobiforms-item-star {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35rem;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #c3c4c7;
+	text-decoration: none;
+	border-radius: 2px;
+}
+
+.sobiforms-item-star:hover,
+.sobiforms-item-star[aria-pressed="true"] {
+	color: #dba617;
+}
+
+.sobiforms-item-star .sobiforms-icon {
+	color: inherit;
+}
+
+.sobiforms-item-star .sobiforms-icon svg {
+	stroke: currentColor;
+	fill: none;
+}
+
+.sobiforms-item-star[aria-pressed="true"] .sobiforms-icon svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+.sobiforms-page-action--danger {
+	color: #b32d2e !important;
+	border-color: #b32d2e !important;
+}
+
+.sobiforms-page-action--danger:hover {
+	color: #8a2424 !important;
+	border-color: #8a2424 !important;
+}
+
+.sobiforms-submission-detail__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: 1.25rem;
+	align-items: start;
+	margin-top: 1rem;
+}
+
+.sobiforms-submission-detail__main {
+	min-width: 0;
+}
+
+.sobiforms-submission-detail__sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.sobiforms-detail-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 1rem 1.25rem;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.sobiforms-detail-card__title {
+	margin: 0 0 0.85rem;
+	padding: 0;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #646970;
+}
+
+.sobiforms-detail-card__hint {
+	margin: -0.35rem 0 0.75rem;
+	font-size: 12px;
+	color: #646970;
+}
+
+.sobiforms-submission-fields {
+	display: flex;
+	flex-direction: column;
+}
+
+.sobiforms-submission-field {
+	padding: 0.85rem 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.sobiforms-submission-field:first-child {
+	padding-top: 0;
+}
+
+.sobiforms-submission-field:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.sobiforms-submission-field__label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #646970;
+	margin-bottom: 0.35rem;
+}
+
+.sobiforms-submission-field__value {
+	font-size: 14px;
+	line-height: 1.55;
+	color: #1d2327;
+	word-break: break-word;
+}
+
+.sobiforms-submission-field__value a {
+	text-decoration: none;
+}
+
+.sobiforms-submission-field__value a:hover {
+	text-decoration: underline;
+}
+
+.sobiforms-submission-field__empty {
+	color: #a7aaad;
+}
+
+.sobiforms-submission-field__list {
+	margin: 0;
+	padding-left: 1.25rem;
+}
+
+.sobiforms-submission-field__list li {
+	margin: 0.15rem 0;
+}
+
+.sobiforms-submission-fields__empty {
+	margin: 0;
+	color: #646970;
+}
+
+.sobiforms-detail-meta-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sobiforms-detail-meta-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 0.7rem 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.sobiforms-detail-meta-item:first-child {
+	padding-top: 0;
+}
+
+.sobiforms-detail-meta-item:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.sobiforms-detail-meta-item--star {
+	padding-bottom: 0.85rem;
+}
+
+.sobiforms-detail-meta-item__label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #646970;
+}
+
+.sobiforms-detail-meta-item__value {
+	font-size: 13px;
+	line-height: 1.45;
+	color: #1d2327;
+}
+
+.sobiforms-detail-meta-item__value a {
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.sobiforms-detail-meta-item__value a:hover {
+	text-decoration: underline;
+}
+
+.sobiforms-detail-meta-item__path {
+	display: inline;
+	margin: 0;
+	padding: 0.1em 0.35em;
+	font-size: 0.875em;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	color: #646970;
+	background: #f0f0f1;
+	border-radius: 3px;
+}
+
+.sobiforms-item-star--sidebar {
+	width: 100%;
+	height: auto;
+	justify-content: center;
+	padding: 0.55rem 0.75rem;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #f6f7f7;
+	box-sizing: border-box;
+}
+
+.sobiforms-item-star--sidebar:hover {
+	background: #fff;
+	border-color: #dba617;
+}
+
+.sobiforms-item-star--sidebar[aria-pressed="true"] {
+	background: #fcf9e8;
+	border-color: #dba617;
+}
+
+.sobiforms-mail-badge {
+	display: inline-block;
+	padding: 0.2rem 0.55rem;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.sobiforms-mail-badge--sent {
+	background: #edfaef;
+	color: #1e4620;
+}
+
+.sobiforms-mail-badge--failed {
+	background: #fcebeb;
+	color: #8a2424;
+}
+
+.sobiforms-mail-badge--pending {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.sobiforms-mail-badge--skipped {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.sobiforms-muted {
+	color: #646970;
+}
+
+.sobiforms-read-badge {
+	display: inline-block;
+	padding: 0.2rem 0.55rem;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.sobiforms-read-badge--read {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.sobiforms-read-badge--unread {
+	background: #f0f6fc;
+	color: #2271b1;
+}
+
+.sobiforms-read-toggle {
+	display: inline-block;
+	margin-left: 0.5rem;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.sobiforms-read-toggle:hover {
+	text-decoration: underline;
+}
+
+.sobiforms-submission-note-form--sidebar .sobiforms-submission-note-textarea {
+	max-width: none;
+	margin-bottom: 0.65rem;
+}
+
+.sobiforms-submission-note-form--sidebar .button {
+	width: 100%;
+	text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+	.sobiforms-submission-detail__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+.sobiforms-submission-note-cell {
+	max-width: 12rem;
+}
+
+.sobiforms-submission-note-link {
+	text-decoration: none;
+	color: #2271b1;
+}
+
+.sobiforms-submission-note-link:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+.sobiforms-submission-note-link .sobiforms-icon {
+	vertical-align: text-bottom;
+}
+
+.sobiforms-submission-note-row td {
+	background: #f6f7f7;
+	padding: 1rem 1.5rem;
+}
+
+.sobiforms-submission-note-textarea {
+	display: block;
+	width: 100%;
+	max-width: 40rem;
+	margin-bottom: 0.5rem;
+}
+
+.sobiforms-submission-note-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0;
+}
+
+.sobiforms-submission-field__value .button-small {
+	margin-top: 0.35rem;
+}
+
+.sobiforms-submission-field__filename {
+	display: block;
+	margin-bottom: 0.25rem;
+}

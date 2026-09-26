@@ -1,0 +1,75 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/primary.swiftdeps"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/App.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/App.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/App.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/App~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/App.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/App.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Models/ExportConfig.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportConfig.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportConfig.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportConfig.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportConfig.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Models/ImageItem.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageItem.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageItem.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageItem~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageItem.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageItem.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Services/ExportManager.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportManager.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportManager.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportManager.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportManager.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Services/ImageProcessor.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageProcessor.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageProcessor.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageProcessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageProcessor.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageProcessor.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Views/ContentView.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ContentView.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ContentView.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ContentView.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ContentView.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Views/DropZoneView.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/DropZoneView.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/DropZoneView.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/DropZoneView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/DropZoneView.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/DropZoneView.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Views/ExportProgressView.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportProgressView.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportProgressView.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportProgressView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportProgressView.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ExportProgressView.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Views/ImageListView.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageListView.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageListView.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageListView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageListView.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/ImageListView.dia"
+  },
+  "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/Sources/ImageConverter/Views/SettingsBarView.swift": {
+    "dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/SettingsBarView.d",
+    "object": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/SettingsBarView.swift.o",
+    "swiftmodule": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/SettingsBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/SettingsBarView.swiftdeps",
+    "diagnostics": "/Users/aruljoseph/arul/02 - Dev Projects/dev/antigravity.live/ImageConverterMac/.build/arm64-apple-macosx/debug/ImageConverter.build/SettingsBarView.dia"
+  }
+}

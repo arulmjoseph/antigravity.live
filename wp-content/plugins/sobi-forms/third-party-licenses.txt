@@ -1,0 +1,23 @@
+Sobi Forms — Third-Party Library Licenses
+==========================================
+
+The admin form builder bundle (`build/admin-builder/`) includes the following
+libraries that are not part of WordPress core. React and @wordpress/* packages
+are loaded from WordPress and are not bundled.
+
+TipTap (https://tiptap.dev/)
+  License: MIT
+  Used for inline label editing in the form builder.
+
+@dnd-kit (https://dndkit.com/)
+  License: MIT
+  Used for drag-and-drop field reordering in the form builder.
+
+lucide-react / Lucide Icons (https://lucide.dev/)
+  License: ISC (https://lucide.dev/license)
+  Copyright (c) Lucide Contributors
+  Used for SVG icons in the admin form builder and submissions inbox
+  (`includes/class-admin-icons.php` is generated from lucide-react at build time).
+
+Full license texts are available in the respective packages under
+`node_modules/` when building from source.
