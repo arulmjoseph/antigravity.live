@@ -1,4 +1,4 @@
-// Image Converter Web App Engine - Redesign Dashboard
+// Image & PDF Optimizer Web App Engine
 // Features Before/After Split Slider, Size Estimation, & Active Defaults
 
 class AppState {
@@ -33,6 +33,7 @@ const queueList = document.getElementById('queueList');
 const queueCount = document.getElementById('queueCount');
 const queueSizeStats = document.getElementById('queueSizeStats');
 const btnClearAll = document.getElementById('btnClearAll');
+const btnAddMore = document.getElementById('btnAddMore');
 
 const fileInput = document.getElementById('fileInput');
 const folderInput = document.getElementById('folderInput');
@@ -69,6 +70,10 @@ const statSavingsTag = document.getElementById('statSavingsTag');
 
 // Init - Start with empty items array
 document.addEventListener('DOMContentLoaded', () => {
+  state.theme = localStorage.getItem('imageConverterTheme') ||
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.body.setAttribute('data-theme', state.theme);
+  btnThemeToggle.textContent = state.theme === 'dark' ? '☀️' : '🌙';
   state.items = [];
   state.selectedItemId = null;
   renderAll();
@@ -91,7 +96,7 @@ function setupEventListeners() {
     document.querySelectorAll('.dropdown-item').forEach(itemBtn => {
       itemBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.pill-btn[data-format]').forEach(b => b.classList.remove('active'));
         btnMoreFormat.classList.add('active');
 
         state.format = itemBtn.dataset.format;
@@ -109,7 +114,7 @@ function setupEventListeners() {
 
   document.querySelectorAll('.pill-btn[data-format]').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.pill-btn[data-format]').forEach(b => b.classList.remove('active'));
       if (btnMoreFormat) {
         btnMoreFormat.classList.remove('active');
         btnMoreFormat.textContent = 'More ∨';
@@ -190,6 +195,16 @@ function setupEventListeners() {
   fileInput.addEventListener('change', (e) => handleUserFiles(e.target.files));
   folderInput.addEventListener('change', (e) => handleUserFiles(e.target.files));
 
+  dropZone.addEventListener('click', (e) => {
+    if (!e.target.closest('button')) fileInput.click();
+  });
+  dropZone.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      fileInput.click();
+    }
+  });
+
   // Drop Zone Drag & Drop
   dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
   dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
@@ -204,17 +219,39 @@ function setupEventListeners() {
     state.selectedItemId = null;
     renderAll();
   });
+  btnAddMore.addEventListener('click', () => fileInput.click());
 
   // Theme Toggle
   btnThemeToggle.addEventListener('click', () => {
     state.theme = state.theme === 'dark' ? 'light' : 'dark';
     document.body.setAttribute('data-theme', state.theme);
     btnThemeToggle.textContent = state.theme === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('imageConverterTheme', state.theme);
   });
 
   // Help Modal
   btnHelp.addEventListener('click', () => helpModal.classList.remove('hidden'));
   btnCloseHelp.addEventListener('click', () => helpModal.classList.add('hidden'));
+  helpModal.addEventListener('click', (e) => {
+    if (e.target === helpModal) helpModal.classList.add('hidden');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') helpModal.classList.add('hidden');
+  });
+
+  const checkboxBindings = {
+    chkNoUpscale: 'noUpscale',
+    chkOptimizeWeb: 'optimizeWeb',
+    chkRemoveMetadata: 'removeMetadata',
+    chkPreserveTrans: 'preserveTrans',
+    chkProgressiveJpeg: 'progressiveJpeg'
+  };
+  Object.entries(checkboxBindings).forEach(([id, key]) => {
+    document.getElementById(id).addEventListener('change', (e) => {
+      state[key] = e.target.checked;
+      renderAll();
+    });
+  });
 
   // Main Batch Convert Action
   btnConvertMain.addEventListener('click', downloadBatchZip);
@@ -323,7 +360,7 @@ function renderAll() {
     queueContainer.classList.add('hidden');
     document.getElementById('comparisonCard').classList.add('hidden');
     btnConvertMain.disabled = true;
-    btnConvertMain.querySelector('span').textContent = '📥 Convert Images & Download ZIP';
+    document.getElementById('btnConvertLabel').innerHTML = 'Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b>';
     btnSubStats.textContent = 'Add images to start converting';
     return;
   }
@@ -342,10 +379,10 @@ function renderAll() {
   });
 
   const totalPct = Math.round((1 - (totalEst / totalOrig)) * 100);
-  queueCount.textContent = `${state.items.length} Images`;
+  queueCount.textContent = `${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'}`;
   queueSizeStats.innerHTML = `Total: ${formatBytes(totalOrig)} → ${formatBytes(totalEst)} (<span class="summary-savings">${totalPct}% smaller</span>)`;
 
-  btnConvertMain.querySelector('span').textContent = `📥 Convert ${state.items.length} ${state.items.length === 1 ? 'Image' : 'Images'} & Download ZIP`;
+  document.getElementById('btnConvertLabel').innerHTML = `Optimize ${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'} &amp; Download ZIP <b aria-hidden="true">→</b>`;
   btnSubStats.textContent = `Estimated size: ${formatBytes(totalEst)} (${totalPct}% smaller)`;
 
   // Render Queue Items List
@@ -422,8 +459,6 @@ window.removeQueueItem = function(id) {
 
 // Interactive Before / After Split Slider Handling (Pixel-perfect clip-path)
 function setupSplitSlider() {
-  let isDragging = false;
-
   const updateSliderPos = (x) => {
     const rect = splitContainer.getBoundingClientRect();
     let pos = (x - rect.left) / rect.width;
@@ -433,14 +468,12 @@ function setupSplitSlider() {
     splitHandle.style.left = `${pct}%`;
   };
 
-  splitHandle.addEventListener('mousedown', () => isDragging = true);
-  window.addEventListener('mouseup', () => isDragging = false);
-  window.addEventListener('mousemove', (e) => {
-    if (isDragging) updateSliderPos(e.clientX);
-  });
-
-  splitContainer.addEventListener('click', (e) => {
+  splitContainer.addEventListener('pointerdown', (e) => {
+    splitContainer.setPointerCapture(e.pointerId);
     updateSliderPos(e.clientX);
+  });
+  splitContainer.addEventListener('pointermove', (e) => {
+    if (splitContainer.hasPointerCapture(e.pointerId)) updateSliderPos(e.clientX);
   });
 }
 
@@ -449,7 +482,7 @@ async function downloadBatchZip() {
   if (state.items.length === 0 || state.isExporting) return;
   state.isExporting = true;
   btnConvertMain.disabled = true;
-  btnConvertMain.querySelector('span').textContent = '⏳ Processing & Packaging ZIP...';
+  document.getElementById('btnConvertLabel').textContent = 'Processing & Packaging ZIP…';
 
   const zip = new JSZip();
 
@@ -463,7 +496,7 @@ async function downloadBatchZip() {
   const zipBlob = await zip.generateAsync({ type: 'blob' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(zipBlob);
-  a.download = `Converted_Images_${new Date().toISOString().slice(0, 10)}.zip`;
+  a.download = `Optimized_Files_${new Date().toISOString().slice(0, 10)}.zip`;
   a.click();
 
   state.isExporting = false;

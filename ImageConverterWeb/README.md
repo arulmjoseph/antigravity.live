@@ -1,6 +1,6 @@
-# Image Converter Web App (Vercel Ready) 🖼️📄
+# Image & PDF Optimizer Web App (Vercel Ready) 🖼️📄
 
-A fast, client-side Web Application version of **Image Converter** built with HTML5, CSS3, JavaScript, and Canvas WebAssembly engines.
+A fast, client-side **Image & PDF Optimizer** for converting, compressing, and exporting files in the browser, built with HTML5, CSS3, JavaScript, and Canvas WebAssembly engines.
 
 ---
 

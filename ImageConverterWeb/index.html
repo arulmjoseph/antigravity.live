@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Converter — Bulk WebP, PDF &amp; Image Optimizer</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Convert, compress, and optimize images and PDFs privately in your browser.">
+  <title>Image &amp; PDF Optimizer — Convert, Compress &amp; Export</title>
+  <link rel="icon" type="image/png" href="assets/image-converter-icon.png">
+  <link rel="apple-touch-icon" href="assets/image-converter-icon.png">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 </head>
@@ -13,13 +16,19 @@
   <!-- Top Header Bar -->
   <header class="header">
     <div class="brand">
-      <div class="brand-icon">🖼️</div>
-      <h1>Image Converter</h1>
-      <span class="badge">Web Edition</span>
+      <div class="brand-icon" aria-hidden="true">
+        <img src="assets/image-converter-icon.png" alt="">
+      </div>
+      <div class="brand-copy">
+        <h1>Image &amp; PDF Optimizer</h1>
+        <span>Convert, compress, and export</span>
+      </div>
+      <span class="badge">WEB</span>
     </div>
     <div class="header-actions">
-      <button id="btnHelp" class="btn-secondary">❓ Help &amp; Guide</button>
-      <button id="btnThemeToggle" class="btn-icon" title="Toggle Light/Dark Theme">☀️</button>
+      <div class="privacy-status"><span></span> Files never leave your device</div>
+      <button id="btnHelp" class="btn-secondary"><span aria-hidden="true">?</span> Help</button>
+      <button id="btnThemeToggle" class="btn-icon" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">☀️</button>
     </div>
   </header>
 
@@ -30,17 +39,21 @@
     <main class="content-area">
 
       <!-- Dashed Drop Zone -->
-      <div id="dropZone" class="drop-zone">
-        <div class="drop-icon">☁️</div>
-        <h2>Drag &amp; Drop Images &amp; PDFs Here</h2>
-        <p>or click to browse files</p>
+      <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Select images or PDFs to optimize">
+        <div class="drop-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5.5 14.5H4.75A2.75 2.75 0 0 0 2 17.25v.5a2.75 2.75 0 0 0 2.75 2.75h14.5A2.75 2.75 0 0 0 22 17.75v-.5a2.75 2.75 0 0 0-2.75-2.75h-.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="step-kicker">STEP 1 · ADD FILES</span>
+        <h2>Drop images or PDFs here</h2>
+        <p>Convert, compress, and optimize multiple files in one go.</p>
 
         <div class="btn-group">
-          <button id="btnSelectFiles" class="btn-primary">➕ Select Files</button>
-          <button id="btnSelectFolder" class="btn-secondary">📁 Select Folder</button>
+          <button id="btnSelectFiles" class="btn-primary"><span aria-hidden="true">＋</span> Select Files</button>
+          <button id="btnSelectFolder" class="btn-secondary"><span aria-hidden="true">▣</span> Select Folder</button>
         </div>
 
-        <p class="support-tag">Supports PNG, JPG, WEBP, PDF, GIF, BMP &amp; SVG</p>
+        <div class="support-tag"><span>PNG</span><span>JPG</span><span>WEBP</span><span>PDF</span><span>GIF</span><span>BMP</span><span>SVG</span></div>
+        <div class="local-note"><span aria-hidden="true">✓</span> Private by design — processing happens locally in your browser</div>
 
         <input type="file" id="fileInput" multiple accept="image/*,application/pdf" class="hidden">
         <input type="file" id="folderInput" webkitdirectory directory multiple class="hidden">
@@ -50,15 +63,13 @@
       <div id="queueContainer" class="queue-container hidden">
         <div class="queue-summary-header">
           <div class="summary-left">
-            <span id="queueCount" class="summary-count">0 Images</span>
+            <span id="queueCount" class="summary-count">0 Files</span>
             <span id="queueSizeStats" class="summary-stats">Total: 0 MB → 0 MB (<span class="summary-savings">0% smaller</span>)</span>
           </div>
 
           <div class="summary-right">
+            <button id="btnAddMore" class="btn-text-action">＋ Add More</button>
             <button id="btnClearAll" class="btn-text-danger">Clear All</button>
-            <label class="checkbox-row" style="font-size: 0.85rem;">
-              <input type="checkbox" id="chkSelectAll" checked> Select All
-            </label>
           </div>
         </div>
 
@@ -111,11 +122,17 @@
 
     <!-- Right Conversion Settings Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-title">Conversion Settings</div>
+      <div class="sidebar-heading">
+        <div>
+          <span class="step-kicker">STEP 2 · CUSTOMIZE</span>
+          <div class="sidebar-title">Conversion settings</div>
+        </div>
+        <span class="recommended-chip">Smart defaults</span>
+      </div>
 
       <!-- Section 1: Output Format -->
       <div class="settings-card">
-        <div class="section-label">🔲 Output Format</div>
+        <div class="section-label"><span class="section-icon">01</span> Output Format</div>
 
         <div class="pill-selector">
           <button class="pill-btn active" data-format="webp">WebP</button>
@@ -142,7 +159,7 @@
       <!-- Section 2: Quality -->
       <div class="settings-card">
         <div class="quality-header">
-          <div class="section-label">🎨 Quality</div>
+          <div class="section-label"><span class="section-icon">02</span> Quality</div>
           <span id="qualityValText" style="font-weight: 700; color: #60a5fa;">85%</span>
         </div>
 
@@ -159,7 +176,7 @@
 
       <!-- Section 3: Resize Image (Original Active By Default) -->
       <div class="settings-card">
-        <div class="section-label">📐 Resize Image</div>
+        <div class="section-label"><span class="section-icon">03</span> Resize Image</div>
 
         <div class="pill-selector">
           <button class="pill-btn active" data-width="original">Original</button>
@@ -183,7 +200,7 @@
 
       <!-- Section 4: Optimize for Web -->
       <div class="settings-card">
-        <div class="section-label">⚙️ Optimize for Web</div>
+        <div class="section-label"><span class="section-icon">04</span> Optimize for Web</div>
 
         <div class="checkbox-group">
           <label class="checkbox-row">
@@ -219,7 +236,7 @@
 
       <!-- Section 5: File Naming (Original Name Active By Default) -->
       <div class="settings-card">
-        <div class="section-label">🏷️ File Naming</div>
+        <div class="section-label"><span class="section-icon">05</span> File Naming</div>
 
         <div class="pill-selector">
           <button class="pill-btn active" data-naming="original">Original Name</button>
@@ -241,12 +258,12 @@
       </div>
 
       <!-- Primary Convert Action Button -->
-      <div style="margin-top: auto;">
+      <div class="convert-footer">
         <button id="btnConvertMain" class="btn-convert-main" disabled>
-          <span>📥 Convert 5 Images &amp; Download ZIP</span>
+          <span id="btnConvertLabel">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
           <span id="btnSubStats" class="btn-convert-sub">Estimated size: 3.6 MB (72% smaller)</span>
         </button>
-        <div style="text-align: center; margin-top: 10px; font-size: 0.78rem; color: var(--text-dim);">
+        <div class="creator-credit">
           Created by <a href="https://arulmjoseph.com" target="_blank" rel="noopener" style="color: #60a5fa;">arulmjoseph.com</a>
         </div>
       </div>
@@ -258,7 +275,7 @@
   <!-- Help & Guide Modal -->
   <div id="helpModal" class="modal-backdrop hidden">
     <div class="modal-card">
-      <h2>Image Converter Help &amp; Guide</h2>
+      <h2>Image &amp; PDF Optimizer Help</h2>
       <p style="margin-top: 8px; color: var(--text-muted); font-size: 0.9rem;">
         Fast in-browser web app for bulk image conversion, WebP optimization, and PDF processing.
       </p>
@@ -274,6 +291,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
