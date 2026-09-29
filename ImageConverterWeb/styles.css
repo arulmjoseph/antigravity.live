@@ -923,6 +923,20 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   box-shadow: 0 12px 30px rgba(49, 41, 138, .18);
 }
 .drop-icon svg { width: 33px; height: 33px; }
+.free-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 6px 10px;
+  border: 1px solid rgba(73, 214, 164, .25);
+  border-radius: 999px;
+  background: var(--green-bg);
+  color: var(--green-text);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
 .step-kicker { color: #9389ff; font-size: .66rem; font-weight: 800; letter-spacing: .14em; }
 .drop-zone h2 { font-size: clamp(1.65rem, 2.7vw, 2.2rem); letter-spacing: -.04em; margin: 9px 0 7px; }
 .drop-zone p { margin-bottom: 27px; font-size: .93rem; }

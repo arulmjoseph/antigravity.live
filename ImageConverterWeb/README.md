@@ -1,11 +1,14 @@
 # Image & PDF Optimizer Web App (Vercel Ready) 🖼️📄
 
-A fast, client-side **Image & PDF Optimizer** for converting, compressing, and exporting files in the browser, built with HTML5, CSS3, JavaScript, and Canvas WebAssembly engines.
+A free, client-side **Image & PDF Optimizer** for converting, compressing, and exporting files in the browser—no sign-up required. Built with HTML5, CSS3, JavaScript, and Canvas WebAssembly engines.
+
+**Live app:** [image-pdf-optimizer.vercel.app](https://image-pdf-optimizer.vercel.app)
 
 ---
 
 ## Features & Active Defaults
 
+- **100% Free**: No sign-up required.
 - **Active Defaults**:
   - **Image Size / Width**: Set to **`Original Size`** by default *(as specified in design)*.
   - **File Renaming**: Set to **`Original Name`** by default *(as specified in design)*.

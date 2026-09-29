@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "image-converter-web",
   "cleanUrls": true,
   "headers": [
     {
