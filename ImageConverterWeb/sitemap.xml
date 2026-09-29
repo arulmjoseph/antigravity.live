@@ -6,4 +6,32 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/webp-vs-avif-vs-jpeg</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/reduce-image-file-size</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/image-seo-checklist</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/private-browser-file-processing</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/blog/optimize-pdf-for-web</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://image-pdf-optimizer.vercel.app/privacy</loc>
+    <lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.4</priority>
+  </url>
 </urlset>

@@ -4,11 +4,16 @@ A free, client-side **Image & PDF Optimizer** for converting, compressing, and e
 
 **Live app:** [image-pdf-optimizer.vercel.app](https://image-pdf-optimizer.vercel.app)
 
+- **Guides:** [image-pdf-optimizer.vercel.app/blog/](https://image-pdf-optimizer.vercel.app/blog/)
+- **Privacy:** [image-pdf-optimizer.vercel.app/privacy](https://image-pdf-optimizer.vercel.app/privacy)
+
 ---
 
 ## Features & Active Defaults
 
 - **100% Free**: No sign-up required.
+- **SEO/AEO/GEO Content Hub**: Five original guides with direct answers, FAQs, canonical URLs, and structured article data.
+- **Transparent Privacy Policy**: Explains local processing, browser storage, hosting logs, and third-party libraries.
 - **Active Defaults**:
   - **Image Size / Width**: Set to **`Original Size`** by default *(as specified in design)*.
   - **File Renaming**: Set to **`Original Name`** by default *(as specified in design)*.

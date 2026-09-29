@@ -1,0 +1,26 @@
+# Image & PDF Optimizer
+
+Image & PDF Optimizer is a free browser-based utility for converting, compressing, resizing, and renaming images and preparing files for web use. It requires no account. Selected files are designed to be processed locally in the user's browser rather than uploaded to the application server.
+
+## Primary pages
+
+- [Free Image & PDF Optimizer](https://image-pdf-optimizer.vercel.app/): Main conversion tool, supported formats, features, and FAQs.
+- [Optimization Guides](https://image-pdf-optimizer.vercel.app/blog/): Educational articles about formats, compression, SEO, privacy, and PDFs.
+- [Privacy Policy](https://image-pdf-optimizer.vercel.app/privacy): File-processing, browser-storage, hosting, and third-party library disclosures.
+
+## Guides
+
+- [WebP vs AVIF vs JPEG](https://image-pdf-optimizer.vercel.app/blog/webp-vs-avif-vs-jpeg): Practical format-selection guidance.
+- [Reduce Image File Size](https://image-pdf-optimizer.vercel.app/blog/reduce-image-file-size): A quality-preserving compression workflow.
+- [Image SEO Checklist](https://image-pdf-optimizer.vercel.app/blog/image-seo-checklist): Filenames, alt text, performance, and discovery.
+- [Private Browser File Processing](https://image-pdf-optimizer.vercel.app/blog/private-browser-file-processing): Benefits and limitations of local processing.
+- [Optimize a PDF for Web](https://image-pdf-optimizer.vercel.app/blog/optimize-pdf-for-web): A checklist for creating smaller, readable PDFs.
+
+## Key facts
+
+- Price: Free.
+- Account required: No.
+- File processing: Designed to occur locally in the browser.
+- Common image inputs: PNG, JPG, WebP, GIF, BMP, and SVG.
+- Common functions: Conversion, quality adjustment, resizing, bulk naming, and ZIP export.
+- Creator: Arul M Joseph, https://arulmjoseph.com
