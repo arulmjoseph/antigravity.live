@@ -16,9 +16,7 @@ class AppState {
     this.progressiveJpeg = false;
     this.namingMode = 'original'; // 'original', 'sequence', 'seo'
     this.seqBase = 'image';
-    this.seoKeywords = `* CFO financial strategy meeting Middle East
-* corporate governance board meeting Dubai
-* business executives financial planning GCC`;
+    this.seoKeywords = '';
     this.theme = 'dark';
     this.isExporting = false;
   }
