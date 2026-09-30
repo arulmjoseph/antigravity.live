@@ -884,7 +884,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   font-size: .76rem;
   border-right: 1px solid var(--border);
 }
-.privacy-status > span { width: 7px; height: 7px; border-radius: 50%; background: var(--green-text); box-shadow: 0 0 0 4px var(--green-bg); }
 .header .btn-secondary { padding: 8px 12px; background: transparent; }
 .header .btn-secondary > span { display: grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--border-light); border-radius: 50%; font-size: .68rem; }
 .btn-icon { border-radius: 10px; background: var(--surface-soft); }
