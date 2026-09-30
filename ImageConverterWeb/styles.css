@@ -1088,9 +1088,10 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 .guides-heading h2 { margin: 7px 0 0; font-size: clamp(1.6rem, 3vw, 2.35rem); letter-spacing: -.04em; }
 .guides-heading > a { color: #60a5fa; font-size: .82rem; font-weight: 700; text-decoration: none; }
 .home-guides-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
-.home-guides-grid a { grid-column: span 2; padding: 22px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-soft); color: inherit; text-decoration: none; transition: border-color .2s ease; }
+.home-guides-grid a { grid-column: span 2; padding: 22px; border: 0; border-radius: 10px; background: var(--surface-soft); color: inherit; text-decoration: none; transition: background-color .2s ease; }
 .home-guides-grid a:nth-child(4) { grid-column: 2 / span 2; }
-.home-guides-grid a:hover { border-color: rgba(59,130,246,.56); }
+.home-guides-grid a:hover { background: #162137; }
+[data-theme="light"] .home-guides-grid a:hover { background: #eef2f7; }
 .home-guides-grid span { color: #60a5fa; font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .home-guides-grid h3 { margin: 10px 0 8px; font-size: 1rem; line-height: 1.3; }
 .home-guides-grid p { margin: 0; color: var(--text-muted); font-size: .8rem; line-height: 1.55; }
