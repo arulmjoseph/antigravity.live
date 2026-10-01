@@ -554,7 +554,18 @@ async function downloadBatchZip() {
   for (let i = 0; i < state.items.length; i++) {
     const item = state.items[i];
     const outName = getProjectedName(item, i);
-    const blob = await convertItemToBlob(item);
+    let blob = await convertItemToBlob(item);
+
+    if (item.isPdf) {
+      const headerBytes = blob?.size
+        ? new Uint8Array(await blob.slice(0, 5).arrayBuffer())
+        : new Uint8Array();
+      const header = Array.from(headerBytes, byte => String.fromCharCode(byte)).join('');
+      if (!blob || blob.size === 0 || header !== '%PDF-') {
+        blob = item.file;
+      }
+    }
+
     zip.file(outName, blob);
   }
 
