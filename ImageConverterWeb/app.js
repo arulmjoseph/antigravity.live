@@ -623,7 +623,10 @@ async function compressPdfToBlob(item) {
     return new Blob([sourceBytes], { type: 'application/pdf' });
   }
 
-  const sourcePdf = await window.pdfjsLib.getDocument({ data: sourceBytes }).promise;
+  // PDF.js transfers its input buffer to the worker. Keep sourceBytes intact so
+  // the original-file fallback never becomes an empty, detached buffer.
+  const renderBytes = sourceBytes.slice();
+  const sourcePdf = await window.pdfjsLib.getDocument({ data: renderBytes }).promise;
   const outputPdf = await PDFLib.PDFDocument.create();
   const jpegQuality = Math.min(0.82, Math.max(0.42, state.quality * 0.78));
 
