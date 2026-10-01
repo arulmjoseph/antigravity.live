@@ -1635,3 +1635,35 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400 !important; }
     flex-basis: calc(33.333% - 4px);
   }
 }
+
+/* Smooth drop-zone hover -------------------------------------------------- */
+.drop-zone {
+  background: var(--surface-soft);
+  border-color: rgba(96, 165, 250, .52);
+  transition:
+    background-color .22s ease,
+    border-color .22s ease,
+    outline-color .22s ease,
+    transform .22s ease;
+}
+
+[data-theme="light"] .drop-zone {
+  background: #ffffff;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  background: rgba(37, 99, 235, .07);
+  border-color: rgba(96, 165, 250, .9);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .drop-zone:hover,
+[data-theme="light"] .drop-zone.drag-over {
+  background: rgba(37, 99, 235, .045);
+}
+
+.drop-zone.drag-over {
+  outline: 3px solid rgba(37, 99, 235, .13);
+  outline-offset: 3px;
+}
