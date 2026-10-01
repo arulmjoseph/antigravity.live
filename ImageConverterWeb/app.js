@@ -255,9 +255,45 @@ function setupEventListeners() {
   btnConvertMain.addEventListener('click', downloadBatchZip);
 }
 
-function handleUserFiles(fileList) {
+async function handleUserFiles(fileList) {
   for (const file of fileList) {
-    if (file.type.startsWith('image/') || file.type === 'application/pdf') {
+    if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+      try {
+        const pdfDoc = await PDFLib.PDFDocument.load(await file.arrayBuffer(), { updateMetadata: false });
+        const pages = pdfDoc.getPages();
+        const firstPage = pages[0];
+        const pageSize = firstPage ? firstPage.getSize() : { width: 0, height: 0 };
+        const pdfPreview = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#f3f4f6"/>
+            <rect x="220" y="70" width="200" height="280" rx="12" fill="#ffffff" stroke="#d1d5db"/>
+            <path d="M350 70v70h70" fill="#fee2e2" stroke="#d1d5db"/>
+            <rect x="255" y="205" width="130" height="62" rx="8" fill="#dc2626"/>
+            <text x="320" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">PDF</text>
+            <text x="320" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#4b5563">${pages.length} ${pages.length === 1 ? 'page' : 'pages'}</text>
+          </svg>`)} `;
+        const item = {
+          id: Math.random().toString(36).substring(2),
+          name: file.name,
+          format: 'PDF',
+          origW: Math.round(pageSize.width),
+          origH: Math.round(pageSize.height),
+          pageCount: pages.length,
+          origSize: file.size,
+          src: pdfPreview.trim(),
+          file,
+          isPdf: true
+        };
+        state.items.push(item);
+        if (!state.selectedItemId) state.selectedItemId = item.id;
+        renderAll();
+      } catch (error) {
+        window.alert(`Could not open ${file.name}. The PDF may be encrypted or damaged.`);
+      }
+      continue;
+    }
+
+    if (file.type.startsWith('image/')) {
       const url = URL.createObjectURL(file);
       const img = new Image();
       img.onload = () => {
@@ -269,7 +305,8 @@ function handleUserFiles(fileList) {
           origH: img.naturalHeight || 1080,
           origSize: file.size,
           src: url,
-          file: file
+          file: file,
+          isPdf: false
         };
         state.items.push(item);
         if (!state.selectedItemId) state.selectedItemId = item.id;
@@ -295,7 +332,8 @@ function updateFormatDesc() {
   formatDesc.textContent = descs[state.format] || descs.webp;
 }
 
-function computeEstimatedSize(origBytes, quality) {
+function computeEstimatedSize(origBytes, quality, item = null) {
+  if (item?.isPdf) return Math.round(origBytes * 0.95);
   let factor = 0.20;
   if (state.format === 'jpg') factor = 0.35;
   if (state.format === 'png') factor = 0.70;
@@ -349,7 +387,7 @@ function getProjectedName(item, index) {
       baseName = `seo-image-${index + 1}`;
     }
   }
-  return `${baseName}.${state.format}`;
+  return `${baseName}.${item.isPdf ? 'pdf' : state.format}`;
 }
 
 function renderAll() {
@@ -373,7 +411,7 @@ function renderAll() {
   let totalEst = 0;
   state.items.forEach(item => {
     totalOrig += item.origSize;
-    totalEst += computeEstimatedSize(item.origSize, state.quality);
+    totalEst += computeEstimatedSize(item.origSize, state.quality, item);
   });
 
   const totalPct = Math.round((1 - (totalEst / totalOrig)) * 100);
@@ -386,7 +424,7 @@ function renderAll() {
   // Render Queue Items List
   queueList.innerHTML = '';
   state.items.forEach((item, idx) => {
-    const estSize = computeEstimatedSize(item.origSize, state.quality);
+    const estSize = computeEstimatedSize(item.origSize, state.quality, item);
     const pct = Math.round((1 - (estSize / item.origSize)) * 100);
 
     const div = document.createElement('div');
@@ -404,7 +442,7 @@ function renderAll() {
           <span class="format-pill">${item.format}</span>
         </div>
         <div class="item-details-row">
-          <span>${item.origW} × ${item.origH}</span>
+          <span>${item.isPdf ? `${item.pageCount} ${item.pageCount === 1 ? 'page' : 'pages'}` : `${item.origW} × ${item.origH}`}</span>
           <span>•</span>
           <span>${formatBytes(item.origSize)} Original</span>
           <span class="size-arrow">→</span>
@@ -412,7 +450,7 @@ function renderAll() {
         </div>
       </div>
       <span class="savings-pill">${pct}% smaller</span>
-      <span class="output-pill">${state.format.toUpperCase()}</span>
+      <span class="output-pill">${item.isPdf ? 'PDF' : state.format.toUpperCase()}</span>
       <button class="btn-item-remove" onclick="event.stopPropagation(); removeQueueItem('${item.id}')">✕</button>
     `;
     queueList.appendChild(div);
@@ -421,26 +459,35 @@ function renderAll() {
   // Render Selected Comparison Card
   const activeItem = state.items.find(x => x.id === state.selectedItemId) || state.items[0];
   if (activeItem) {
-    const activeEst = computeEstimatedSize(activeItem.origSize, state.quality);
+    const activeEst = computeEstimatedSize(activeItem.origSize, state.quality, activeItem);
     const activePct = Math.round((1 - (activeEst / activeItem.origSize)) * 100);
 
     compFileName.textContent = activeItem.name;
-    compDimensions.textContent = ` • ${activeItem.origW} × ${activeItem.origH} • ${formatBytes(activeItem.origSize)}`;
+    const activeDimensions = activeItem.isPdf
+      ? `${activeItem.pageCount} ${activeItem.pageCount === 1 ? 'page' : 'pages'}`
+      : `${activeItem.origW} × ${activeItem.origH}`;
+    compDimensions.textContent = ` • ${activeDimensions} • ${formatBytes(activeItem.origSize)}`;
 
     imgLeft.src = activeItem.src;
 
-    // Render live compressed canvas image for right side
-    convertItemToBlob(activeItem).then(blob => {
-      imgRight.src = URL.createObjectURL(blob);
-    });
+    if (activeItem.isPdf) {
+      imgRight.src = activeItem.src;
+    } else {
+      // Render live compressed canvas image for right side
+      convertItemToBlob(activeItem).then(blob => {
+        imgRight.src = URL.createObjectURL(blob);
+      });
+    }
 
-    optBadge.textContent = `Optimized (${state.format.toUpperCase()}, ${Math.round(state.quality * 100)}%)`;
+    optBadge.textContent = activeItem.isPdf
+      ? 'Optimized PDF'
+      : `Optimized (${state.format.toUpperCase()}, ${Math.round(state.quality * 100)}%)`;
 
     statOrigSize.textContent = formatBytes(activeItem.origSize);
-    statOrigDim.textContent = `${activeItem.origW} × ${activeItem.origH}`;
+    statOrigDim.textContent = activeDimensions;
 
     statOptSize.textContent = formatBytes(activeEst);
-    statOptDim.textContent = `${activeItem.origW} × ${activeItem.origH}`;
+    statOptDim.textContent = activeDimensions;
     statSavingsTag.textContent = `🟢 ${activePct}% smaller`;
   }
 
@@ -502,7 +549,21 @@ async function downloadBatchZip() {
   renderAll();
 }
 
-function convertItemToBlob(item) {
+async function convertItemToBlob(item) {
+  if (item.isPdf) {
+    const pdfDoc = await PDFLib.PDFDocument.load(await item.file.arrayBuffer(), { updateMetadata: false });
+    if (state.removeMetadata) {
+      pdfDoc.setTitle('');
+      pdfDoc.setAuthor('');
+      pdfDoc.setSubject('');
+      pdfDoc.setKeywords([]);
+      pdfDoc.setCreator('');
+      pdfDoc.setProducer('');
+    }
+    const bytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
+    return new Blob([bytes], { type: 'application/pdf' });
+  }
+
   return new Promise((resolve) => {
     const img = new Image();
     img.onload = () => {
