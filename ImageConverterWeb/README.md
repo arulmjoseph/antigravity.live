@@ -17,7 +17,7 @@ A free, client-side **Image & PDF Optimizer** for converting, compressing, and e
 - **Active Defaults**:
   - **Image Size / Width**: Set to **`Original Size`** by default *(as specified in design)*.
   - **File Renaming**: Set to **`Original Name`** by default *(as specified in design)*.
-- **Bulk Format Export**: **WEBP ⭐**, **PDF 📄**, **JPG**, **PNG**, **BMP**, **GIF**.
+- **Bulk Format Export**: **WEBP ⭐**, **PDF 📄**, **JPG**, **PNG**.
 - **PDF Optimization & Conversion**: Process images & PDFs in-browser with quality compression.
 - **Custom Width & Proportional Scaling**: Preserves original aspect ratios.
 - **Bulk SEO Keyword Slugs**: Auto-converts raw keyword lists into dash-separated SEO filenames (`cfo-financial-strategy-meeting-dubai.webp`).

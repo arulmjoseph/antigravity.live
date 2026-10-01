@@ -358,7 +358,7 @@ function applyBestDefaultsForFormat(format) {
 function applyFormatSpecificSettings() {
   const isPdf = state.format === 'pdf';
   const isJpg = state.format === 'jpg';
-  const supportsTransparency = ['png', 'webp', 'avif'].includes(state.format);
+  const supportsTransparency = ['png', 'webp'].includes(state.format);
 
   qualityTitle.textContent = isPdf ? 'PDF Compression' : 'Quality';
   qualityDesc.textContent = isPdf
@@ -382,14 +382,9 @@ function applyFormatSpecificSettings() {
 function updateFormatDesc() {
   const descs = {
     webp: 'WebP — Best for websites (smaller size, great quality)',
-    avif: 'AVIF — Modern next-gen image compression format',
     jpg: 'JPG — Standard photo format for web & print',
     png: 'PNG — Lossless format with full transparency support',
-    pdf: 'PDF — Optimized document vector & raster PDF format',
-    bmp: 'BMP — Bitmap image format',
-    gif: 'GIF — Graphics image format',
-    tiff: 'TIFF — High quality uncompressed image format',
-    heic: 'HEIC — Apple High Efficiency image format'
+    pdf: 'PDF — Optimized document format for sharing'
   };
   formatDesc.textContent = descs[state.format] || descs.webp;
 }
@@ -402,7 +397,6 @@ function computeEstimatedSize(origBytes, quality, item = null) {
   let factor = 0.20;
   if (state.format === 'jpg') factor = 0.35;
   if (state.format === 'png') factor = 0.70;
-  if (state.format === 'avif') factor = 0.15;
   if (state.format === 'pdf') factor = 0.40;
 
   factor = factor * (quality / 0.85);
