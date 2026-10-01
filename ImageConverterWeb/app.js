@@ -289,6 +289,7 @@ async function handleUserFiles(fileList) {
         };
         state.items.push(item);
         if (!state.selectedItemId) state.selectedItemId = item.id;
+        selectPdfOutput();
         renderAll();
       } catch (error) {
         window.alert(`Could not open ${file.name}. The PDF may be encrypted or damaged.`);
@@ -318,6 +319,19 @@ async function handleUserFiles(fileList) {
       img.src = url;
     }
   }
+}
+
+function selectPdfOutput() {
+  state.format = 'pdf';
+  document.querySelectorAll('.pill-btn[data-format]').forEach(button => button.classList.remove('active'));
+  const moreButton = document.getElementById('btnMoreFormat');
+  const moreMenu = document.getElementById('moreFormatMenu');
+  if (moreButton) {
+    moreButton.classList.add('active');
+    moreButton.textContent = 'PDF ∨';
+  }
+  if (moreMenu) moreMenu.classList.add('hidden');
+  updateFormatDesc();
 }
 
 function updateFormatDesc() {
@@ -570,6 +584,27 @@ async function convertItemToBlob(item) {
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0);
+
+      if (state.format === 'pdf') {
+        canvas.toBlob(async jpegBlob => {
+          if (!jpegBlob) {
+            resolve(item.file);
+            return;
+          }
+          const pdfDoc = await PDFLib.PDFDocument.create();
+          const embeddedImage = await pdfDoc.embedJpg(await jpegBlob.arrayBuffer());
+          const pdfPage = pdfDoc.addPage([canvas.width, canvas.height]);
+          pdfPage.drawImage(embeddedImage, {
+            x: 0,
+            y: 0,
+            width: canvas.width,
+            height: canvas.height
+          });
+          const pdfBytes = await pdfDoc.save({ useObjectStreams: true });
+          resolve(new Blob([pdfBytes], { type: 'application/pdf' }));
+        }, 'image/jpeg', state.quality);
+        return;
+      }
 
       let mime = 'image/webp';
       if (state.format === 'jpg') mime = 'image/jpeg';
