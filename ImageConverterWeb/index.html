@@ -19,7 +19,7 @@
   <title>Image &amp; PDF Optimizer — Convert, Compress &amp; Export</title>
   <link rel="icon" type="image/png" href="assets/image-converter-icon.png">
   <link rel="apple-touch-icon" href="assets/image-converter-icon.png">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -144,8 +144,16 @@
         <span class="recommended-chip">Smart defaults</span>
       </div>
 
+      <div class="convert-top">
+        <button id="btnConvertTop" class="btn-convert-main js-convert-action is-disabled" type="button" aria-disabled="true">
+          <span class="js-convert-label">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
+          <span class="js-convert-sub btn-convert-sub">Add files to start converting</span>
+        </button>
+        <div id="actionCallout" class="action-callout hidden" role="status"></div>
+      </div>
+
       <!-- Section 1: Output Format -->
-      <div class="settings-card">
+      <div id="formatSettings" class="settings-card">
         <div class="section-label"><span class="section-icon">01</span> Output Format</div>
 
         <div class="pill-selector format-selector">
@@ -164,7 +172,7 @@
       </div>
 
       <!-- Section 2: Quality -->
-      <div class="settings-card">
+      <div id="qualitySettings" class="settings-card">
         <div class="quality-header">
           <div class="section-label"><span class="section-icon">02</span> Quality</div>
           <span id="qualityValText" style="font-weight: 700; color: #60a5fa;">85%</span>
@@ -182,7 +190,7 @@
       </div>
 
       <!-- Section 3: Resize Image (Original Active By Default) -->
-      <div class="settings-card">
+      <div id="resizeSettings" class="settings-card">
         <div class="section-label"><span class="section-icon">03</span> Resize Image</div>
 
         <div class="pill-selector">
@@ -206,7 +214,7 @@
       </div>
 
       <!-- Section 4: Optimize for Web -->
-      <div class="settings-card">
+      <div id="webSettings" class="settings-card">
         <div class="section-label"><span class="section-icon">04</span> Optimize for Web</div>
 
         <div class="checkbox-group">
@@ -242,7 +250,7 @@
       </div>
 
       <!-- Section 5: File Naming (Original Name Active By Default) -->
-      <div class="settings-card">
+      <div id="namingSettings" class="settings-card">
         <div class="section-label"><span class="section-icon">05</span> File Naming</div>
 
         <div class="pill-selector">
@@ -264,9 +272,9 @@
 
       <!-- Primary Convert Action Button -->
       <div class="convert-footer">
-        <button id="btnConvertMain" class="btn-convert-main" disabled>
-          <span id="btnConvertLabel">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
-          <span id="btnSubStats" class="btn-convert-sub">Estimated size: 3.6 MB (72% smaller)</span>
+        <button id="btnConvertMain" class="btn-convert-main js-convert-action is-disabled" type="button" aria-disabled="true">
+          <span id="btnConvertLabel" class="js-convert-label">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
+          <span id="btnSubStats" class="js-convert-sub btn-convert-sub">Add files to start converting</span>
         </button>
         <div class="creator-credit">
           Created by <a href="https://arulmjoseph.com" target="_blank" rel="noopener" style="color: #60a5fa;">arulmjoseph.com</a>
@@ -381,7 +389,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

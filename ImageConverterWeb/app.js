@@ -38,8 +38,10 @@ const folderInput = document.getElementById('folderInput');
 const btnSelectFiles = document.getElementById('btnSelectFiles');
 const btnSelectFolder = document.getElementById('btnSelectFolder');
 
-const btnConvertMain = document.getElementById('btnConvertMain');
-const btnSubStats = document.getElementById('btnSubStats');
+const convertButtons = document.querySelectorAll('.js-convert-action');
+const convertLabels = document.querySelectorAll('.js-convert-label');
+const convertSubStats = document.querySelectorAll('.js-convert-sub');
+const actionCallout = document.getElementById('actionCallout');
 
 const qualityRange = document.getElementById('qualityRange');
 const qualityValText = document.getElementById('qualityValText');
@@ -223,7 +225,9 @@ function setupEventListeners() {
   });
 
   // Main Batch Convert Action
-  btnConvertMain.addEventListener('click', downloadBatchZip);
+  convertButtons.forEach(button => {
+    button.addEventListener('click', handleConvertAction);
+  });
 }
 
 async function handleUserFiles(fileList) {
@@ -372,21 +376,97 @@ function getProjectedName(item, index) {
   return `${baseName}.${item.isPdf ? 'pdf' : state.format}`;
 }
 
+function setConvertButtonState(labelHtml, subText, isPending = false) {
+  convertLabels.forEach(label => {
+    label.innerHTML = labelHtml;
+  });
+  convertSubStats.forEach(sub => {
+    sub.textContent = subText;
+  });
+  convertButtons.forEach(button => {
+    button.disabled = state.isExporting;
+    button.classList.toggle('is-disabled', isPending && !state.isExporting);
+    button.setAttribute('aria-disabled', String(isPending || state.isExporting));
+  });
+}
+
+function getPendingAction() {
+  if (state.items.length === 0) {
+    return {
+      target: dropZone,
+      message: 'Add at least one image or PDF before downloading.'
+    };
+  }
+
+  if (state.widthOption === 'custom' && (!state.customWidthVal || state.customWidthVal < 10)) {
+    return {
+      target: document.getElementById('resizeSettings'),
+      message: 'Enter a custom width of at least 10 pixels.'
+    };
+  }
+
+  if (state.namingMode === 'sequence' && !state.seqBase.trim()) {
+    return {
+      target: document.getElementById('namingSettings'),
+      message: 'Add a base name for the custom sequence.'
+    };
+  }
+
+  if (state.namingMode === 'seo' && sanitizedSEOKeywords().length === 0) {
+    return {
+      target: document.getElementById('namingSettings'),
+      message: 'Add one SEO file name per line before downloading.'
+    };
+  }
+
+  return null;
+}
+
+function showPendingAction(pending) {
+  if (!pending) return;
+  actionCallout.textContent = pending.message;
+  actionCallout.classList.remove('hidden');
+
+  pending.target.classList.remove('pending-highlight');
+  void pending.target.offsetWidth;
+  pending.target.classList.add('pending-highlight');
+  pending.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  window.setTimeout(() => {
+    pending.target.classList.remove('pending-highlight');
+  }, 2600);
+}
+
+function clearPendingAction() {
+  actionCallout.classList.add('hidden');
+  document.querySelectorAll('.pending-highlight').forEach(el => el.classList.remove('pending-highlight'));
+}
+
+function handleConvertAction() {
+  if (state.isExporting) return;
+
+  const pending = getPendingAction();
+  if (pending) {
+    showPendingAction(pending);
+    return;
+  }
+
+  clearPendingAction();
+  downloadBatchZip();
+}
+
 function renderAll() {
   if (state.items.length === 0) {
     dropZone.classList.remove('hidden');
     queueContainer.classList.add('hidden');
     document.getElementById('comparisonCard').classList.add('hidden');
-    btnConvertMain.disabled = true;
-    document.getElementById('btnConvertLabel').innerHTML = 'Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b>';
-    btnSubStats.textContent = 'Add images to start converting';
+    setConvertButtonState('Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b>', 'Add files to start converting', true);
     return;
   }
 
   dropZone.classList.add('hidden');
   queueContainer.classList.remove('hidden');
   document.getElementById('comparisonCard').classList.remove('hidden');
-  btnConvertMain.disabled = false;
 
   // Render Queue Header Stats
   let totalOrig = 0;
@@ -400,8 +480,13 @@ function renderAll() {
   queueCount.textContent = `${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'}`;
   queueSizeStats.innerHTML = `Total: ${formatBytes(totalOrig)} → ${formatBytes(totalEst)} (<span class="summary-savings">${totalPct}% smaller</span>)`;
 
-  document.getElementById('btnConvertLabel').innerHTML = `Optimize ${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'} &amp; Download ZIP <b aria-hidden="true">→</b>`;
-  btnSubStats.textContent = `Estimated size: ${formatBytes(totalEst)} (${totalPct}% smaller)`;
+  const pendingAction = getPendingAction();
+  setConvertButtonState(
+    `Optimize ${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'} &amp; Download ZIP <b aria-hidden="true">→</b>`,
+    pendingAction ? pendingAction.message : `Estimated size: ${formatBytes(totalEst)} (${totalPct}% smaller)`,
+    Boolean(pendingAction)
+  );
+  if (!pendingAction) actionCallout.classList.add('hidden');
 
   // Render Queue Items List
   queueList.innerHTML = '';
@@ -510,8 +595,7 @@ function setupSplitSlider() {
 async function downloadBatchZip() {
   if (state.items.length === 0 || state.isExporting) return;
   state.isExporting = true;
-  btnConvertMain.disabled = true;
-  document.getElementById('btnConvertLabel').textContent = 'Processing & Packaging ZIP…';
+  setConvertButtonState('Processing &amp; Packaging ZIP...', 'Please keep this tab open', false);
 
   const zip = new JSZip();
 
@@ -540,7 +624,6 @@ async function downloadBatchZip() {
   a.click();
 
   state.isExporting = false;
-  btnConvertMain.disabled = false;
   renderAll();
 }
 
