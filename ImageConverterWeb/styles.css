@@ -595,7 +595,7 @@ body {
 
 .quality-header .section-head {
   flex: 1;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .help-dot {
@@ -623,6 +623,7 @@ body {
   top: calc(100% + 8px);
   right: 0;
   width: min(260px, 72vw);
+  max-width: calc(100vw - 32px);
   padding: 10px 12px;
   border-radius: 8px;
   background: var(--bg-card);
