@@ -541,7 +541,7 @@ function renderAll() {
     dropZone.classList.remove('hidden');
     queueContainer.classList.add('hidden');
     document.getElementById('comparisonCard').classList.add('hidden');
-    setConvertButtonState('Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b>', 'Add files to start converting', true);
+    setConvertButtonState('Download ZIP <b aria-hidden="true">→</b>', 'Add files to start exporting', true);
     return;
   }
 
@@ -563,7 +563,7 @@ function renderAll() {
 
   const pendingAction = getPendingAction();
   setConvertButtonState(
-    `Optimize ${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'} &amp; Download ZIP <b aria-hidden="true">→</b>`,
+    `Download ${state.items.length} ${state.items.length === 1 ? 'File' : 'Files'} as ZIP <b aria-hidden="true">→</b>`,
     pendingAction ? pendingAction.message : `Estimated size: ${formatBytes(totalEst)} (${totalPct}% smaller)`,
     Boolean(pendingAction)
   );
@@ -676,7 +676,7 @@ function setupSplitSlider() {
 async function downloadBatchZip() {
   if (state.items.length === 0 || state.isExporting) return;
   state.isExporting = true;
-  setConvertButtonState('Processing &amp; Packaging ZIP...', 'Please keep this tab open', false);
+  setConvertButtonState('Preparing ZIP...', 'Please keep this tab open', false);
 
   const zip = new JSZip();
 

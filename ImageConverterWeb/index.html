@@ -19,7 +19,7 @@
   <title>Image &amp; PDF Optimizer — Convert, Compress &amp; Export</title>
   <link rel="icon" type="image/png" href="assets/image-converter-icon.png">
   <link rel="apple-touch-icon" href="assets/image-converter-icon.png">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -34,12 +34,12 @@
       </div>
       <div class="brand-copy">
         <h1>Image &amp; PDF Optimizer</h1>
-        <span>Free, private, browser-based</span>
+        <span>Local image and PDF processing</span>
       </div>
-      <span class="badge">FREE</span>
+      <span class="badge">LOCAL</span>
     </div>
     <div class="header-actions">
-      <div class="privacy-status">Files never leave your device</div>
+      <div class="privacy-status">Browser-based processing</div>
       <button id="btnHelp" class="btn-secondary"><span aria-hidden="true">?</span> Help</button>
       <button id="btnThemeToggle" class="btn-icon" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">☀️</button>
     </div>
@@ -56,10 +56,10 @@
         <div class="drop-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5.5 14.5H4.75A2.75 2.75 0 0 0 2 17.25v.5a2.75 2.75 0 0 0 2.75 2.75h14.5A2.75 2.75 0 0 0 22 17.75v-.5a2.75 2.75 0 0 0-2.75-2.75h-.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <span class="free-tool-badge">Free · No sign-up</span>
-        <span class="step-kicker">STEP 1 · ADD FILES</span>
-        <h2>Drop images or PDFs here</h2>
-        <p>Convert, compress, and optimize multiple files in one go.</p>
+        <span class="free-tool-badge">No upload required</span>
+        <span class="step-kicker">FILES</span>
+        <h2>Add images or PDFs</h2>
+        <p>Convert, compress, resize, and rename files before exporting a ZIP.</p>
 
         <div class="btn-group">
           <button id="btnSelectFiles" class="btn-primary"><span aria-hidden="true">＋</span> Select Files</button>
@@ -67,7 +67,7 @@
         </div>
 
         <div class="support-tag"><span>PNG</span><span>JPG</span><span>WEBP</span><span>PDF</span><span>GIF</span><span>BMP</span><span>SVG</span></div>
-        <div class="local-note"><span aria-hidden="true">✓</span> Free to use and private by design — files stay in your browser</div>
+        <div class="local-note"><span aria-hidden="true">✓</span> Files are processed in this browser session</div>
 
         <input type="file" id="fileInput" multiple accept="image/*,application/pdf" class="hidden">
         <input type="file" id="folderInput" webkitdirectory directory multiple class="hidden">
@@ -138,15 +138,15 @@
     <aside class="sidebar">
       <div class="sidebar-heading">
         <div>
-          <span class="step-kicker">STEP 2 · CUSTOMIZE</span>
-          <div class="sidebar-title">Conversion settings</div>
+          <span class="step-kicker">EXPORT</span>
+          <div class="sidebar-title">Settings</div>
         </div>
-        <span class="recommended-chip">Smart defaults</span>
+        <span class="recommended-chip">Defaults applied</span>
       </div>
 
       <div class="convert-top">
         <button id="btnConvertTop" class="btn-convert-main js-convert-action is-disabled" type="button" aria-disabled="true">
-          <span class="js-convert-label">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
+          <span class="js-convert-label">Download ZIP <b aria-hidden="true">→</b></span>
           <span class="js-convert-sub btn-convert-sub">Add files to start converting</span>
         </button>
         <div id="actionCallout" class="action-callout hidden" role="status"></div>
@@ -288,7 +288,7 @@
       <!-- Primary Convert Action Button -->
       <div class="convert-footer">
         <button id="btnConvertMain" class="btn-convert-main js-convert-action is-disabled" type="button" aria-disabled="true">
-          <span id="btnConvertLabel" class="js-convert-label">Optimize Files &amp; Download ZIP <b aria-hidden="true">→</b></span>
+          <span id="btnConvertLabel" class="js-convert-label">Download ZIP <b aria-hidden="true">→</b></span>
           <span id="btnSubStats" class="js-convert-sub btn-convert-sub">Add files to start converting</span>
         </button>
         <div class="creator-credit">
@@ -304,7 +304,7 @@
   <section class="seo-section" aria-labelledby="seoTitle">
     <div class="seo-shell">
       <div class="seo-intro">
-        <span class="step-kicker">FREE ONLINE CONVERSION TOOL</span>
+        <span class="step-kicker">ABOUT THE TOOL</span>
         <h2 id="seoTitle">Convert and optimize images and PDFs without uploading your files</h2>
         <p>
           Image &amp; PDF Optimizer is a free browser-based tool for converting, compressing, resizing, and renaming files in bulk. Your files are processed locally on your device, so you can prepare website images and documents without creating an account or sending private files to a server.
@@ -378,8 +378,8 @@
   </section>
 
   <footer class="site-footer">
-    <span>Free Image &amp; PDF Optimizer</span>
-    <span>Private browser processing · No sign-up</span>
+    <span>Image &amp; PDF Optimizer</span>
+    <span>Browser processing · No account required</span>
     <a href="/blog/">Guides</a>
     <a href="/privacy">Privacy policy</a>
     <a href="https://arulmjoseph.com" target="_blank" rel="noopener">Created by arulmjoseph.com</a>
@@ -394,10 +394,10 @@
       </p>
 
       <ul style="margin-top: 14px; padding-left: 20px; font-size: 0.88rem; line-height: 1.6;">
-        <li><strong>WebP Format ⭐</strong>: Delivers 70-85% smaller file sizes with crisp image quality.</li>
-        <li><strong>Before / After Split Slider</strong>: Drag the center handle to inspect original vs optimized images.</li>
-        <li><strong>Default Settings</strong>: Configured to <em>Original Size</em> &amp; <em>Original Name</em> by default.</li>
-        <li><strong>Bulk SEO Slugs</strong>: Converts phrases into dash-separated filenames (<code>hero-banner.webp</code>).</li>
+        <li><strong>WebP format</strong>: A practical default for smaller website images.</li>
+        <li><strong>Image comparison</strong>: Drag the center handle to inspect original vs optimized images.</li>
+        <li><strong>Default settings</strong>: Keeps original dimensions and file names unless you change them.</li>
+        <li><strong>Bulk SEO names</strong>: Converts one phrase per line into clean filenames (<code>hero-banner.webp</code>).</li>
       </ul>
 
       <button id="btnCloseHelp" class="btn-primary" style="margin-top: 20px; width: 100%;">Close Guide</button>
