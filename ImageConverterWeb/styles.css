@@ -1610,3 +1610,27 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400 !important; }
     padding: 28px 16px;
   }
 }
+
+/* Compact output format buttons ----------------------------------------- */
+.format-selector {
+  gap: 3px;
+}
+
+.format-selector .pill-btn {
+  min-height: 30px;
+  padding: 5px 7px;
+  border-radius: 6px;
+  font-size: .7rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 640px) {
+  .format-selector {
+    gap: 4px;
+  }
+
+  .format-selector .pill-btn {
+    min-height: 32px;
+    flex-basis: calc(33.333% - 4px);
+  }
+}
