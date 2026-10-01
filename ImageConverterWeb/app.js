@@ -84,42 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEventListeners() {
-  // Format Pills & Dropdown
-  const btnMoreFormat = document.getElementById('btnMoreFormat');
-  const moreFormatMenu = document.getElementById('moreFormatMenu');
-
-  if (btnMoreFormat && moreFormatMenu) {
-    btnMoreFormat.addEventListener('click', (e) => {
-      e.stopPropagation();
-      moreFormatMenu.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('.dropdown-item').forEach(itemBtn => {
-      itemBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.querySelectorAll('.pill-btn[data-format]').forEach(b => b.classList.remove('active'));
-        btnMoreFormat.classList.add('active');
-
-        state.format = itemBtn.dataset.format;
-        btnMoreFormat.textContent = `${state.format.toUpperCase()} ∨`;
-        moreFormatMenu.classList.add('hidden');
-        updateFormatDesc();
-        renderAll();
-      });
-    });
-
-    document.addEventListener('click', () => {
-      if (moreFormatMenu) moreFormatMenu.classList.add('hidden');
-    });
-  }
-
+  // Output format buttons
   document.querySelectorAll('.pill-btn[data-format]').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.pill-btn[data-format]').forEach(b => b.classList.remove('active'));
-      if (btnMoreFormat) {
-        btnMoreFormat.classList.remove('active');
-        btnMoreFormat.textContent = 'More ∨';
-      }
       btn.classList.add('active');
       state.format = btn.dataset.format;
       updateFormatDesc();
@@ -324,13 +292,7 @@ async function handleUserFiles(fileList) {
 function selectPdfOutput() {
   state.format = 'pdf';
   document.querySelectorAll('.pill-btn[data-format]').forEach(button => button.classList.remove('active'));
-  const moreButton = document.getElementById('btnMoreFormat');
-  const moreMenu = document.getElementById('moreFormatMenu');
-  if (moreButton) {
-    moreButton.classList.add('active');
-    moreButton.textContent = 'PDF ∨';
-  }
-  if (moreMenu) moreMenu.classList.add('hidden');
+  document.querySelector('.pill-btn[data-format="pdf"]')?.classList.add('active');
   updateFormatDesc();
 }
 
@@ -479,6 +441,9 @@ function renderAll() {
   // Render Selected Comparison Card
   const activeItem = state.items.find(x => x.id === state.selectedItemId) || state.items[0];
   if (activeItem) {
+    const comparisonCard = document.getElementById('comparisonCard');
+    comparisonCard.classList.toggle('hidden', activeItem.isPdf);
+
     const activeEst = computeEstimatedSize(activeItem.origSize, state.quality, activeItem);
     const activePct = Math.round((1 - (activeEst / activeItem.origSize)) * 100);
 
@@ -488,20 +453,19 @@ function renderAll() {
       : `${activeItem.origW} × ${activeItem.origH}`;
     compDimensions.textContent = ` • ${activeDimensions} • ${formatBytes(activeItem.origSize)}`;
 
-    imgLeft.src = activeItem.src;
-
     if (activeItem.isPdf) {
-      imgRight.src = activeItem.src;
-    } else {
-      // Render live compressed canvas image for right side
-      convertItemToBlob(activeItem).then(blob => {
-        imgRight.src = URL.createObjectURL(blob);
-      });
+      namingPreview.textContent = `Example: ${getProjectedName(state.items[0], 0)}`;
+      return;
     }
 
-    optBadge.textContent = activeItem.isPdf
-      ? 'Optimized PDF'
-      : `Optimized (${state.format.toUpperCase()}, ${Math.round(state.quality * 100)}%)`;
+    imgLeft.src = activeItem.src;
+
+    // Render live compressed canvas image for right side
+    convertItemToBlob(activeItem).then(blob => {
+      imgRight.src = URL.createObjectURL(blob);
+    });
+
+    optBadge.textContent = `Optimized (${state.format.toUpperCase()}, ${Math.round(state.quality * 100)}%)`;
 
     statOrigSize.textContent = formatBytes(activeItem.origSize);
     statOrigDim.textContent = activeDimensions;

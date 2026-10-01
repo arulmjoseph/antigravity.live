@@ -148,23 +148,16 @@
       <div class="settings-card">
         <div class="section-label"><span class="section-icon">01</span> Output Format</div>
 
-        <div class="pill-selector">
+        <div class="pill-selector format-selector">
           <button class="pill-btn active" data-format="webp">WebP</button>
           <button class="pill-btn" data-format="avif">AVIF</button>
           <button class="pill-btn" data-format="jpg">JPG</button>
           <button class="pill-btn" data-format="png">PNG</button>
-
-          <div class="dropdown-wrapper">
-            <button id="btnMoreFormat" class="pill-btn" style="width: 100%;">More ∨</button>
-
-            <div id="moreFormatMenu" class="dropdown-menu hidden">
-              <button class="dropdown-item" data-format="pdf">PDF — Vector &amp; Document 📄</button>
-              <button class="dropdown-item" data-format="bmp">BMP — Bitmap Image</button>
-              <button class="dropdown-item" data-format="gif">GIF — Graphics Format</button>
-              <button class="dropdown-item" data-format="tiff">TIFF — Uncompressed</button>
-              <button class="dropdown-item" data-format="heic">HEIC — Apple High Efficiency</button>
-            </div>
-          </div>
+          <button class="pill-btn" data-format="pdf">PDF</button>
+          <button class="pill-btn" data-format="bmp">BMP</button>
+          <button class="pill-btn" data-format="gif">GIF</button>
+          <button class="pill-btn" data-format="tiff">TIFF</button>
+          <button class="pill-btn" data-format="heic">HEIC</button>
         </div>
 
         <div id="formatDesc" class="format-desc">WebP — Best for websites (smaller size, great quality)</div>
@@ -388,7 +381,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=11"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

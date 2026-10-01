@@ -473,45 +473,6 @@ body {
   z-index: 5;
 }
 
-.dropdown-wrapper {
-  position: relative;
-  flex: 1;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  width: 230px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  z-index: 100;
-}
-
-.dropdown-item {
-  background: transparent;
-  border: none;
-  color: var(--text-main);
-  text-align: left;
-  padding: 8px 12px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.dropdown-item:hover {
-  background: rgba(37, 99, 235, 0.15);
-  color: #60a5fa;
-}
-
 .split-badge {
   position: absolute;
   top: 12px;
@@ -632,6 +593,15 @@ body {
   border-radius: 8px;
   padding: 3px;
   gap: 4px;
+}
+
+.format-selector {
+  flex-wrap: wrap;
+}
+
+.format-selector .pill-btn {
+  flex: 1 1 calc(20% - 4px);
+  min-width: 58px;
 }
 
 .pill-btn {
