@@ -19,7 +19,7 @@
   <title>Image &amp; PDF Optimizer — Convert, Compress &amp; Export</title>
   <link rel="icon" type="image/png" href="assets/image-converter-icon.png">
   <link rel="apple-touch-icon" href="assets/image-converter-icon.png">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -154,7 +154,10 @@
 
       <!-- Section 1: Output Format -->
       <div id="formatSettings" class="settings-card">
-        <div class="section-label"><span class="section-icon">01</span> Output Format</div>
+        <div class="section-head">
+          <div class="section-label"><span class="section-icon">01</span> Output Format</div>
+          <button class="help-dot" type="button" aria-label="About output format" data-help="Choose the file type you want to download. PDF uses document compression settings; image formats show image-specific options.">?</button>
+        </div>
 
         <div class="pill-selector format-selector">
           <button class="pill-btn active" data-format="webp">WebP</button>
@@ -174,7 +177,10 @@
       <!-- Section 2: Quality -->
       <div id="qualitySettings" class="settings-card">
         <div class="quality-header">
-          <div class="section-label"><span class="section-icon">02</span> Quality</div>
+          <div class="section-head">
+            <div class="section-label"><span class="section-icon">02</span> <span id="qualityTitle">Quality</span></div>
+            <button class="help-dot" type="button" aria-label="About quality" data-help="Balanced is the best default. Lower quality makes smaller files; higher quality keeps more detail.">?</button>
+          </div>
           <span id="qualityValText" style="font-weight: 700; color: #60a5fa;">85%</span>
         </div>
 
@@ -186,12 +192,15 @@
           <button class="pill-btn" data-qpreset="high">High Quality</button>
         </div>
 
-        <div class="format-desc">Estimated size reduction: ~70-85% ℹ️</div>
+        <div id="qualityDesc" class="format-desc">Estimated size reduction: ~70-85%</div>
       </div>
 
       <!-- Section 3: Resize Image (Original Active By Default) -->
       <div id="resizeSettings" class="settings-card">
-        <div class="section-label"><span class="section-icon">03</span> Resize Image</div>
+        <div class="section-head">
+          <div class="section-label"><span class="section-icon">03</span> <span id="resizeTitle">Resize Image</span></div>
+          <button class="help-dot" type="button" aria-label="About resize" data-help="Original is the safest default. Use a max width only when you want smaller web files or lower-resolution PDF pages.">?</button>
+        </div>
 
         <div class="pill-selector">
           <button class="pill-btn active" data-width="original">Original</button>
@@ -215,14 +224,17 @@
 
       <!-- Section 4: Optimize for Web -->
       <div id="webSettings" class="settings-card">
-        <div class="section-label"><span class="section-icon">04</span> Optimize for Web</div>
+        <div class="section-head">
+          <div class="section-label"><span class="section-icon">04</span> <span id="optimizeTitle">Optimize for Web</span></div>
+          <button class="help-dot" type="button" aria-label="About optimization" data-help="These switches keep useful defaults on while hiding options that do not apply to the selected output format.">?</button>
+        </div>
 
         <div class="checkbox-group">
           <label class="checkbox-row">
             <input type="checkbox" id="chkOptimizeWeb" checked>
             <div class="checkbox-info">
-              <span>Optimize for web (recommended)</span>
-              <span class="sub">Uses best settings for smaller file sizes</span>
+              <span id="optimizeWebLabel">Optimize for web (recommended)</span>
+              <span id="optimizeWebSub" class="sub">Uses best settings for smaller file sizes</span>
             </div>
           </label>
 
@@ -233,14 +245,14 @@
             </div>
           </label>
 
-          <label class="checkbox-row">
+          <label class="checkbox-row" data-setting="preserve-transparency">
             <input type="checkbox" id="chkPreserveTrans">
             <div class="checkbox-info">
-              <span>Preserve transparency (for PNG)</span>
+              <span id="preserveTransLabel">Preserve transparency</span>
             </div>
           </label>
 
-          <label class="checkbox-row">
+          <label class="checkbox-row" data-setting="progressive-jpeg">
             <input type="checkbox" id="chkProgressiveJpeg">
             <div class="checkbox-info">
               <span>Progressive JPEG (better loading)</span>
@@ -251,7 +263,10 @@
 
       <!-- Section 5: File Naming (Original Name Active By Default) -->
       <div id="namingSettings" class="settings-card">
-        <div class="section-label"><span class="section-icon">05</span> File Naming</div>
+        <div class="section-head">
+          <div class="section-label"><span class="section-icon">05</span> File Naming</div>
+          <button class="help-dot" type="button" aria-label="About file naming" data-help="Original Name is safest. Custom Sequence is useful for batches. Bulk SEO Keywords uses one clean file name per line.">?</button>
+        </div>
 
         <div class="pill-selector">
           <button class="pill-btn active" data-naming="original">Original Name</button>
@@ -389,7 +404,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

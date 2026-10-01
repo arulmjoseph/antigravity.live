@@ -45,6 +45,13 @@ const actionCallout = document.getElementById('actionCallout');
 
 const qualityRange = document.getElementById('qualityRange');
 const qualityValText = document.getElementById('qualityValText');
+const qualityTitle = document.getElementById('qualityTitle');
+const qualityDesc = document.getElementById('qualityDesc');
+const resizeTitle = document.getElementById('resizeTitle');
+const optimizeTitle = document.getElementById('optimizeTitle');
+const optimizeWebLabel = document.getElementById('optimizeWebLabel');
+const optimizeWebSub = document.getElementById('optimizeWebSub');
+const preserveTransLabel = document.getElementById('preserveTransLabel');
 
 const formatDesc = document.getElementById('formatDesc');
 const namingPreview = document.getElementById('namingPreview');
@@ -92,6 +99,7 @@ function setupEventListeners() {
       document.querySelectorAll('.pill-btn[data-format]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       state.format = btn.dataset.format;
+      applyBestDefaultsForFormat(state.format);
       updateFormatDesc();
       renderAll();
     });
@@ -295,9 +303,80 @@ async function handleUserFiles(fileList) {
 
 function selectPdfOutput() {
   state.format = 'pdf';
+  applyBestDefaultsForFormat('pdf');
   document.querySelectorAll('.pill-btn[data-format]').forEach(button => button.classList.remove('active'));
   document.querySelector('.pill-btn[data-format="pdf"]')?.classList.add('active');
   updateFormatDesc();
+}
+
+function setChecked(id, value) {
+  const input = document.getElementById(id);
+  if (input) input.checked = value;
+}
+
+function setActivePill(selector, dataName, value) {
+  document.querySelectorAll(selector).forEach(button => {
+    button.classList.toggle('active', button.dataset[dataName] === value);
+  });
+}
+
+function syncSettingsControls() {
+  qualityRange.value = Math.round(state.quality * 100);
+  qualityValText.textContent = `${qualityRange.value}%`;
+  setActivePill('[data-qpreset]', 'qpreset', state.quality <= 0.65 ? 'smaller' : state.quality >= 0.92 ? 'high' : 'balanced');
+  setActivePill('[data-width]', 'width', state.widthOption);
+  document.getElementById('customWidthInputRow').classList.toggle('hidden', state.widthOption !== 'custom');
+  document.getElementById('customWidthVal').value = state.customWidthVal;
+  setChecked('chkNoUpscale', state.noUpscale);
+  setChecked('chkOptimizeWeb', state.optimizeWeb);
+  setChecked('chkRemoveMetadata', state.removeMetadata);
+  setChecked('chkPreserveTrans', state.preserveTrans);
+  setChecked('chkProgressiveJpeg', state.progressiveJpeg);
+}
+
+function applyBestDefaultsForFormat(format) {
+  state.quality = 0.85;
+  state.widthOption = 'original';
+  state.customWidthVal = 1200;
+  state.noUpscale = true;
+  state.optimizeWeb = true;
+  state.removeMetadata = true;
+  state.preserveTrans = false;
+  state.progressiveJpeg = format === 'jpg';
+
+  if (format === 'pdf') {
+    state.customWidthVal = 1600;
+  }
+
+  if (format === 'png') {
+    state.quality = 1;
+  }
+
+  syncSettingsControls();
+}
+
+function applyFormatSpecificSettings() {
+  const isPdf = state.format === 'pdf';
+  const isJpg = state.format === 'jpg';
+  const supportsTransparency = ['png', 'webp', 'avif'].includes(state.format);
+
+  qualityTitle.textContent = isPdf ? 'PDF Compression' : 'Quality';
+  qualityDesc.textContent = isPdf
+    ? 'Best default balances smaller PDF size with readable pages.'
+    : state.format === 'png'
+      ? 'PNG is lossless; quality stays high by default.'
+      : 'Balanced is the best default for smaller files with good visual quality.';
+
+  resizeTitle.textContent = isPdf ? 'PDF Page Width' : 'Resize Image';
+  optimizeTitle.textContent = isPdf ? 'PDF Optimization' : 'Optimize for Web';
+  optimizeWebLabel.textContent = isPdf ? 'Optimize PDF (recommended)' : 'Optimize for web (recommended)';
+  optimizeWebSub.textContent = isPdf
+    ? 'Compresses PDF pages and keeps a valid PDF download'
+    : 'Uses best settings for smaller file sizes';
+  preserveTransLabel.textContent = `Preserve transparency (${state.format.toUpperCase()})`;
+
+  document.querySelector('[data-setting="preserve-transparency"]')?.classList.toggle('hidden', isPdf || !supportsTransparency);
+  document.querySelector('[data-setting="progressive-jpeg"]')?.classList.toggle('hidden', !isJpg);
 }
 
 function updateFormatDesc() {
@@ -456,6 +535,8 @@ function handleConvertAction() {
 }
 
 function renderAll() {
+  applyFormatSpecificSettings();
+
   if (state.items.length === 0) {
     dropZone.classList.remove('hidden');
     queueContainer.classList.add('hidden');
