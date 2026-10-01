@@ -68,6 +68,9 @@ const statSavingsTag = document.getElementById('statSavingsTag');
 
 // Init - Start with empty items array
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.pdfjsLib) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
   state.theme = localStorage.getItem('imageConverterTheme') ||
     (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
   document.body.setAttribute('data-theme', state.theme);
@@ -333,7 +336,10 @@ function updateFormatDesc() {
 }
 
 function computeEstimatedSize(origBytes, quality, item = null) {
-  if (item?.isPdf) return Math.round(origBytes * 0.95);
+  if (item?.isPdf) {
+    const pdfFactor = Math.min(0.85, Math.max(0.35, quality * 0.70));
+    return Math.round(origBytes * pdfFactor);
+  }
   let factor = 0.20;
   if (state.format === 'jpg') factor = 0.35;
   if (state.format === 'png') factor = 0.70;
@@ -551,17 +557,7 @@ async function downloadBatchZip() {
 
 async function convertItemToBlob(item) {
   if (item.isPdf) {
-    const pdfDoc = await PDFLib.PDFDocument.load(await item.file.arrayBuffer(), { updateMetadata: false });
-    if (state.removeMetadata) {
-      pdfDoc.setTitle('');
-      pdfDoc.setAuthor('');
-      pdfDoc.setSubject('');
-      pdfDoc.setKeywords([]);
-      pdfDoc.setCreator('');
-      pdfDoc.setProducer('');
-    }
-    const bytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
-    return new Blob([bytes], { type: 'application/pdf' });
+    return compressPdfToBlob(item);
   }
 
   return new Promise((resolve) => {
@@ -583,4 +579,84 @@ async function convertItemToBlob(item) {
     };
     img.src = item.src;
   });
+}
+
+async function compressPdfToBlob(item) {
+  const sourceBytes = new Uint8Array(await item.file.arrayBuffer());
+
+  if (!window.pdfjsLib) {
+    return new Blob([sourceBytes], { type: 'application/pdf' });
+  }
+
+  const sourcePdf = await window.pdfjsLib.getDocument({ data: sourceBytes }).promise;
+  const outputPdf = await PDFLib.PDFDocument.create();
+  const jpegQuality = Math.min(0.82, Math.max(0.42, state.quality * 0.78));
+
+  for (let pageNumber = 1; pageNumber <= sourcePdf.numPages; pageNumber++) {
+    const sourcePage = await sourcePdf.getPage(pageNumber);
+    const baseViewport = sourcePage.getViewport({ scale: 1 });
+    let targetWidth = Math.round(baseViewport.width * 1.35);
+
+    if (state.widthOption === 'custom') targetWidth = state.customWidthVal;
+    if (['1920', '1600', '1200'].includes(state.widthOption)) targetWidth = Number(state.widthOption);
+
+    let renderScale = targetWidth / baseViewport.width;
+    if (state.noUpscale) renderScale = Math.min(renderScale, 1.35);
+    renderScale = Math.max(0.65, renderScale);
+
+    const viewport = sourcePage.getViewport({ scale: renderScale });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.max(1, Math.round(viewport.width));
+    canvas.height = Math.max(1, Math.round(viewport.height));
+    const context = canvas.getContext('2d', { alpha: false });
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    await sourcePage.render({ canvasContext: context, viewport }).promise;
+    const pageBlob = await new Promise((resolve, reject) => {
+      canvas.toBlob(
+        blob => blob ? resolve(blob) : reject(new Error('PDF page compression failed')),
+        'image/jpeg',
+        jpegQuality
+      );
+    });
+
+    const embeddedPage = await outputPdf.embedJpg(await pageBlob.arrayBuffer());
+    const outputWidth = viewport.width / renderScale;
+    const outputHeight = viewport.height / renderScale;
+    const outputPage = outputPdf.addPage([outputWidth, outputHeight]);
+    outputPage.drawImage(embeddedPage, {
+      x: 0,
+      y: 0,
+      width: outputWidth,
+      height: outputHeight
+    });
+
+    canvas.width = 1;
+    canvas.height = 1;
+    sourcePage.cleanup();
+  }
+
+  if (!state.removeMetadata) {
+    try {
+      const metadataSource = await PDFLib.PDFDocument.load(sourceBytes, { updateMetadata: false });
+      outputPdf.setTitle(metadataSource.getTitle() || '');
+      outputPdf.setAuthor(metadataSource.getAuthor() || '');
+      outputPdf.setSubject(metadataSource.getSubject() || '');
+      outputPdf.setKeywords(metadataSource.getKeywords() || []);
+      outputPdf.setCreator(metadataSource.getCreator() || '');
+      outputPdf.setProducer(metadataSource.getProducer() || '');
+    } catch (_) {
+      // Compression can continue even when optional metadata cannot be read.
+    }
+  }
+
+  const compressedBytes = await outputPdf.save({ useObjectStreams: true, addDefaultPage: false });
+  await sourcePdf.destroy();
+
+  if (compressedBytes.length >= sourceBytes.length) {
+    return new Blob([sourceBytes], { type: 'application/pdf' });
+  }
+
+  return new Blob([compressedBytes], { type: 'application/pdf' });
 }
