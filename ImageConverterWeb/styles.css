@@ -1612,9 +1612,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400 !important; }
 }
 
 /* Compact output format buttons ----------------------------------------- */
+.pill-selector {
+  padding: 15px;
+  gap: 6px;
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+[data-theme="light"] .pill-selector {
+  background: rgba(225, 230, 239, .65);
+}
+
 .format-selector {
-  gap: 5px;
-  padding: 3px;
+  gap: 6px;
 }
 
 .format-selector .pill-btn {
